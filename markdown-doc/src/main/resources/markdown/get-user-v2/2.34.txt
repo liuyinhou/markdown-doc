@@ -1,0 +1,64 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.34
+
+##2.34 删除收藏
+###URL:
+/user/v2/favoriteDel
+###方式:
+**POST**
+###输入参数:
+|字段	 |类型  |描述 |可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userToken |String | 用户Token |否 |  |
+|collectionId |String | 收藏ID |否 | |
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|
+|refMsgIds |List(String) | 删除消息ID集合  |- |
+
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+        "refMsgIds": [
+        	"",
+        	"",
+        	""
+        ]
+    },
+  "page": null,
+  "foot": {
+    "operationTime": "2015-10-29 14:46:21",
+    "servicePhone": "400800400",
+    "host": "test1"
+  }
+}
+```
+
+####开发环境：
+http://121.41.27.42:8081/user/v2/favoriteDel?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=8a08ec0a3781883d9d9b9bdf9800e67f
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+    "collectionId":"u00016da5f7465db5481293ed28a632ca6c66"
+}
+```
+####测试环境：
+http://120.55.117.53:8081/user/v2/favoriteDel?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=8a08ec0a3781883d9d9b9bdf9800e67f
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+    "collectionId":"u00016da5f7465db5481293ed28a632ca6c66"
+}
+```
+####线上环境：
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-04 |基础版 |刘定湘 |

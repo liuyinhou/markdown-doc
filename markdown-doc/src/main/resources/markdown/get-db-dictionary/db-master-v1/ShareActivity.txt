@@ -1,0 +1,33 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##ShareActivity
+
+ 
+| 字段      | 类型     | 描述 | 备注 | 版本 |
+| ------- | ------ | -- | -- | -- |
+| _id     | String |  主键  |  | v1 |
+| WxAccountId  | String |  公众号 |     | v1 |
+| ActivityName  |String  |  活动名  |    | v1 |
+| CompanyId| String |  公司ID  |    | v1 |
+| ChannelId    | String |  渠道ID | | v1 |
+| TicketPackageId | String |  优惠券礼包ID | | v1 |
+| TicketPackageCode|String|礼包唯一编码| |v2.1|
+| TicketPackageAlias|String|礼包兑换码|用于礼包领取 |v2.1|
+| PicUrl| String |  模板图片 |七牛文件名称，不是全路径url | v1 |
+| PicSizeX| Integer |  二维码的位置、大小 |(a,b)@(x,y)，大小是aXb，插入位置是x轴、y轴 | v1 |
+| PicSizeY| Integer |  二维码的位置、大小 |(a,b)@(x,y)，大小是aXb，插入位置是x轴、y轴 | v1 |
+| PicSizeA| Integer |  二维码的位置、大小 |(a,b)@(x,y)，大小是aXb，插入位置是x轴、y轴 | v1 |
+| PicSizeB| Integer |  二维码的位置、大小 |(a,b)@(x,y)，大小是aXb，插入位置是x轴、y轴 | v1 |
+| BeginTime| Date |活动开始时间| | v1 |
+| EndTime| Date |活动截止时间| | v1 |
+| EventKey| String |微信菜单EventKey|取值为：“SHAREACT\_”+此记录的_id | v1 |
+| ActivityWords| String |点击活动的话术| | v1 |
+| ScanWords| String |扫码之后发给扫码着的话术| | v1 |
+| CreateTime  | Date |  创建时间  |    | v1 |
+| UpdateTime  | Date |  修改时间  |    | v1 |
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-07-26 |v1   |dbAdmin |-|

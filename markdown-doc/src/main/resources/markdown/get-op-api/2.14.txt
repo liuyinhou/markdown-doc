@@ -1,0 +1,53 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.14
+
+##2.14 员工基本信息修改
+###URL:
+http://120.55.94.183:8080/op/v2/editStaff
+###方式:
+get
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|staffId|String|员工ID|否 | |
+|nickName|String|昵称|是| |
+|icon|String|用户头像|是| |
+|phone|String|电话号码|是| |
+
+###返回数据:
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|-|-| | |
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": null,
+  "page": null,
+  "foot": {
+    "operationTime": "2015-12-03 15:50:33",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://127.0.0.1:8080/op/v2/editStaff?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&channel=eba920d452d34adb8f2badb08b9e69bb&version=2.0&sign=16f7aabf8aa5845299329c12eef8fa33
+
+{"staffId": "o0001f6a926ab2e6b48f0866d52d65a448e74","nickName": "昵称昵称"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-21 |基础版 |刘印后 |

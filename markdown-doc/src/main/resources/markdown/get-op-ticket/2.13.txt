@@ -1,0 +1,9 @@
+* [OP 优惠券 接口文档](/markdown/get-op-ticket) > 2.13
+
+##2.13 获取用户/OP优惠券列表
+
+* 2.13.1 [根据会话id(chatId) 获取条件 查询用户优惠券列表](/markdown/get-op-ticket/2.13.1.txt)
+
+* 2.13.2 [根据会话id(chatId) 统计、查询用户优惠券列表](/markdown/get-op-ticket/2.13.2.txt)
+
+

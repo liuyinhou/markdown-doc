@@ -1,0 +1,84 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.35
+
+##2.35 查询用户日志
+###URL:
+http://120.55.94.183:8080/op/v2/userLogList
+###方式:
+post
+###输入参数:
+|字段  |类型  |描述   |可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userId|String|用户ID |否 | |
+|sort|String|按创建时间排序 |是 |asc 正序；desc 倒叙，默认正序 |
+|pageNum|Integer|当前页码|否|从1开始|
+|pageSize|Integer|一页显示条数|否| |
+
+
+###返回数据:
+
+|字段 |类型 |描述 |备注|
+|:----|:----|:----|:----|:----|
+|userId |String|用户ID| |
+|logList |List(LogList)|日志列表| |
+
+LogList
+
+|字段 |类型 |描述 |备注|
+|:----|:----|:----|:----|:----|
+|type |Integer|日志类型| |
+|description |String|日志描述| |
+|userId |String|所属用户ID| |
+|createTime |String|创建时间| |
+
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "logList": [
+      {
+        "createTime": "2016-03-04 17:38:36",
+        "description": "微信关注",
+        "type": 10
+      },
+      {
+        "createTime": "2016-03-04 17:38:37",
+        "description": "加入渠道：虎嗅活动",
+        "type": 30
+      }
+    ],
+    "userId": "u0001fd9fb3524e52470899cba2d5ee84a801"
+  },
+  "page": {
+    "total": 4,
+    "page": 1,
+    "pageSize": 2,
+    "count": 0,
+    "next": true,
+    "startIndex": 0
+  },
+  "foot": {
+    "operationTime": "2016-03-07 19:31:05",
+    "servicePhone": "400800400",
+    "host": "liuyinhou"
+  }
+}
+```
+
+---
+
+####开发环境：
+http://120.55.94.183:8080/op/v2/userLogList?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o000106a215139e454ab491d0654a92a69807&sign=f6447e25380a7bed9849d939ca213725
+
+{"userId":"u0001fd9fb3524e52470899cba2d5ee84a801","pageSize":2,"pageNum":1}
+
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-03-07 |基础版 |刘印后|

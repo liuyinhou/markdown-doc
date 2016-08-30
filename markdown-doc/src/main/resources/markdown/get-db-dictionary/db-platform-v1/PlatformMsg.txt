@@ -1,0 +1,33 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Platform.txt) > Get数据库文档 - V1
+ 
+ ##PlatformMsg 微信消息表
+
+
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+|_id | int |   主键 |    | v1 |
+|AppUserName|String|微信公众号UserName |对应PlatformWxAccount表的UserName | v1 |
+|Content|String|微信消息值 | | v1 |
+|WxMsgId|String|微信消息ID | | v1 |
+|MsgType|String|微信消息类型 |text、image、event....| v1 |
+|Status|Integer|转发状态 |0 未转发(新消息)；1 等待重试（有转发失败的业务系统，需要重试）；2 转发成功（全部业务系统都转发成功，最终状态）；3 转发失败（多次重试之后，仍然有部分转发失败，最终状态）| v1 |
+|RetryTimes|Integer|重试次数 |重试3次 1分钟后、5分钟后、20分钟后| v1 |
+|BizSystems|List(BizSystem)|转发业务系统| | v1 |
+|CreateTime|Date|创建时间 | | v1 |
+|UpdateTime|Date|更新时间 | | v1 |
+
+##BizSystem
+
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+|BizSystemId|String|业务系统ID | | v1 |
+|Status|Integer|转发状态 |0 未转发(或者空，新消息)；1 等待重试（转发失败，需要重试）；2 转发成功（最终状态）；3 转发失败（多次重试之后仍然失败，最终状态） | v1 |
+|RetryTimes|Integer|重试次数 |重试3次 1分钟后、5分钟后、20分钟后 | v1 |
+|LastTime|Date|最后一次转发时间 | | v1 |
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-08-18 |v1   |印后 | |

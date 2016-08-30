@@ -1,0 +1,77 @@
+* [路由接口文档](/markdown/get-router) > 2.9
+
+##2.9 OP组列表
+###URL:
+http://120.55.94.183:8081/router/v2/staffGroupList
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|companyId |String|公司ID|否| |
+|operatorId|String|操作人ID|否 | |
+
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|staffGroupId |String|OP组ID | |
+|staffGroupName |String|OP组名称 | |
+|staffList |List(Staff)|组内成员列表 |参见下面Staff表 |
+|status |Integer|状态| |
+|createTime |String|创建时间 | |
+|onlineCount |Integer|在线人数 | |
+
+
+Staff表
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|staffId |String|员工ID | |
+|staffNickName |String|员工昵称 | |
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": [
+    {
+      "createTime": "2015-11-17 17:47:00",
+      "staffGroupId": "sdfsdffffsdfs",
+      "staffGroupName": "默认组",
+      "status": 1,
+      "staffList": [
+        {
+          "staffNickName": "印后",
+          "staffId": "sfsdfsdfdsfffff"
+        }
+      ]
+    }
+  ],
+  "page": null,
+  "foot": {
+    "operationTime": "2015-11-17 17:49:07",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://127.0.0.1:8080/router/v2/staffGroupList?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&channel=eba920d452d34adb8f2badb08b9e69bb&version=2.0&sign=dbfd58af3fbe758d449314983990156f
+
+{"operatorId":"5e79e3a77d294c4493a40a56f330df38","companyId":"1818f50447cc424987054ec940360908"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-16 |基础版 |刘印后 |

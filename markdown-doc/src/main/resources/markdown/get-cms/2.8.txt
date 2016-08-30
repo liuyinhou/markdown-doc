@@ -1,0 +1,137 @@
+* [Get CMS接口文档](/markdown/get-cms) >  2.8
+
+##2.8  获取消息标识记录
+
+###URL:
+http://120.55.117.53:8080/messageMark/getMessageMarkList
+
+###方式:
+post
+
+###输入参数:
+
+ >  请求消息结构
+
+|	字段		|类型	|描述		|可为空	|备注							|版本	|
+|	----	|-----	|--			|--		|--								|--		|
+|userId		|String	| 用户id		|否		|								|v2.1	|
+|startTime	|String	|开始时间		|是		| 时间格式为`yyyy-MM-dd HH:mm:ss`	|v2.1	|
+|endTime	|String	|更新时间		|是		| 时间格式为`yyyy-MM-dd HH:mm:ss` 	|v2.1	|
+|staffId	|String	|操作人id		|是		|           					|v2.1	|
+
+
+ 
+
+***
+
+###返回结果:
+
+|字段	|类型					|描述		|备注					|版本	|
+|----	|-----					|--			|--						|--		|
+| 		|`List<MessageMark>`	|消息标识记录	| 详见`MessageMark`	表	|v2.1	|
+
+
+
+***   
+  
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+    },
+    "foot": {
+        "operationTime": "2015-12-02 21:01:48",
+        "servicePhone": "400800400",
+        "host": "yinuo-PC"
+    }
+}
+```
+
+***
+
+####测试环境：
+
+http://120.55.117.53:8088/messageMark/getMessageMarkList?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=e75b9d32b3512796d6d635e6ab53b401
+
+{"userId":"u000193f6f02e01764a0f869be49a2be21e01","startTime":"2016-05-13 12:00:00","endTime":"2016-05-13 18:00:00"}
+
+```
+{
+    "code":200,
+    "msg":"成功",
+    "result":[
+        {
+            "id":"u0001320c82b950dd4b6095cdca1187460a3d",
+            "mark":[
+                "Getfit#早餐",
+                "Getfit#午餐",
+                "Getfit#晚餐"
+            ],
+            "messageId":"u00018ee01089bc9b4fb78645d41dbf8e1951",
+            "userMessage":{
+                "userMessageId":"u00018ee01089bc9b4fb78645d41dbf8e1951",
+                "hxMsgId":"195688540556755536",
+                "operaterId":"o0001565634d0db364515b0bf22491c8372af",
+                "userId":"u000193f6f02e01764a0f869be49a2be21e01",
+                "chatId":"u0001b177d88e129f4220bda5e1a67a16001c",
+                "hx":{
+                    "from":"admin",
+                    "to":"148992289019003396",
+                    "type":"txt",
+                    "msg":"微信内链图文",
+                    "url":null,
+                    "filename":null,
+                    "thumb":null,
+                    "secret":null,
+                    "thumb_secret":null,
+                    "length":null,
+                    "file_length":null,
+                    "addr":null,
+                    "lat":null,
+                    "lng":null,
+                    "ext":{
+                        "template":{
+                            "templetId":"2",
+                            "Content":"{"msgs":[{"imgUrl":"http://res.getgaoding.com/b3f0dabdf9274abda115aae357879e64.png?e=1620726223&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:TRHijeL1fVVc7Ymyoxo3lHZ0nas=","title":"以后请到“Get一下”找我！","linkUrl":"http://mp.weixin.qq.com/s?__biz=MzA3NjYzNzc1OA==&mid=413522254&idx=1&sn=d7fac79801d7758c51e4041b0d706e22#rd"}],"wxMediaId":"VioIb4LIxcwT5wfWmuuvGKS9YCUd5bbK0rp1eRBDR_k"}"
+                        },
+                        "getType":1,
+                        "chatVersion":"2.0"
+                    }
+                },
+                "type":1,
+                "status":null,
+                "clientType":null,
+                "createTime":"2016-05-13 16:11:28",
+                "favoritedCount":null,
+                "mediaId":null,
+                "mark":[
+                    "Getfit#早餐",
+                    "Getfit#午餐",
+                    "Getfit#晚餐"
+                ]
+            },
+            "userId":"u000193f6f02e01764a0f869be49a2be21e01",
+            "staffId":"o0001565634d0db364515b0bf22491c8372af",
+            "companyId":"b3c4924122d34dc0846a755abc47b416",
+            "createTime":"2016-05-13 16:15:55",
+            "updateTime":"2016-05-13 16:22:40"
+        }
+    ],
+    "foot":{
+        "operationTime":"2016-05-13 17:58:43",
+        "servicePhone":"400800400",
+        "host":"test1"
+    }
+}
+```
+
+####线上环境：
+
+###版本历史：
+
+|版本 	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:-----	|:------|
+|01 	|2016-05-07 |基础版 	|何红林 	|
+

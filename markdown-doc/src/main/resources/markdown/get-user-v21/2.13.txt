@@ -1,0 +1,168 @@
+* [Get-User-v2.1 接口文档](/markdown/get-user-v21) > 2.13
+
+##2.13 订单详情
+###URL:
+/user/v2/orderDetail
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userToken |String | 用户Token |否 | |
+|orderId |String |订单ID|否| |
+
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|
+|orderId |String |订单ID| |
+|productKindId |String |订单类型ID|参见附表:3.3 订单类型 |
+|productKind |String |订单类型|参见附表:3.3 订单类型 |
+|title|String|订单标题| |
+|orderStatus|Integer|订单状态|参见附表:3.4 订单状态|
+|orderStatusDesc|String|订单状态描述|参见附表:3.4 订单状态|
+|needPay|Boolean|是否需要支付| |
+|payBtn|List|支付按钮行为|支付方式,参见下表payBtn|
+|createTime|String|订单创建时间| |
+|amount|Double|订单金额| |
+|amountDesc|String|订单金额的字符串，可直接用于展示|如：`￥12` |
+|price|Double|订单原始金额| |
+|priceDesc|String|订单原始金额的字符串，可直接用于展示|如：`￥12` |
+|subOrderStatus|Integer|子订单状态| |
+|subOrderStatusDesc|String|子订单状态描述| |
+|remark1|List|描述数组|服务方信息,参见下表remark|
+|remark2|List|描述数组|用户信息,参见下表remark|
+|h5PayUrl|String|H5支付链接|仅用于H5项目|
+|shareTemplate|Object|找人代付文案|状态为未支付订单有此字段,参见下表`shareTemplate`|
+|supportReOrder|boolean|是否支持再次下单|状态为已完成订单有此字段|
+|reOrderTemplate|String|再次下单模板|当`supportReOrder`为true时,有此字段|
+|productKindIcon|String|订单类型图标Url|服务端已根据订单状态判断是否置灰 |
+
+####remarks
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|name |String |标题| |
+|value |String |内容| |
+
+####payBtn
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|btnDesc |String |按钮显示文案| |
+|btnType |String |按钮行为|AliPay：支付宝；WxPay：微信支付；|
+
+####shareTemplate
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|shareTitle |String |分享title| |
+|shareOrderType |String |订单类型| |
+|shareOrderPrice |String |订单金额| |
+|shareServiceAddr |String |服务地址| |
+|shareServiceTime |String |服务时间| |
+|shareLinkUrl |String |分享H5页面| |
+
+---
+###返回json格式示例：
+NOTE: 当`orderId=u00011509211149495491731664`,会显示`找人代付`相关字段 
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "payBtn": [
+            {
+                "btnType": "WxPay",
+                "btnDesc": "微信支付"
+            }
+        ],
+        "createTime": "2015-11-04 17:55:00",
+        "reOrderTemplate": "GetR160 see you 外卖\n交易价格：18.00元\n服务地址：xxx\n联系方式：xx 11111",
+        "h5PayUrl": "www.getgaoding.com/h5pay.html",
+        "orderStatusDesc": "待朋友支付",
+        "supportReOrder": true,
+        "productKindIcon": "http://www.qiniu.com/xx.icon",
+        "needPay": true,
+        "remark1": [
+            {
+                "name": "司机",
+                "value": "王师傅    13100000000"
+            },
+            {
+                "name": "车型",
+                "value": "快车，奥迪A6(进口)，京A1***88"
+            },
+            {
+                "name": "评价",
+                "value": "14单，5星"
+            }
+        ],
+        "orderStatus": "20",
+        "subOrderStatusDesc": "行程已结束",
+        "productKind": "打车",
+        "remark2": [
+            {
+                "name": "用户",
+                "value": "13200000000"
+            },
+            {
+                "name": "出发地",
+                "value": "中关村"
+            },
+            {
+                "name": "目的地",
+                "value": "北京站"
+            },
+            {
+                "name": "金额",
+                "value": "38元"
+            },
+            {
+                "name": "优惠券",
+                "value": "7折打车券已抵用3.5元"
+            }
+        ],
+        "amount": "12",
+        "title": "打车从中关村南到北京站",
+        "productKindId": "u00011509211149495491731663",
+        "subOrderStatus": "600",
+        "orderId": "u00011509211149495491731663",
+        "amountDesc": "￥12"
+    },
+    "page": null,
+  "foot": {
+    "operationTime": "2015-10-11 15:45:39",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####开发环境：
+http://121.41.27.42:8081/user/v2/orderDetail?apiVersion=02&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=0a5e85e0bc26ded7d1a3b2a0c7146d9f
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+	"orderId":"u000148e46f50af2a4935896c51e3ed72c821"
+}
+```
+####测试环境：
+http://120.55.117.53:8081/user/v2/orderDetail?apiVersion=02&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=0a5e85e0bc26ded7d1a3b2a0c7146d9f
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+	"orderId":"u000148e46f50af2a4935896c51e3ed72c821"
+}
+```
+####线上环境：
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|02 |2015-11-04 |基础版 |刘定湘 |

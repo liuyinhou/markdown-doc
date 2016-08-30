@@ -1,0 +1,16 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/User.txt) > Get数据库文档 - V1
+ 
+##FavoriteRouter  收藏夹路由表（废弃）
+
+ 
+| 字段      | 类型     | 描述 | 备注 | 版本 |
+| ------- | ------ | -- | -- | -- |
+| _id     | String |  主键  | 用户dbtag+ Guid   | v1 |
+| MsgId  | String |  消息ID  |     | v1 |
+| CollectionId  | String |  收藏ID  |     | v1 |
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

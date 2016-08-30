@@ -1,0 +1,58 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.17
+
+##2.17 修改用户信息
+###URL:
+http://120.55.94.183:8080/op/v2/updateUserInfo
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userId|String|用户id|否 | |
+|userName|String|用户真实Name|是 |为空，不修改userName |
+|displayPhone|String|用户Phone|是 |为空，不修改displayPhone |
+
+###返回数据:
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+| | | | |
+
+
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": null,
+  "page": null,
+  "foot": {
+    "operationTime": "2015-12-21 16:17:47",
+    "servicePhone": "400800400",
+    "host": "DESKTOP-CG59P88"
+  }
+}
+```
+
+---
+
+####开发环境：
+
+http://127.0.0.1:8080/op/v2/updateUserInfo?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=900b26ccf2fbfc22b096ff09194ff318
+#修改真实姓名
+{"userId":"u00013058217037704c358367f6e1fd1da545","userName":"466666"}
+
+http://localhost:8080/op/v2/updateUserInfo?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=d7be42f18254472b18332dfa29bfffcd
+#修改手机号码
+{"userId":"u00013058217037704c358367f6e1fd1da545","displayPhone":"18756067188"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-12-16 |基础版 |阿洋|

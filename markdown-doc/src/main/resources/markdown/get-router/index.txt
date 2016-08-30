@@ -1,0 +1,34 @@
+* [接口文档](/markdown) > 路由接口文档
+
+#路由接口文档
+* 1 路由描述
+ * 1.1 [路由介绍](/markdown/get-router/1.1.txt)
+ * 1.2 [通用参数](/markdown/get-router/1.2.txt)
+* 2 接口说明
+ * 2.1 [公司的员工列表](/markdown/get-router/2.1.txt)
+ * 2.2 [添加用户](/markdown/get-router/2.2.txt)
+ * 2.3 [修改用户](/markdown/get-router/2.3.txt)
+ * 2.4 [删除用户](/markdown/get-router/2.4.txt)
+ * 2.5 [查询用户](/markdown/get-router/2.5.txt)
+ * 2.6 [禁用用户](/markdown/get-router/2.6.txt)
+ * 2.7 [查看员工属性（员工画像）](/markdown/get-router/2.7.txt)
+ * 2.8 [修改员工属性（员工画像）](/markdown/get-router/2.8.txt)
+ * 2.9 [OP组列表](/markdown/get-router/2.9.txt)
+ * 2.10 [增加OP组](/markdown/get-router/2.10.txt)
+ * 2.11 [删除OP组](/markdown/get-router/2.11.txt)
+ * 2.12 [修改OP组](/markdown/get-router/2.12.txt)
+ * 2.13 [查看员工组属性（员工组画像）](/markdown/get-router/2.13.txt)
+ * 2.14 [修改员工组属性（员工组画像）](/markdown/get-router/2.14.txt)
+ * 2.15 [用户画像查询](/markdown/get-router/2.15.txt)
+ * 2.16 [修改用户画像](/markdown/get-router/2.16.txt)
+ * 2.17 [路由接口](/markdown/get-router/2.17.txt)
+ * 2.18 [转会话到公司路由接口](/markdown/get-router/2.18.txt)
+ * 2.19 [添加公司路由规则](/markdown/get-router/2.19.txt)(伪接口)
+ * 2.20 [修改公司路由规则](/markdown/get-router/2.20.txt)(伪接口)
+ * 2.21 [删除公司路由规则](/markdown/get-router/2.21.txt)(伪接口)
+ * 2.22 [查询公司路由规则](/markdown/get-router/2.22.txt)(伪接口)
+ * 2.23 [查询员工组信息](/markdown/get-router/2.23.txt)
+ * 2.24 [转会话到员工组路由接口](/markdown/get-router/2.24.txt)
+* 3 附录
+ * 3.1 [属性值类型枚举-StandardAttachKeyTypeEnum](/markdown/get-router/3.1.txt)
+ 

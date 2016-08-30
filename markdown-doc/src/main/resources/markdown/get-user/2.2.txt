@@ -1,0 +1,15 @@
+* [Get-User接口文档](/markdown/get-user) > 2.2
+
+**签名方式：**
+
+post接口需要进行md5验签，在开发调用时，会分配给前端一个key（请妥善保管好key）。
+通过MD5(post报文+key)，url后统一跟一个参数wk_sign=32位加密串。
+如：
+
+Body内容：{"orderNum":"订单号"}
+
+Md5 key：e1d18a927e9740478a181166d2cd9353(对接时确认)
+
+* signKey
+  * =md5({"orderNum":"订单号"}67D435615EBCFC3ABB3D70378FFC1E7)
+  * =87810E0CEF332146C211F4786BE0692C

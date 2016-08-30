@@ -1,0 +1,57 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.15
+
+##2.15 联系人添加
+###URL:
+http://120.55.117.53:8081/user/v2/contactAdd
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userToken |String | 用户Token |否 | |
+|name |String | 姓名 |否| |
+|phone |String |手机号|否| |
+
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|id |String |新增联系人ID | |
+
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "id": "新增地址ID"
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2015-10-12 11:18:28",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+```
+
+---
+
+####测试环境：
+http://120.55.117.53:8081/user/v2/contactAdd?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=3718c476590c89b70a9cfca4b108c79c
+
+{
+    "userToken": "u00015a9eb1101c934970a57b8d8f17e61005",
+    "name": "姓名",
+    "phone": "手机号"
+}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-10-07 |基础版 |刘印后 |

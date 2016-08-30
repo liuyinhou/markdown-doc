@@ -1,0 +1,37 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Operator.txt) > Get数据库文档 - V1
+ 
+##Operator  客服表
+ 
+| 字段               | 类型      | 描述 | 备注 | 版本 |
+| ---------------- | ------- | -- | -- | -- |
+| _id              | String  |    |    | v1 |
+| ~~CityId~~           |      |    |    | v1 |
+| EasemobUserId    | String  | 环信UserId    |    | v1 |
+| Icon             | String  | 头像   |    | v1 |
+| IsOnline         | Boolean | 是否在线   |    | v1 |
+| IsReceive        | Boolean |  能否接单，不能接单仅仅能转发  |    | v1 |
+| MaxReceiveCount  | int  |  最大接入量  |    | v1 |
+| OperatorCode     | String  |    |    | v1 |
+| Phone            | String  | 手机号   |    | v1 |
+| Remark           | String  |  备注  |    | v1 |
+| FixedSecret      | String  |  固定密码 |    | v1 |
+| Secret           | String  |  验证码  |    | v1 |
+| SecretTime       | Date    |  验证码发送时间  |  | v1 |
+| Status           | int  |账户类型    | None=0，Enabled=1，Disabled=2    | v1 |
+| Tags             | Array[string]   |标签    |    | v1 |
+| Token            | String  |  token |    | v1 |
+| UserName         | String  |  用户名 |    | v1 |
+| VerificationCode | String  |  验证码  |    | v1 |
+| CreateTime       | Date    |  创建时间 |    | v1 |
+| GroupId          | String  |  op 群组 |    | v1 |
+| LoginTime        | Date    | 登录时间   |    | v1 |
+| VersionCode        | String    | 更新过渡用   |    | v2-update by zheng |
+
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

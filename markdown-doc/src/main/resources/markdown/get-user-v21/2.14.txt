@@ -1,0 +1,155 @@
+* [Get-User接口文档](/markdown/get-user-v21) > 2.14
+
+##2.14 订单列表
+###URL:
+/user/v2/orderList
+###方式:
+**POST**
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userToken |String | 用户Token |否 | |
+|orderStatus |String |查询指定状态订单 |是 |多个状态用逗号隔开，为空则查出全部。状态值描述见附录表3.4|
+|pageNum |Integer | 请求页码 |否 | |
+|pageSize |Integer | 每页消息条数 |否 | |
+
+
+###返回数据:
+
+结果为数组
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|orderId |String |订单ID| |
+|productKind |String |订单类型|参见附表:3.3 订单类型 |
+|productKindId |String |订单类型ID|参见附表:3.3 订单类型 |
+|title|String|订单标题||
+|orderStatus|Integer|订单状态|参见附表:3.4 订单状态|
+|orderStatusDesc|String|订单状态描述|参见附表:3.4 订单状态|
+|needPay|Boolean|是否需要支付| |
+|createTime|String|订单创建时间| |
+|amount|Double|订单金额| |
+|productKindIcon|String|订单类型图标Url|服务端已根据订单状态判断是否置灰 |
+|amountDesc|String|订单金额描述| |
+
+
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": [
+        {
+            "amount": "12",
+            "createTime": "2015-11-04 17:55:00",
+            "title": "打车从中关村南到北京站",
+            "orderStatusDesc": "待朋友支付",
+            "productKindId": "u00011509211149495491731663",
+            "productKindIcon": "http://www.qiniu.com/xx.icon",
+            "needPay": true,
+            "orderStatus": 20,
+            "productKind": "打车",
+            "orderId": "u00011509211149495491731664",
+            "amountDesc": "￥12"
+        },
+        {
+            "amount": "12",
+            "createTime": "2015-11-04 17:55:00",
+            "title": "打车从中关村南到北京站",
+            "orderStatusDesc": "已完成",
+            "productKindId": "u00011509211149495491731663",
+            "productKindIcon": "http://www.qiniu.com/xx.icon",
+            "needPay": true,
+            "orderStatus": 30,
+            "productKind": "打车0",
+            "orderId": "u00011509211149495491731663",
+            "amountDesc": "￥12"
+        },
+        {
+            "amount": "12",
+            "createTime": "2015-11-04 17:55:00",
+            "title": "打车从中关村南到北京站",
+            "orderStatusDesc": "已完成",
+            "productKindId": "u00011509211149495491731663",
+            "productKindIcon": "http://www.qiniu.com/xx.icon",
+            "needPay": true,
+            "orderStatus": 30,
+            "productKind": "打车1",
+            "orderId": "u00011509211149495491731663",
+            "amountDesc": "￥12"
+        },
+        {
+            "amount": "12",
+            "createTime": "2015-11-04 17:55:00",
+            "title": "打车从中关村南到北京站",
+            "orderStatusDesc": "已完成",
+            "productKindId": "u00011509211149495491731663",
+            "productKindIcon": "http://www.qiniu.com/xx.icon",
+            "needPay": true,
+            "orderStatus": 30,
+            "productKind": "打车2",
+            "orderId": "u00011509211149495491731663",
+            "amountDesc": "￥12"
+        },
+        {
+            "amount": "12",
+            "createTime": "2015-11-04 17:55:00",
+            "title": "打车从中关村南到北京站",
+            "orderStatusDesc": "已完成",
+            "productKindId": "u00011509211149495491731663",
+            "productKindIcon": "http://www.qiniu.com/xx.icon",
+            "needPay": true,
+            "orderStatus": 30,
+            "productKind": "打车3",
+            "orderId": "u00011509211149495491731663",
+            "amountDesc": "￥12"
+        }
+    ],
+    "page": {
+        "total": 5,
+        "page": 1,
+        "pageSize": 10,
+        "count": 5,
+        "next": false,
+        "startIndex": 0
+    },
+  "foot": {
+    "operationTime": "2015-10-11 15:39:55",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####开发环境：
+http://121.41.27.42:8081/user/v2/orderList?apiVersion=02&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=c3aff5761af82361ceff1879f02e0e52
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+  	"pageNum":1,
+    "pageSize":10
+}
+```
+####测试环境：
+http://120.55.117.53:8081/user/v2/orderList?apiVersion=02&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=c3aff5761af82361ceff1879f02e0e52
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+  	"pageNum":1,
+    "pageSize":10
+}
+```
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|02 |2015-11-04 |基础版 |刘定湘 |

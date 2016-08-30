@@ -1,0 +1,53 @@
+* [Get-Net接口文档](/markdown/get-net) > 2.1
+
+##2.1 创建工单
+###URL:
+测试环境：http://apitest.2020880.com/WorkOrder/v1/Create
+正式环境：http://api.getgaoding.com/WorkOrder/v1/Create
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userId |String |用户ID|否| |
+|workOrderTitle |String |工单标题|否| |
+|deadLineTime |String |最后完成时间|否|yyyy-MM-dd HH:mm:ss |
+|isAppointOp |string |指派的OpId|否|为空传空字符串 |
+|remark |String |备注|可|传空字符串 |
+|status |String |工单状态|否| NotStart = 0,Doing = 1,Complete = 2,Cancel = 3,Suspend = 4,Fail = 5|
+|isLoopWorkOrderHid |String |是否是循环工单|否|非循环工单 = 0 |
+|workOrderType |String |工单类型|否|纯文本工单 =0 ，服务单关联工单 =1 ， 退款工单 =20 |
+|refTypeSubmitContent |String |循环工单需要字段|否|非循环字段传空 |
+###返回数据:
+
+
+**注意：**
+
+URL的参数wk_operatorToken应该取该公司的管理员角色的token
+
+---
+###返回json格式示例：
+```
+{"Code":200
+,"Message":"Success"
+,"Data":"200"
+,"Page":null
+,"Foot":{"OperationTime":"2016-05-26 11:17:08","ServicePhone":"400800400"}
+}
+```
+
+---
+
+####测试环境：
+http://apitest.2020880.com/WorkOrder/v1/Create?wk_client=b2736195b38346639463ee889d6b8ff4&wk_sign=D22689A28779AE21E7CADD9D27BF161F&wk_operatorToken=o000161a87f7eadce4308ab46e690d8139469
+
+####线上环境：
+
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-05-26 |基础版 |韩飞 |
+

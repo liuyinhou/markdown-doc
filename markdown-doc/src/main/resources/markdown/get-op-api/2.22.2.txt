@@ -1,0 +1,66 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.22
+
+* 2.22 [挂起对话/取消挂起](/markdown/get-op-api/2.22.txt)
+
+##2.22.2 取消挂起
+
+###URL:
+
+http://120.55.94.183:8080/op/v2/cancelPendChat
+
+
+###方式:
+post
+
+
+###输入参数:
+|字段	|类型 	|描述 	|可为空	|备注				|
+|:-----	|:-----	|:------|:-----	|:----				|
+|chatId	|String	|会话Id	|否		| 					|
+|type	|Integer|挂起类型	|否		|1 手动;2 自动;3 定时;	|
+
+
+###返回数据:
+|字段	|类型	|描述 	|备注	|
+|:----	|:----	|:----	|:----	| 
+| 		| 		| 		| 		|
+
+
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": null,
+  "page": null,
+  "foot": {
+    "operationTime": "2016-01-11 00:57:26",
+    "servicePhone": "400800400",
+    "host": "DESKTOP-CG59P88"
+  }
+}
+```
+
+---
+
+####开发环境：
+
+http://localhost:8080/op/v2/cancelPendChat?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o00015acd304912e94e4ba943b816f89dc33a&sign=0d902f3460a06a2ed6f9ebbe8c575fff
+
+```
+{
+    "chatId": "u00019f924cc11b164f5e983ac627fdd90844",
+    "type": 3
+}
+```
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:------|:------|
+|01 	|2015-03-03 |修改 	|何红林	|

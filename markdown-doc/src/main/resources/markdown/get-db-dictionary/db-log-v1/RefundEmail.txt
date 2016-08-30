@@ -1,0 +1,23 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Log.txt) > Get数据库文档 - V1
+ 
+## 退款邮件表
+ 
+ 
+| 字段         | 类型     | 描述 | 备注 | 版本 |
+| ---------- | ------ | -- | -- | -- |
+| _id        | String | ID  |    | v1 |
+| OrderId   | String | 订单ID  | | v1 |
+| Description| String |描述| |v1|
+| OperatorId | String | operator Id   |    | v1 |
+| OperatorName | String |OP名称，“昵称 - 真实姓名”   |    | v1 |
+| Status | Integer | 审批状态  |0未审批，10 已审批 |已审批，即表示url失效|
+| RefundAliUrl|String | 退款审批时，支付宝需要输入密码的url|- |
+| UpdateTime | Date   | 更新时间   |    | v1 |
+| CreateTime | Date   | 创建时间   |    | v1 |
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-05-23 |v1   |刘印后 |-|

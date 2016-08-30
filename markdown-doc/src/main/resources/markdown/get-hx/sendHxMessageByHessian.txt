@@ -1,0 +1,89 @@
+* [环信收发器文档](/markdown/get-hx) > 发送环信消息
+## 向环信发送消息（Hessian）
+
+###调用方式：
+Hessian
+
+###调用接口
+com.get.hx.api.interf.sendMssageForHessian
+
+
+###请求输入参数：
+|字段	 	|类型 			|描述 			|可为空 	|备注					|
+|:-----		|:-----			|:------		|:-----	|:----:					|
+|params		|SendHxRequest	|请求消息体内容		|否		|详解`SendHxRequest`对象	|
+|file		|File			|多媒体文件		|是		|图片、语音、视频等文件信息	|
+
+
+###返回结果：
+|字段	 	|类型 			|描述 			|备注				|
+|:-----		|:-----			|:------		|:----:				|
+| 			|Boolean		|是否成功			|true 成功，false 失败	|
+
+
+### SendHxRequest对象:
+|字段	 	|类型 	|描述 														|可为空 	|备注 													|
+|:-----		|:-----	|:------													|:-----	|:----													|
+|fromUser 	|String |发送者														|否		|														|
+|toUser 	|String |接收者														|否		| 														| 
+|targetType	|String	|发送消息对象													|是		|取值：users 给用户发消息, chatgroups 给群发消息，默认chatgroups	|
+|msgType 	|String |消息类型（"txt"、"audio"、"img"、"loc"、"video"、"file"、"cmd"）	|否		| 														|
+|msg 		|String |文本消息内容  													|是		|	消息类型：txt不能为空									|
+|mediaFile 	|String |多媒体文件  													|是		|这个字段可以不用忽略（消息类型：img、audio不能为空	）			|
+|ext 		|Map 	|自定义消息 													|是		|	消息类型：cmd、loc、video、file不能为空					|
+
+####msgType取值
+* txt -- 文本消息
+* img -- 图片消息
+* audio -- 语音消息
+* video -- 视频消息
+* loc -- 地址
+* file -- 文件
+* cmd -- 命令
+
+######请求消息体对象 例子：
+文本消息体
+
+```
+{
+    "toUser": "116650956573114804",
+    "fromUser": "test",
+    "msgType": "txt",
+    "msg": "123",
+    "mediaFile": "",
+    "ext": null
+}
+```
+
+多媒体消息体（图片）
+
+```
+{
+    "toUser": "116650956573114804",
+    "fromUser": "test",
+    "msgType": "img",
+    "msg": "",
+    "mediaFile": "1.jpg",
+    "ext": null
+}
+```
+
+命令消息体
+
+```
+{
+    "toUser": "116650956573114804",
+    "fromUser": "test",
+    "msgType": "cmd",
+    "msg": null,
+    "mediaFile": "",
+    "ext": {"xxx":"xxx",......}
+}
+```
+
+
+###版本历史：
+
+|版本 	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:------|:------|
+|01 	|2016-2-22 	|创建 	|何红林 	|

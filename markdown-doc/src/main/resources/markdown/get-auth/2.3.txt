@@ -1,0 +1,73 @@
+* [授权中心](/markdown/get-auth) > 2.3
+
+##2.3 获取授权活动信息
+###URL
+/auth/v1/activity
+
+###调用方式
+POST
+
+###请求参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |版本|
+|:-----|:-----|:------|:-----|:----|:----|
+|actId |String |授权活动ID |否| |v1.0|
+ 
+
+###返回数据:
+|字段	 |类型 	|描述 	|备注 |版本|
+|:-----|:-----|:------|:----|:----|
+|actId|String |授权活动ID | | 01|
+|supportAuthType|List(Object) |支持授权类型| 参见下面的`SupportAuthType 描述`| 01|
+ 
+
+###SupportAuthType 描述
+|字段	 |类型 	|描述 	|备注 |版本|
+|:-----|:-----|:------|:----|:----|
+|platformType|String |第三方授权平台类型,`微信-wechat` | | 01|
+|platformName|String |授权平台名称,授权中心内部标识|如`找我_userinfo`则表示`找我账号下,userinfo授权域` | 01|
+|platformId|String |授权平台ID| | 01|
+
+ 
+---
+###返回json格式示例: 
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "supportAuthType": [
+            {
+                "platformType": "wechat",
+                "platformName": "找我_userinfo",
+                "platformId": "0899200bc338459eacd6558758c49f02"
+            }
+        ],
+        "actId": "dd12251fc297453e87364a688100c174"
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2016-03-18 14:01:32",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+
+```
+
+---
+
+###测试环境
+http://authtest.getgaoding.com/auth/v1/activity?apiVersion=01&client=79be015f7aadb568d76a590fb5cdb0f6&version=1.0&sign=521e49ebe536597ad964079b1eeb3bf8&channel=81086f21b14cb137d256b9b078ff42e5
+
+```
+{
+  "actId":"dd12251fc297453e87364a688100c174"
+}
+```
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-03-18 |基础版 |刘定湘 |

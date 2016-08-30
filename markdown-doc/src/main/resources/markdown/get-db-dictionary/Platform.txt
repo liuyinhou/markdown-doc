@@ -1,0 +1,10 @@
+﻿* [Get数据库文档](/markdown/get-db-dictionary) > Get数据库文档 - V1
+ 
+###Platform 数据库
+ 
+* [ PlatformWx 表](/markdown/get-db-dictionary/db-platform-v1/PlatformWx.txt)
+* [ PlatformWxAccount 表](/markdown/get-db-dictionary/db-platform-v1/PlatformWxAccount.txt)
+* [ PlatformDispatcher 表](/markdown/get-db-dictionary/db-platform-v1/PlatformDispatcher.txt)
+* [ PlatformState 表](/markdown/get-db-dictionary/db-platform-v1/PlatformState.txt)
+* [ PlatformBizSystem 表](/markdown/get-db-dictionary/db-platform-v1/PlatformBizSystem.txt)
+* [ PlatformMsg 表](/markdown/get-db-dictionary/db-platform-v1/PlatformMsg.txt)

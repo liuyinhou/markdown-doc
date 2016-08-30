@@ -1,0 +1,53 @@
+* [Get-User接口文档](/markdown/get-user) > 3.1
+
+##3.1 测试签名是否正确
+###URL:
+http://120.55.117.53:8081/main/v1/index
+###方式:
+post
+###输入参数:
+|字段	 		|类型 	|描述 	|可为空 |备注 |
+|:----|:----|:----|:----|:----|
+|param1 	|Integer |测试参数1 	|否| |
+|param2 	|String	|测试参数2		|否| |
+
+###返回数据:
+|字段			|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|Colum1	|String	| | |
+|Colum2	|String	| | |
+
+
+---
+###返回json格式示例：
+```
+{
+	Code: 200,
+	Message: "成功",
+	Data: {
+		Colum1: "colum1",
+		Colum2: "colum2"
+	},
+	Page: null,
+	Foot: {
+		OperationTime: "2015-08-18 11:10:54",
+		ServicePhone: "400800400",
+		Host: "localhost"
+	}
+}
+```
+
+---
+
+####测试环境：
+http://120.55.117.53:8081/main/v1/index?apiVersion=01&client=98e43120159449318b54d64493121489&sign=cc397be3d49aec6c57fd8e4c5d5599ac&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15
+
+{"param1":1,"param2":"t"}
+
+####线上环境：
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-08-24 |基础版 |刘印后 |

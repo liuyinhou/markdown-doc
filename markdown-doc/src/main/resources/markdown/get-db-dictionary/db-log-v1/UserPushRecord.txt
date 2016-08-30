@@ -1,0 +1,32 @@
+﻿ * [Get数据库文档](/markdown/get-db-dictionary/Log.txt) > Get数据库文档 - V1
+ 
+ ##UserPushRecord  发送Push记录表
+ 
+ 
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+| _id         | String |    |    | v2 |
+| UserPushTemplateId| String | 推送模板ID   |    | v2 |
+| UserId        | String | 用户ID   |    | v2 |
+| UserType       | Integer | 用户类型   |1：微信；2：IOS；3：ANDROID，参见ClientTypeEnum| v2 |
+| Content     | String |   内容 |    | v2 |
+| ContentReferId |  String    |  推送内容关联ID，例如图文消息，保持素材Id |    | v2 |
+| ContentType | int    |   类型  2：文字 4：图片 6：图文 |   | v2 |
+| CreateTime  | Date   |   创建时间 |    | v2 |
+| Status       | int |   状态  0未推送 1推送中 2已完成 3推送失败|   | v2 |
+| PushWx       |int |推送微信|0 无需推送；1 待推送；2 已推送   | v2 |
+| PushHx       |int |推送环信|0 无需推送；1 待推送；2 已推送   | v2 |
+| HxFileSecret   | String | 环信文件secret  | | v2 |
+| HxFileUrl     | String | 环信文件url |  | v2 |
+| WxMediaId |  String    | 微信素材Id |    | v2 |
+| WxOpenId |  String    | 微信用户OpenId |    | v2 |
+| SendTime    | Date   |   发送时间 |  | v2 |
+| ImageWidth       | int |图片宽|   | v2 |
+| ImageHeight       | int |图片高|   | v2 |
+ 
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-3-31 |v2   |刘印后|初始化|

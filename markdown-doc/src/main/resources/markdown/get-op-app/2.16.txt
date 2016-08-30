@@ -1,0 +1,60 @@
+* [Op app Api接口文档](/markdown/get-op-app) > 2.16
+
+##2.16 获取上传文件到七牛所需的参数接口
+###URL:
+http://120.55.94.183:8086/opapp/getQiniuInfo
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:------|:------|:------|:------|:------|
+|suffix|String|上传文件的格式|否 |如：png,mp3 |
+
+
+###返回数据:
+
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|fileName|String|文件名| |
+|fileUrl|String|上传文件成功后该文件在七牛服务器的url| |
+|token|String|上传文件所需得token| |
+
+---
+
+###返回json格式示例：
+
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "fileName": "3e84c3ea398142509e0b02786ee2e27c.mp3",
+    "fileUrl": "http://res.getgaoding.com/3e84c3ea398142509e0b02786ee2e27c.mp3?e=1623059039&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:zMSbxldPDhLORI6y7dBUwvhYvaE=",
+    "token": "1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:UvIT-BOGZIEpFfihm-MwpRg19Ng=:eyJzY29wZSI6ImdldDEiLCJkZWFkbGluZSI6MTQ2NTM4MjYzOX0="
+  },
+  "foot": {
+    "operationTime": "2016-06-08 17:43:59",
+    "servicePhone": "400800400",
+    "host": "bogon"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+
+http://120.55.94.183:8086/opapp/getQiniuInfo?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=37fef2d3c1d3848adcbd7d7e046045fa
+
+{"suffix":"mp3"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-06-08 |基础版 |季宇轩 |

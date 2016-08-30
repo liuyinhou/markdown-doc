@@ -1,0 +1,60 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.46
+
+##2.46 优惠礼包详情 
+###URL:
+/user/v2/ticketPackageDetail
+###方式:
+**POST**
+###输入参数:
+|字段	 |类型  |描述 |可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userToken |String | 用户token |是 |  |
+|ticketCode |String | 优惠礼包Code |否 |  |
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|
+|tpName |String | 优惠礼包名称 | |
+
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "tpName": "定湘专用包2"
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2015-11-12 17:24:06",
+        "servicePhone": "400800400",
+        "host": "Jimmy"
+    }
+}
+```
+
+####开发环境：
+http://121.41.27.42:8081/user/v2/ticketPackageDetail?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=e306c46c8223d4de31ded53530fea039
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+    "ticketCode":"7380348447"
+}
+```
+####测试环境：
+http://120.55.117.53:8081/user/v2/ticketPackageDetail?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=e306c46c8223d4de31ded53530fea039
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+    "ticketCode":"7380348447"
+}
+```
+####线上环境：
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-26 |基础版 |刘定湘 |

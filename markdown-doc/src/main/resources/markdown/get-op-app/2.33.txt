@@ -1,0 +1,61 @@
+* [Op app Api接口文档](/markdown/get-op-app) > 2.33
+
+
+##2.33 取消订单接口
+###URL:
+正式环境:
+
+###URL:
+http://120.55.94.183:8086/opapp/orderCancle
+###方式:
+Post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|orderId |String |订单ID|否| |
+
+
+**注意：**
+        
+###返回数据:
+
+---
+###返回json格式示例：
+```
+{
+  "Code": 200,
+  "Message": "",
+  "Data": "",
+  "Page": null,
+  "Foot": {
+    "OperationTime": "2016-08-09 16:20:59",
+    "ServicePhone": "400800400"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://120.55.94.183:8086/opapp/orderCancle?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=7c2b94e2e584989f0bef4d88a25d9d63
+
+```
+{ 
+  "reqUrl":"/Order/v1/OrderCancle",
+  "reqUrlHost":"dot\_net\_url\_pre",
+  "orderId":"u00011608091612504334569100"
+}
+```
+
+
+####线上环境：
+
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-08-09 |基础版 |季宇轩 |
+

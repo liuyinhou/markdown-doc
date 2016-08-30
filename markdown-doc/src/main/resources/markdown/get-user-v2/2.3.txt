@@ -1,0 +1,77 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.3
+
+##2.3 验证码登录
+###URL:
+http://120.55.117.53:8081/user/v2/login
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|deviceId |String |设备ID |否| |
+|deviceType |String | 设备类型 |否 |Ios、Android |
+|phone |String |手机号 |否 | |
+|verifyCode |String |验证码 |否 | |
+|unionid |String |微信unionid |是 | |
+|refToken|String |之前匿名登录用户的token|是|有此字段值，则默认会合并该用户到登录用户中|
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|token |String |用户Token | |
+|userId |String |用户ID | |
+|hxAppKey |String |环信Key | |
+|userRefId |String |环信用户登录密码 | |
+|phone |String |手机号 | |
+|isNewUser |Boolean |是否是新注册用户 | |
+|initUserNickNameList|String[] |新用户第一次登录后，待选的昵称|String数组，isNewUser=true时才返回此字段|
+|groupId|String |环信groupId | |
+
+**注释：**
+
+* IsNewUser标记是登录还是注册
+  * true：说明第一次登陆.应该跳转到 补充资料页面(此页面用到的头像和昵称,参考下面接口)
+  * flase：说明第N次登陆,不是新用户第一次登陆/注册了
+
+
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "phone": "13167330136",
+        "token": "u000148e46f50af2a4935896c51e3ed72c820",
+        "userRefId": "@#@#@@#SD443S",
+        "userId": "u0001e6904923e7bb4557a3788c6f5879327d",
+        "hxAppKey": "abujj#@#@#@@#SD443S",
+        "isNewUser": true,
+        "initUserNickNameList":"Dan。,女王大人,好孩子,男神,马甲,萌Get,键盘党,夏洛,长苏",
+        "groupId":"106266867122831948"
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2015-10-12 10:47:37",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+```
+
+---
+
+####测试环境：
+http://120.55.117.53:8081/user/v2/login?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=7187ab4078d63f0b8d23184e17758af3
+
+{"deviceId":"c94572bf06e8deb573d790","deviceType":"Ios","phone":"13600000000","verifyCode":"2713"}
+
+####线上环境：
+
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-10-07 |基础版 |刘印后 |

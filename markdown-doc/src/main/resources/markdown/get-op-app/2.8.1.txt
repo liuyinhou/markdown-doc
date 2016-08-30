@@ -1,0 +1,77 @@
+* [Op app Api接口文档](/markdown/get-op-app) > 2.8.1
+
+##2.8.1 批量发送消息到消息中心接口(中转)
+###URL:
+http://120.55.94.183:8086/opapp/sender
+###方式:
+post
+###输入参数:
+|字段     |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|reqUrl|String|请求的url|否 | |
+|messages|List|要发送的消息List|否|详见下面`参数字段` |
+
+
+##参数字段 
+参见[发送基本消息](/markdown/get-sender/2.1.txt)
+
+
+###返回数据:
+
+参见[发送基本消息](/markdown/get-sender/2.1.txt)
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|…|…|…| |
+
+---
+
+###返回json格式示例：
+
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "getMessageId": "1111111111111"
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2015-11-18 22:19:32",
+        "servicePhone": "400800400",
+        "host": "yinhou-MacBook-Pro.local"
+    }
+}
+```
+
+---
+
+####测试环境：
+
+http://120.55.94.183:8086/opapp/sender?apiVersion=01&client=98e43120159449318b54d64493121489&version=1.15&channel=3f82a2da3a014b1880a4ef05ae3ace0a&sign=3772542aadc4e15b24c628be0e84eb24
+
+```
+{
+    "reqUrl":"/sender/v1/handleBasicMessage",
+    "to": "148992289019003396",
+    "from": "u000193f6f02e01764a0f869be49a2be21e01",
+    "messageType": 1,
+    "ext": {
+        "chatClient": "9bf18c20d5f54f459e0232246c2305c8",
+        "chatType": "WX",
+        "chatChannel": "f2b91d57f9cb4db7a06926b2fd5d9caf"
+    },
+    "messageInfo": {
+        "txtMessage": "文本发送测试"
+    }
+}
+```
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-07-09 |基础版 |季宇轩 |

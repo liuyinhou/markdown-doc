@@ -1,0 +1,21 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ 
+##JSVersion 记录表
+|列名|类型|描述|备注|版本 |
+|---|---|---|---|---|
+|_id|String|主键||v1 |
+|Platform|String|平台类型|Android/IOS|v1 |
+|CurrentVersion|String|当前js version| |v1 |
+|DownloadUrl|String|下载地址| |v1 |
+|Channel|String|渠道| |v1 |
+|FoceUpgrade|Boolean|是否强制升级| |v1 |
+|CreateTime|String|创建时间||v1 |
+|ReleaseNotes|String|升级文案||v1 |
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-08-04 |季宇轩   |dbAdmin |文档拆分|

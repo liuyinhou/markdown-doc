@@ -1,0 +1,62 @@
+* [授权中心](/markdown/get-auth) > 2.2
+
+##2.2 获取授权用户信息(北京用)
+###URL
+/auth/v1/userinfoWithAppId
+
+###调用方式
+POST
+
+###请求参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |版本|
+|:-----|:-----|:------|:-----|:----|:----|
+|authUserId |String |授权用户ID|否| |v1.0|
+
+###返回数据:
+|字段	 |类型 	|描述 	|备注 |版本|
+|:-----|:-----|:------|:----|:----|
+|unionId|String |unionId| | 01|
+|openId|String |用户在特定公众号下的唯一标识| | 01|
+|appId|String |用户来源| | 01|
+ 
+--- 
+
+###返回json格式示例:
+```
+
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "openId": "xxxxxx",
+        "appId": "xxxxxx",
+        "openId": "abcdefgQWERTMNBVC123"
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2016-03-10 17:37:39",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+} 
+
+
+```
+
+---
+
+###测试环境
+http://authtest.getgaoding.com/auth/v1/userinfoWithAppId?apiVersion=01&client=79be015f7aadb568d76a590fb5cdb0f6&version=1.0&sign=1edf59d54daae8fa60b00b6988f856e2&channel=81086f21b14cb137d256b9b078ff42e5
+
+```
+{
+  "authUserId":"0faefa3be0584d408a83bb0e77337ed0"
+}
+```
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-03-18 |基础版 |刘定湘 |

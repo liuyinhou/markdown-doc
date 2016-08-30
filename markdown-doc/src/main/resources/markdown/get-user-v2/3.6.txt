@@ -1,0 +1,9 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 3.6
+
+**优惠券类型：**
+
+| Code  | 名称 |描述|
+|-----|--------|-----|
+|0|NONE|字符空串|
+|1|DISCOUNT_AMOUNT|优惠金额|
+|2|DISCOUNT|折扣|

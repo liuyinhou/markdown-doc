@@ -1,0 +1,118 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.51
+
+##2.51 支付方式
+###URL:
+/user/v2/payTypes
+###方式:
+POST
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userToken |String | 用户Token |否 | |
+|orderId |String | 订单ID |否 | |
+|clientType |String | 客户端类型 |是 |参见附录[3.10 clientType取值](/markdown/get-user-v2/3.10.txt)|
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|orderId |String |订单ID| |
+|title |String |订单标题| |
+|amount |Double |订单应付金额| |
+|amountDesc |String |订单应付金额表述|如`￥10` |
+|payTypes |List |支付方式|当needPay为`true`时有值,参见附录[3.9 payType取值](/markdown/get-user-v2/3.9.txt) |
+|sharePayTemplate |Object |找人代付分享模板|如下所示`找人代付模板` |
+|needPay |boolean |是否需要支付|0元订单不需要支付 |
+|orderBtn |List |非支付行为|如下`OrderBtn`|
+
+**找人代付模板** 
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|shareTitle |String |分享标题| |
+|shareDesc |String |分享描述| |
+|shareLinkUrl |String |分享链接| |
+
+**orderBtn** 
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|btnType |String |按钮行为|如`OrderConfirm`|
+|btnDesc |String |按钮文案|如`订单确认`|
+ 
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "amount": 44,
+        "title": "455",
+        "orderBtn": [],
+        "needPay": true,
+        "orderId": "u00011512121232324074265362",
+        "payTypes": [
+            {
+                "payTypeDesc": "微信支付",
+                "payType": "WxPay"
+            },
+            {
+                "payTypeDesc": "支付宝支付",
+                "payType": "AliPay"
+            },
+            {
+                "payTypeDesc": "信用卡支付",
+                "payType": "CreditCardPay"
+            },
+            {
+                "payTypeDesc": "找人代付",
+                "payType": "SharePay"
+            }
+        ],
+        "sharePayTemplate": {
+            "shareLinkUrl": "http://mtest.2020880.com/weixin/WeiXinAuthrize?wxAppId=5e79e3a77d294c4493a40a56f330df38&toUrl=/Order/SharePay?orderId=u00011512121232324074265362&needUT=0",
+            "shareTitle": "我在Get上下了一张订单,快点来帮我支付吧",
+            "shareDesc": "455"
+        },
+        "amountDesc": "￥44.0"
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2016-01-19 15:08:20",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+```
+
+---
+
+####开发环境：
+http://121.41.27.42:8081/user/v2/payTypes?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=630e2bc7cfd85f0e4d601ea48f91848d
+
+```
+{
+	"userToken":"u000168096057f1b5449bb29bfee3087ab41f",
+    "orderId":"u00011512121232324074265362",
+    "clientType":"Ios"
+}
+```
+####测试环境：
+http://120.55.117.53:8081/user/v2/payTypes?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=630e2bc7cfd85f0e4d601ea48f91848d
+
+```
+{
+	"userToken":"u000168096057f1b5449bb29bfee3087ab41f",
+    "orderId":"u00011512121232324074265362",
+    "clientType":"Ios"
+}
+```
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-1-11 |基础版 |刘定湘 |

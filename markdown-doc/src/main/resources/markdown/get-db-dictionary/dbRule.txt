@@ -1,0 +1,3 @@
+* [Get数据库文档](/markdown/get-db-dictionary) > Get数据库文档 - V1
+ 
+#####数据库 规则

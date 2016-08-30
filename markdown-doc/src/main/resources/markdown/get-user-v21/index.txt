@@ -1,0 +1,31 @@
+* [接口文档](/markdown) > Get接口文档 - V2.1
+
+#Get接口文档 - V2.1
+* 1 基础参数和签名
+ * 1.1 [基础参数](/markdown/get-user-v21/1.1.txt)
+ * 1.2 [签名方式](/markdown/get-user-v21/1.2.txt)
+ * 1.3 [Json返回结果](/markdown/get-user-v21/1.3.txt)
+* 2 接口说明
+ * 2.1 [Poke一下](/markdown/get-user-v21/2.1.txt)
+ * 2.2 [公共日志记录](/markdown/get-user-v21/2.2.txt)
+ * 2.3 [优惠券列表](/markdown/get-user-v21/2.3.txt)
+ * 2.4 [优惠券领取](/markdown/get-user-v21/2.4.txt)
+ * 2.5 [优惠券详情](/markdown/get-user-v21/2.5.txt)
+ * 2.6 [收藏列表](/markdown/get-user-v21/2.6.txt)
+ * 2.7 [新增收藏](/markdown/get-user-v21/2.7.txt)
+ * 2.8 [转发](/markdown/get-user-v21/2.8.txt)
+ * 2.9 [取消标记](/markdown/get-user-v21/2.9.txt)
+ * 2.10[收藏详情](/markdown/get-user-v21/2.10.txt)
+ * 2.11 [未支付订单列表](/markdown/get-user-v21/2.11.txt) 
+ * 2.12 [合并支付](/markdown/get-user-v21/2.12.txt)
+ * 2.13 [订单详情](/markdown/get-user-v21/2.13.txt) 
+ * 2.14 [订单列表](/markdown/get-user-v21/2.14.txt)
+ * 2.15 [删除聊天记录](/markdown/get-user-v21/2.15.txt)
+
+* 3 附录
+ * 3.1 [返回Code枚举](/markdown/get-user-v21/3.1.txt)
+ * 3.2 [账户类型](/markdown/get-user-v21/3.2.txt)
+ * 3.3 [订单类型](/markdown/get-user-v21/3.3.txt)
+ * 3.4 [订单状态](/markdown/get-user-v21/3.4.txt)
+
+ 

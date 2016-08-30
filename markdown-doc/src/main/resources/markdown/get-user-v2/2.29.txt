@@ -1,0 +1,394 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.29
+
+##2.29 优惠券列表
+###URL:
+/user/v2/ticketList
+###方式:
+**POST**
+###输入参数:
+|字段	 |类型  |描述 |可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userToken |String | 用户Token |否 |  |
+|ticketStatus |List(Integer) | 优惠券状态 详情参见附表`3.5 优惠券状态表`   |是，为空查询所有 | |
+|pageNum |Integer | 当前页码 |否 |  |
+|pageSize |Integer | 页显示大小 |否 |  |
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|ticketId |String |优惠券ID |  |
+|status |Integer |优惠券状态值 | 详情参见附表`3.5 优惠券状态表` |
+|statusDesc |String |优惠券状态值表述 | 详情参见附表`3.5 优惠券状态表` |
+|ticketType |Integer |优惠券类型 |详情参见附表`3.6 优惠券类型表`|
+|ticketTypeDesc |String |优惠券类型描述 |详情参见附表`3.6 优惠券类型表`|
+|useEndTime |String |使用结束时间 | |
+|useStartTime |String |使用开始时间 | |
+|name |String |优惠券名称 | |
+|ticketAmt |Integer |优惠券优惠金额或折扣 | |
+|ticketAmtDesc |String |优惠券优惠金额或折扣表述 |如`10元`,`7折` |
+|ticketRuleDesc |String |优惠券规则描述 |如`满30减10元`|
+|createTime |String |优惠券获取时间 |  |
+|isUsable |boolean |优惠券是否可用 |针对处于`尚未生效`和`可使用`的优惠券,且请求渠道于优惠卷使用渠道一致，此字段为true|
+|channelList |List |优惠卷使用渠道列表 |详细见下表`渠道列表`,需要此字段传递OP|
+|ticketColor|String | 优惠券品类对应的颜色  | |
+|multiPK |List |优惠券适用品类列表 |详情见下表`优惠券适用品类列表`,需要将此字段传递给OP |
+|orderAmount |Integer |优惠券使用限制满多少使用 |单位元|
+|maxAmount |Integer |优惠券最大优惠金额 |单位元|
+
+#### 优惠券适用品类
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|productKindId |String |品类ID |  |
+|productKind |String |品类名称 |  |
+
+### 渠道列表
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|channelId |String |渠道ID |  |
+|channelName |String |渠道名称 |  |
+
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": [
+    {
+      "ticketColor": "#2A8EFF",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 0,
+      "ticketId": "u00019e6cb38205704a858e6637fddc79d002",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 1,
+      "name": "测试券1",
+      "ticketAmtDesc": "￥1.0",
+      "ticketAmt": 1,
+      "ticketRuleDesc": "满3元，减1.0元",
+      "multiPK": [
+        {
+          "productKindId": "564ed52765cd45cbb779998ff5f5c55b",
+          "productKind": "打车"
+        },
+        {
+          "productKindId": "aea513510de24ca5aa03193411ef74f9",
+          "productKind": "咖啡"
+        },
+        {
+          "productKindId": "95a1854f21664f1ea975c1bba343304d",
+          "productKind": "其他"
+        }
+      ],
+      "statusDesc": "可以使用"
+    },
+    {
+      "ticketColor": "#2A8EFF",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 0,
+      "ticketId": "u000153d41d1b7786464babf0214859711f64",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 1,
+      "name": "测试券1",
+      "ticketAmtDesc": "￥1.0",
+      "ticketAmt": 1,
+      "ticketRuleDesc": "满3元，减1.0元",
+      "multiPK": [
+        {
+          "productKindId": "564ed52765cd45cbb779998ff5f5c55b",
+          "productKind": "打车"
+        },
+        {
+          "productKindId": "aea513510de24ca5aa03193411ef74f9",
+          "productKind": "咖啡"
+        },
+        {
+          "productKindId": "95a1854f21664f1ea975c1bba343304d",
+          "productKind": "其他"
+        }
+      ],
+      "statusDesc": "可以使用"
+    },
+    {
+      "ticketColor": "#2A8EFF",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 0,
+      "ticketId": "u00014fd250fef9ef4d67aff4e853d4b8e912",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 1,
+      "name": "测试券1",
+      "ticketAmtDesc": "￥1.0",
+      "ticketAmt": 1,
+      "ticketRuleDesc": "满3元，减1.0元",
+      "multiPK": [
+        {
+          "productKindId": "564ed52765cd45cbb779998ff5f5c55b",
+          "productKind": "打车"
+        },
+        {
+          "productKindId": "aea513510de24ca5aa03193411ef74f9",
+          "productKind": "咖啡"
+        },
+        {
+          "productKindId": "95a1854f21664f1ea975c1bba343304d",
+          "productKind": "其他"
+        }
+      ],
+      "statusDesc": "可以使用"
+    },
+    {
+      "ticketColor": "#2A8EFF",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 0,
+      "ticketId": "u0001a94dab5812c143a494e6e7a73be35096",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 1,
+      "name": "测试券1",
+      "ticketAmtDesc": "￥1.0",
+      "ticketAmt": 1,
+      "ticketRuleDesc": "满3元，减1.0元",
+      "multiPK": [
+        {
+          "productKindId": "564ed52765cd45cbb779998ff5f5c55b",
+          "productKind": "打车"
+        },
+        {
+          "productKindId": "aea513510de24ca5aa03193411ef74f9",
+          "productKind": "咖啡"
+        },
+        {
+          "productKindId": "95a1854f21664f1ea975c1bba343304d",
+          "productKind": "其他"
+        }
+      ],
+      "statusDesc": "可以使用"
+    },
+    {
+      "ticketColor": "#2A8EFF",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 0,
+      "ticketId": "u000198cbf8d87a9f499e902796ad557cf69b",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 1,
+      "name": "测试券1",
+      "ticketAmtDesc": "￥1.0",
+      "ticketAmt": 1,
+      "ticketRuleDesc": "满3元，减1.0元",
+      "multiPK": [
+        {
+          "productKindId": "564ed52765cd45cbb779998ff5f5c55b",
+          "productKind": "打车"
+        },
+        {
+          "productKindId": "aea513510de24ca5aa03193411ef74f9",
+          "productKind": "咖啡"
+        },
+        {
+          "productKindId": "95a1854f21664f1ea975c1bba343304d",
+          "productKind": "其他"
+        }
+      ],
+      "statusDesc": "可以使用"
+    },
+    {
+      "ticketColor": "#2A8EFF",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 0,
+      "ticketId": "u00019b9b4e5ca274466a867974b18de6ebb0",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 1,
+      "name": "测试券1",
+      "ticketAmtDesc": "￥1.0",
+      "ticketAmt": 1,
+      "ticketRuleDesc": "满3元，减1.0元",
+      "multiPK": [
+        {
+          "productKindId": "564ed52765cd45cbb779998ff5f5c55b",
+          "productKind": "打车"
+        },
+        {
+          "productKindId": "aea513510de24ca5aa03193411ef74f9",
+          "productKind": "咖啡"
+        },
+        {
+          "productKindId": "95a1854f21664f1ea975c1bba343304d",
+          "productKind": "其他"
+        }
+      ],
+      "statusDesc": "可以使用"
+    },
+    {
+      "ticketColor": "#2A8EFF",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 0,
+      "ticketId": "u0001ceded5a3241d4e7784ad41542641d4a1",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 1,
+      "name": "测试券1",
+      "ticketAmtDesc": "￥1.0",
+      "ticketAmt": 1,
+      "ticketRuleDesc": "满3元，减1.0元",
+      "multiPK": [
+        {
+          "productKindId": "564ed52765cd45cbb779998ff5f5c55b",
+          "productKind": "打车"
+        },
+        {
+          "productKindId": "aea513510de24ca5aa03193411ef74f9",
+          "productKind": "咖啡"
+        },
+        {
+          "productKindId": "95a1854f21664f1ea975c1bba343304d",
+          "productKind": "其他"
+        }
+      ],
+      "statusDesc": "可以使用"
+    },
+    {
+      "ticketColor": "#2A8EFF",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 0,
+      "ticketId": "u00010351e279a6d5472b9dda2c252e39ac53",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 1,
+      "name": "测试券1",
+      "ticketAmtDesc": "￥1.0",
+      "ticketAmt": 1,
+      "ticketRuleDesc": "满3元，减1.0元",
+      "multiPK": [
+        {
+          "productKindId": "564ed52765cd45cbb779998ff5f5c55b",
+          "productKind": "打车"
+        },
+        {
+          "productKindId": "aea513510de24ca5aa03193411ef74f9",
+          "productKind": "咖啡"
+        },
+        {
+          "productKindId": "95a1854f21664f1ea975c1bba343304d",
+          "productKind": "其他"
+        }
+      ],
+      "statusDesc": "可以使用"
+    },
+    {
+      "ticketColor": "#2A8EFF",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 1,
+      "ticketId": "u00018ec1c34a6beb4673a3af7ee355ab4597",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 2,
+      "name": "券名称4",
+      "ticketAmtDesc": "5.0折",
+      "ticketAmt": 5,
+      "ticketRuleDesc": "5.0折扣，最大优惠额度1元，满3元使用",
+      "multiPK": [
+        {
+          "productKindId": "95a1854f21664f1ea975c1bba343304d",
+          "productKind": "其他"
+        }
+      ],
+      "statusDesc": "可以使用"
+    },
+    {
+      "ticketColor": "#239E4C",
+      "status": 2,
+      "useStartTime": "2015-11-25 00:00:00",
+      "maxAmount": 1,
+      "ticketId": "u0001f1ac629cd87e4238bd54da803f3eeea7",
+      "isUsable": true,
+      "orderAmount": 3,
+      "useEndTime": "2015-12-12 23:59:59",
+      "ticketType": 2,
+      "name": "券名称3",
+      "ticketAmtDesc": "5.0折",
+      "ticketAmt": 5,
+      "ticketRuleDesc": "5.0折扣，最大优惠额度1元，满3元使用",
+      "multiPK": [
+        {
+          "productKindId": "aea513510de24ca5aa03193411ef74f9",
+          "productKind": "咖啡"
+        }
+      ],
+      "statusDesc": "可以使用"
+    }
+  ],
+  "page": {
+    "total": 34,
+    "page": 1,
+    "pageSize": 10,
+    "count": 10,
+    "next": true,
+    "startIndex": 0
+  },
+  "foot": {
+    "operationTime": "2015-12-08 11:28:55",
+    "servicePhone": "400800400",
+    "host": "test1"
+  }
+}
+```
+
+####开发环境：
+
+http://121.41.27.42:8081/user/v2/ticketList?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=86cd6576dc5aa3ff40355cac298a79a3
+
+```
+{
+    "userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+    "pageNum":1,
+    "pageSize":10
+}
+```
+####测试环境：
+http://120.55.117.53:8081/user/v2/ticketList?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=86cd6576dc5aa3ff40355cac298a79a3
+
+```
+{
+    "userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+    "pageNum":1,
+    "pageSize":10
+}
+```
+http://120.55.117.53:8081/user/v2/ticketList?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=f6e0f92f3101a8ca0c3de78e5c6fbd45
+
+```
+{
+    "userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+    "pageNum":1,
+    "pageSize":10,
+    "ticketStatus" : [1 , 2]
+}
+```
+####线上环境：
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-04 |基础版 |刘定湘 |

@@ -1,0 +1,49 @@
+* [接口文档](/markdown) > Op App Api接口文档
+
+#Op App Api接口文档
+
+* 1 路由描述
+ * 1.1 [Op Api介绍](/markdown/get-op-app/1.1.txt)
+ * 1.2 [通用参数](/markdown/get-op-app/1.2.txt)
+* 2 接口说明
+ * 2.1 [中转OP接口](/markdown/get-op-app/2.1.txt)
+ * 2.2 [用户登录接口](/markdown/get-op-app/2.2.txt)
+ * 2.3 [在线OP接口](/markdown/get-op-app/2.3.txt)
+ * 2.4 [员工信息接口](/markdown/get-op-app/2.4.txt)
+ * 2.5 [员工上下线接口](/markdown/get-op-app/2.5.txt) 
+ * 2.6 ~~[服务中会话用户列表接口](/markdown/get-op-app/2.6.txt)~~ 
+ * 2.6 [服务中会话用户列表接口](/markdown/get-op-app/2.6_new.txt)
+ * 2.7 [批量关闭会话接口](/markdown/get-op-app/2.7.txt)
+ * 2.8 [批量发送消息接口](/markdown/get-op-app/2.8.txt)
+ * 2.8.1 [批量发送消息到消息中心接口](/markdown/get-op-app/2.8.1.txt)
+ * 2.9 [获取用户最近会话信息接口](/markdown/get-op-app/2.9.txt)
+ * 2.10 ~~[获取用户的所有聊天记录接口(用于聊天中、用户搜索)](/markdown/get-op-app/2.10.txt)~~
+ * 2.10 [获取用户的聊天记录接口](/markdown/get-op-app/2.10_new.txt)
+ * 2.11 [获取消息标识记录接口](/markdown/get-op-app/2.11.txt)
+ * 2.12 [创建或修改消息标识接口](/markdown/get-op-app/2.12.txt)
+ * 2.13 [获取用户标签接口](/markdown/get-op-app/2.13.txt)
+ * 2.14 [获取用户参与项目列表接口](/markdown/get-op-app/2.14.txt)
+ * 2.15 [添加/修改/删除标签接口](/markdown/get-op-app/2.15.txt)
+ * 2.16 [获取上传文件到七牛所需的参数接口](/markdown/get-op-app/2.16.txt) 
+ * 2.17 ~~[公司的员工列表中转接口](/markdown/get-op-app/2.17.txt)~~
+ * 2.17 [公司的员工列表中转接口](/markdown/get-op-app/2.17_new.txt)
+ * 2.18 [转接给我/OP中转接口](/markdown/get-op-app/2.18.txt)
+ * 2.19 [搜索用户中转接口](/markdown/get-op-app/2.19.txt)
+ * 2.20 [发起会话中转接口](/markdown/get-op-app/2.20.txt)
+ * 2.21 [加入协助中转接口](/markdown/get-op-app/2.21.txt)
+ * 2.22 [主播群列表中转接口](/markdown/get-op-app/2.22.txt)
+ * 2.23 ~~[主播群详情中转接口](/markdown/get-op-app/2.23.txt)~~
+ * 2.24 [主播群开始接口](/markdown/get-op-app/2.24.txt)
+ * 2.25 [主播群关闭接口接口](/markdown/get-op-app/2.25.txt)
+ * 2.26 [主播群状态轮询接口](/markdown/get-op-app/2.26.txt)
+ * 2.27 [主播群发送消息接口](/markdown/get-op-app/2.27.txt)
+ * 2.28 [主播群获取群消息记录接口](/markdown/get-op-app/2.28.txt)
+ * 2.29 [订单查询中转接口](/markdown/get-op-app/2.29.txt)
+ * 2.30 [服务单查询中转接口](/markdown/get-op-app/2.30.txt)
+ * 2.31 [采购单查询中转接口](/markdown/get-op-app/2.31.txt)
+ * 2.32 [JS升级检测接口](/markdown/get-op-app/2.32.txt)
+ * 2.33 [取消订单接口](/markdown/get-op-app/2.33.txt)
+ * 2.34 [取消服务单接口](/markdown/get-op-app/2.34.txt)
+ * 2.35 [取消采购单接口](/markdown/get-op-app/2.35.txt)
+* 3 附录
+

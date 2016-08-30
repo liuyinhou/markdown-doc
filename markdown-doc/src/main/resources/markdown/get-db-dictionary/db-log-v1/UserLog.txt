@@ -1,0 +1,19 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Log.txt) > Get数据库文档 - V1
+ 
+##UserLog  记录用户日志表
+ 
+| 字段              | 类型     | 描述 | 备注 | 版本 |
+| --------------- | ------ | -- | -- | -- |
+| _id          | String | |  | v2 |
+| UserId          | String |用户ID	  |  | v2 |
+| Type        | String |日志类型 |  | v2 |
+| Description        | String |描述 | | v2 |
+| RefId        | String |关联实体的ID | | v2 |
+| CreateTime      | Date   |创建时间|  | v2 |
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-03-07 |v2   |刘印后 | |

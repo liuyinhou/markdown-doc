@@ -1,0 +1,90 @@
+* [Op app Api接口文档](/markdown/get-op-app) > 2.19
+
+##2.19 搜索用户（中转接口）
+###URL:
+http://120.55.94.183:8086/opapp/transfer
+###方式:
+POST
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|reqUrl|String|请求的url|否 |  |
+|reqUrlHost|String|请求的url的host|否 |值为`op_url_pre` |
+|userNickname|String|用户昵称|是| |
+|opNickname|String|客服昵称|是| |
+|userTag|String|用户标签|是|多个标签之前以`，`分割 |
+|registStartTime|String|开始时间，注册维度|是|默认值为`null`|
+|registEndTime|String|结束时间，注册维度|是| 默认值为`null`|
+|pageNum|Integer|请求页面|是| 默认为`1`|
+|pageSize|Integer|每页展示数量|是| 默认为`20`条|
+
+###返回数据:
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|
+|userId |String |用户ID | |
+|nickName |String |用户昵称 | |
+|userIcon |String |用户头像URL| |
+|createTime |String |用户注册时间,`yyyy-MM-dd HH:mm:ss`格式| |
+|tags |List(String) |用户标记| |
+|orderCount |Integer |订单数| |
+|serviceOrderCount |Integer |服务单数| |
+|chatCount |Integer |会话数| |
+
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": [
+        {
+            "serviceOrderCount": 0,
+            "tags": [
+                "GetTest"
+            ],
+            "createTime": "2016-01-08 11:54:25",
+            "icon": "http://7xkq6j.com1.z0.glb.clouddn.com/77472d6c9430437d9013303128bd1fec.png?attname=&imageView2/1/w/200/h/200&e=1615108981&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:WrtOWM3F4hFxeleCQXsIpFTAoRg=",
+            "chatCount": 0,
+            "userId": "u00015660973124da42438c4216fcf3989d3d",
+            "orderCount": 0
+        },
+        ... ...
+    ],
+    "page": {
+        "total": 5,
+        "page": 1,
+        "pageSize": 20,
+        "count": 5,
+        "next": false,
+        "startIndex": null
+    },
+    "foot": {
+        "operationTime": "2016-03-03 14:48:41",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+```
+
+---
+
+
+####测试环境
+http://120.55.94.183:8086/opapp/transfer?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=7c2b94e2e584989f0bef4d88a25d9d63
+ 
+```
+{ 
+  "reqUrl":"/op/v2/searchUsers",
+  "reqUrlHost":"op\_url\_pre",
+  "userNickname":"xxx",
+  "opNickname":"xxx",
+  "userTag":"Get，123" 
+}
+```
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-06-13 |基础版 |季宇轩|

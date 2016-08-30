@@ -1,0 +1,115 @@
+* [Op Api接口文档](/markdown/get-op-api) > [2.32 获取用户的所有聊天记录](/markdown/get-op-api/2.32.txt) > 2.32.1
+
+##2.32.1 获取用户的所有聊天记录（用于聊天中、用户搜索）
+
+###URL:
+/op/v2/userMessageList
+
+###方式:
+post
+
+###输入参数:
+|字段		|类型 	|描述 	|可为空 	|备注 	|
+|:-----		|:-----	|:------|:-----	|:----	|
+|userId 	|String |用户ID 	|否 		| 		|
+|pageNum	|Integer|页码	|否		|从1开始	|
+|pageSize	|Integer|每页大小	|否		| 		|
+|needMark 	|Boolean |查询标记记录 	|是 		| 		|
+|needFavorite 	|Boolean |查询用户收藏记录 	|是 		| 		|
+|creatTime 	|String |起始消息的创建时间	|是 		|yyyy-MM-dd HH:mm:ss.S |
+|action 	|String |请求类型 |是 |INIT：首次加载初始化；MORE：下拉加载更多；NEW：增量更新 |
+
+###返回数据: 
+
+|字段			|类型			|描述 											|备注					|
+|:----			|:----			|:----											|:----					| 
+|userMessageId 	|String 		|消息ID 											| 						|
+|hxMsgId		|String			|环信messageID									|						|
+|form 			|String 		|发送者 											| 						|
+|to 			|String 		|接收者 											|是用户或者群组 				|
+|type 			|String 		|消息类型 											| 						|
+|msg 			|String 		|消息内容 											| 						|
+|url 			|String 		|链接地址 											| 						|
+|filename 		|String 		|文件名 											| 						|
+|thumb 			|String 		|缩略图地址 										| 						|
+|secret 		|String 		|secret在上传图片后会返回，只有含有secret才能够下载此图片 	| 						|
+|thumb_secret 	|String 		|thumb_secret在上传缩略图后会返回 					| 						|
+|length 		|Integer		|语音时长，单位为秒，这个属性只有语音消息有 				| 						|
+|file_length 	|Integer		|文件大小，视频消息有 								| 						|
+|addr 			|String 		|中文地址，地址消息有 								| 						|
+|lat 			|Double 		|地址纬度，地址消息有 								| 						|
+|lng 			|Double 		|地址经度，地址消息有 								|	 					|
+|createTime 	|Date 			|创建时间 											|yyyy-MM-dd HH:mm:ss	|
+|getUrl 		|String 		|图片七牛存放url									| 						|
+|ext 			|Map 			|扩展字段 											| 						|
+|favorite 		|Boolean		|用户是否收藏 										|true 已收藏  false 未收藏 	|
+|mark 			|`List<Stirng>` |mark 标识										| 						|
+
+
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": [
+        {
+            "to": "148992039571161524",
+            "createTime": "2016-02-18 10:31:05",
+            "form": "admin",
+            "file_length": null,
+            "lng": null,
+            "addr": null,
+            "type": "img",
+            "msg": null,
+            "ext": {
+                "reFresh": "chats"
+            },
+            "url": "https://a1.easemob.com/abujj/gettest/chatfiles/a80db360-d5e7-11e5-961b-09cfaf9addcc",
+            "getUrl": "http://7xkq6j.com1.z0.glb.clouddn.com/u0001a46607f873f0428d8fc07119fa05fac7.jpg?e=1615109357&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:_SnAiItA6HpZEjeENCsqABps8qY=",
+            "thumbsecret": "",
+            "length": null,
+            "filename": "u0001a46607f873f0428d8fc07119fa05fac7.jpg",
+            "secret": "qA2zatXnEeWP7Kvbwv30XNekzMnM6Tk0GBfUUcm6k6hBtgeH",
+            "userMessageId": "u0001a46607f873f0428d8fc07119fa05fac7",
+            "thumb": "",
+            "lat": null
+        },
+       ... ...
+    ],
+    "page": {
+        "total": 2,
+        "page": 1,
+        "pageSize": 20,
+        "count": 2,
+        "next": false,
+        "startIndex": null
+    },
+    "foot": {
+        "operationTime": "2016-03-08 17:29:17",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+```
+
+---
+
+####测试环境：
+
+http://120.55.94.183:8080/op/v2/userMessageList?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=ed549766b3a74c305602d7be2cdf12d1
+
+```
+{
+  "userId":"u0001ac79b1e553ab494687bc824d0937da10"
+}
+```
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-03-03 |基础版 |刘定湘|

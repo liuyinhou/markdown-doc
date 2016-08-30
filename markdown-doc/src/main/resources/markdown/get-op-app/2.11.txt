@@ -1,0 +1,217 @@
+
+* [Op Api接口文档](/markdown/get-op-api) > 2.11
+
+##2.11  获取消息标识记录(中转)
+
+
+###URL:
+http://120.55.94.183:8086/opapp/transfer
+
+
+
+###方式:
+post
+
+###输入参数:
+
+ >  请求消息结构
+
+|	字段		|类型	|描述		|可为空	|备注							|版本	|
+|	----	|-----	|--			|--		|--								|--		|
+|reqUrl         |String |请求的url       |否              |                               |
+|userId		|String	| 用户id		|否		|								|v2.1	|
+|startTime	|String	|开始时间		|是		| 时间格式为`yyyy-MM-dd HH:mm:ss`	|v2.1	|
+|endTime	|String	|更新时间		|是		| 时间格式为`yyyy-MM-dd HH:mm:ss` 	|v2.1	|
+|staffId	|String	|操作人id		|是		|           					|v2.1	|
+
+
+ 
+
+***
+
+###返回结果:
+
+参见[OP Api 获取消息标识记录接口](/markdown/get-op-api/2.47.txt)
+
+|字段	|类型					|描述		|备注					|版本	|
+|----	|-----					|--			|--						|--		|
+| 		|`List<MessageMark>`	|消息标识记录	| 详见`MessageMark`	表	|v2.1	|
+
+#### MessageMark  消息标识
+|	字段		|	类型			|描述		|备注				|版本|
+|	----	|	-----		|--			|--					|--	|	
+|id			|String			|消息标识记录id| 					|v1	|
+|mark		|`List<String>`	|标识		| 					|v1	|
+|messageId	|String			|消息id		|  					|v1	|
+|userMessage|`UserMessage`	|收藏消息		|详见`UserMessage`	|v1	|
+|userId		|String			|用户id		|  					|v1	|
+|staffId	|String			|操作人id		|  					|v1	|
+|companyId	|String			|公司ID		|  					|v1	|
+|createTime	|Date			|创建时间		| 					|v1	|
+|updateTime	|Date			|更新时间 		| 					|v1	|
+
+
+
+
+#### UserMessage  消息
+|	字段			|	类型				|描述					|备注																|版本|
+|	----		|	-----			|--						|--																	|--	|	
+|userMessageId	|String				|消息id					| 																	|v1	|
+|hxMsgId		|String				|环信消息id				| 																	|v1	|
+|operaterId		|String				|OP id					|  																	|v1	|
+|userId			|String				|用户id					|																	|v1	|
+|chatId			|String				|会话id					|  																	|v1	|
+|hx				|`UserMessageRefHx`	|环信消息内容				|详见`UserMessageRefHx`  											|v1	|
+|type			|Integer			|消息类型					|Txt = 1， Audio = 2, Image = 3, (位置)Loc = 4, Video = 5, File = 7  	|v1	|
+|status			|Integer			|状态					|  																	|v1	|
+|clientType		|Integer			|客户端类型				|All = -1 Web=0,WX = 1,Ios=2,Android=3,WindowsPhone=4  				|v1	|
+|createTime		|Date				|创建时间					|  																	|v1	|
+|favoritedCount	|Integer			|标记重复收藏次数			|  																	|v1	|
+|mediaId		|String				|标识多媒体文件是否已上传至七牛	|  																	|v1	|
+|mark			|`List<String>`		|标识					|  																	|v1	|
+
+
+
+#### UserMessageRefHx  环信消息内容
+|	字段			|	类型			|描述			|备注												|版本|
+|	----		|	-----		|--				|--													|--	|	
+|from			|String			|消息发送者		| 													|v1	|
+|to				|String			|消息接收者		|环信groupId											|v1	|
+|type			|String			|消息类型			|"txt"、"audio"、"img"、"loc"、"video"、"file"、"cmd"	|v1	|
+|msg			|String			|消息内容			| 													|v1	|
+|url			|String			|url			|  													|v1	|
+|filename		|String			|文件名称			|  													|v1	|
+|thumb			|String			|缩略图			|  													|v1	|
+|secret			|String			|环信返回secret	| 													|v1	|
+|thumb_secret	|String			|缩略图 secret		| 													|v1	|
+|length			|String			|语音或视频时长		|  													|v1	|
+|file_length	|String			|文件大小			|  													|v1	|
+|addr			|String			|地址			|  													|v1	|
+|lat			|String			|纬度			| 													|v1	|
+|lng			|String			|经度			| 													|v1	|
+|ext			|Map 			|扩展字段 			|详见`ext`扩展字段										|v1	|
+
+
+#### ext  消息标识
+|	字段			|	类型			|描述		|备注						|版本|
+|	----		|	-----		|--			|--							|--	|	
+|chatid			|String			|会话id		| 							|v1	|
+|isEnd			|String			|是否结束		| 							|v1	|
+|clientType		|String			|客户端类型	|  							|v1	|
+|reFresh		|String			|是否刷新		| 							|v1	|
+|isDelete		|String			|是否删除		|  							|v1	|
+|isHide			|String			|是否隐藏		|  							|v1	|
+|groupid		|String			|环信groupid	|  							|v1	|
+|OperatorJoin	|String			|OP是否加入	| 							|v1	|
+|chatType		|String			|会话类型		| 							|v1	|
+|chatClient		|String			|会话客户端	| 							|v1	|
+|chatChannel	|String			|会话渠道		|  							|v1	|
+|chatVersion	|String			|版本		| 							|v1	|
+|chatLocation	|String			|会话位置信息	|  							|v1	|
+|pushMediaId	|String			|推送文件id	|  							|v1	|
+|getType		|Integer		|admin消息类型|1 关键词自动回复;2 场景提示语句;  	|v1	|
+|template		|Map			|模板消息 		|详见`template` 				|v1	|
+|expandMsg		|Map			|扩展消息 		|详见`expandMsg`				|v1	|
+
+#### template  消息标识
+|	字段			|	类型			|描述		|备注				|版本|
+|	----		|	-----		|--			|--					|--	|	
+|templetId		|Integer		|模板id		| 					|v1	|
+|content		|String			|模板内容		|json格式的字符		|v1	|
+
+#### expandMsg  消息标识
+|	字段			|	类型			|描述		|备注				|版本|
+|	----		|	-----		|--			|--					|--	|	
+|MsgType		|String			|扩展消息类型	| 					|v1	|
+|Content		|String			|扩展消息内容	|json格式的字符		|v1	|
+
+***   
+  
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": [
+        {
+            "id": "u0001320c82b950dd4b6095cdca1187460a3d",
+            "mark": [
+                "Getfit#早餐",
+                "Getfit#午餐",
+                "Getfit#晚餐"
+            ],
+            "messageId": "u00018ee01089bc9b4fb78645d41dbf8e1951",
+            "userMessage": {
+                "userMessageId": "u00018ee01089bc9b4fb78645d41dbf8e1951",
+                "hxMsgId": "195688540556755536",
+                "operaterId": "o0001565634d0db364515b0bf22491c8372af",
+                "userId": "u000193f6f02e01764a0f869be49a2be21e01",
+                "chatId": "u0001b177d88e129f4220bda5e1a67a16001c",
+                "hx": {
+                    "from": "admin",
+                    "to": "148992289019003396",
+                    "type": "txt",
+                    "msg": "微信内链图文",
+                    "url": null,
+                    "filename": null,
+                    "thumb": null,
+                    "secret": null,
+                    "thumb_secret": null,
+                    "length": null,
+                    "file_length": null,
+                    "addr": null,
+                    "lat": null,
+                    "lng": null,
+                    "ext": {
+                        "template": {
+                            "templetId": "2",
+                            "Content": "{\"msgs\":[{\"imgUrl\":\"http://res.getgaoding.com/b3f0dabdf9274abda115aae357879e64.png?e=1620726223&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:TRHijeL1fVVc7Ymyoxo3lHZ0nas=\",\"title\":\"以后请到“Get一下”找我！\",\"linkUrl\":\"http://mp.weixin.qq.com/s?__biz=MzA3NjYzNzc1OA==&mid=413522254&idx=1&sn=d7fac79801d7758c51e4041b0d706e22#rd\"}],\"wxMediaId\":\"VioIb4LIxcwT5wfWmuuvGKS9YCUd5bbK0rp1eRBDR_k\"}"
+                        },
+                        "getType": 1,
+                        "chatVersion": "2.0"
+                    }
+                },
+                "type": 1,
+                "status": null,
+                "clientType": null,
+                "createTime": "2016-05-13 16:11:28",
+                "favoritedCount": null,
+                "mediaId": null,
+                "mark": [
+                    "Getfit#早餐",
+                    "Getfit#午餐",
+                    "Getfit#晚餐"
+                ]
+            },
+            "userId": "u000193f6f02e01764a0f869be49a2be21e01",
+            "staffId": "o0001565634d0db364515b0bf22491c8372af",
+            "companyId": "b3c4924122d34dc0846a755abc47b416",
+            "createTime": "2016-05-13 16:15:55",
+            "updateTime": "2016-05-13 16:15:55"
+        }
+    ],
+    "foot": {
+        "operationTime": "2015-12-02 21:01:48",
+        "servicePhone": "400800400",
+        "host": "yinuo-PC"
+    }
+}
+```
+
+***
+
+####测试环境：
+
+http://120.55.94.183:8086/opapp/transfer?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=f4e702296d9682ffef1c0d8744b0cdc9
+ 
+{"reqUrl":"/op/v2/getMessageMarkList","userId":"u000193f6f02e01764a0f869be49a2be21e01"}
+
+
+####线上环境：
+
+###版本历史：
+
+|版本 	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:-----	|:------|
+|01 	|2016-05-30 |基础版 	|季宇轩 	|
+

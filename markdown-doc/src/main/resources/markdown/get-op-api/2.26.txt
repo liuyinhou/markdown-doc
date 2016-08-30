@@ -1,0 +1,56 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.26
+
+##2.26 修改客服op的消息提示音是否开启以及消息提示框是否显示
+###URL:
+http://120.55.94.183:8083/op/v2/setPushShowAndRing
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|isPushShow|String|显示消息提示框|否|true:显示,false:隐藏|
+|isRing|String|消息提示音|否|true:有,false:无|
+
+
+###返回数据:
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+
+
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": null,
+  "page": null,
+  "foot": {
+    "operationTime": "2016-01-12 14:07:24",
+    "servicePhone": "400800400",
+    "host": "DESKTOP-CG59P88"
+  }
+}
+```
+
+---
+
+####开发环境：
+
+http://localhost:8080/op/v2/setPushShowAndRing?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=fcb19e2a4bc4c6a8d9e436a1bae8af87
+{"isPushShow":true,"isRing":true}
+
+####测试环境
+http://120.55.94.183:8083/op/v2/setPushShowAndRing?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=fcb19e2a4bc4c6a8d9e436a1bae8af87
+{"isPushShow":true,"isRing":true}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-01-06 |基础版 |阿洋|

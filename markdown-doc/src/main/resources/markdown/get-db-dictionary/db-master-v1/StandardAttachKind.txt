@@ -1,0 +1,21 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ ##StandardAttachKind  标准画像分类表
+ 
+ 
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+| _id   | String |   主键 |    | v1 |
+| StandardAttachKindId     | String |   标准画像分类id |    | v1 |
+| Name  | String |   分类名称（社会属性,生理属性之类） |    | v1 |
+| Type       | int |   分类(0=用户，1=员工，2=员工组) |    | v1 |
+| OperatorId    | String   |   操作人 |    | v1 |
+| CreateTime       | Date |   创建时间 |    | v1 |
+| UpdateTime     | Date  |   修改时间 |    | v1 |
+ 
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-24 |v1   |Jim | |

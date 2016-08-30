@@ -1,0 +1,73 @@
+
+
+* [Get-User接口文档](/markdown/get-user-v2) > 2.59
+
+##2.59 创建订单接口
+
+
+###URL:
+http://120.55.117.53:8081/user/v2/createOrder
+
+
+###方式:
+Post
+
+| 字段|类型 |描述 |可为空 |备注 |版本 |
+| ----  |-----  |-- |-- |-- |-- |
+|userId|String|用户ID|否| | |
+|title|String||否|订单标题 | |
+|price|Double||否|订单金额 | |
+|productKindId|String||否|对应ProductKind表记录的主键 | |
+|userAddress|String|订单地址|是| | |
+|phone|String|订单电话|是| | |
+|userName|String|订单用户名|是| | |
+|remark|String|备注|是| | |
+|operatorId|String|操作人|是| | |
+|userChatId|String|会话ID|是| | |
+|serviceTimeType|Integer|服务时间类型|是|10 不选择; 20 尽快; 30 选择时间; 40 自定义| |
+|serviceTime|String|服务时间|是| | |
+
+***
+
+###返回结果:
+
+|字段|类型 |描述 |备注|
+|---|----- |-- |--	|
+|orderId|String|订单ID| |
+|orderCode|String|订单编码| |
+
+###返回jsonp格式示例：
+```
+    {
+        "code": 200,
+        "message": "成功",
+        "data":
+        {
+            "orderCode": "60804172144743",
+            "orderId": "u00011608041721447893451888"
+        },
+        "page": null,
+        "foot":
+        {
+            "operationTime": "2016-08-04 17:21:45",
+            "servicePhone": "400800400",
+            "host": "test1"
+        }
+    }
+```
+
+
+####测试环境：
+
+http://120.55.117.53:8081/user/v2/createOrder?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=11f830cf6d856aa298af69c1605772f2
+
+{"userId":"u00011d465206bbcc4560a2f11a6175b7059e","title":"创建测试单","price":2,"productKindId":"aea513510de24ca5aa03193411ef74f9"}
+
+####线上环境：
+
+###版本历史：
+
+|版本 	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:-----	|:------|
+|01 	|2016-08-02 |基础版 	|刘印后 	|
+

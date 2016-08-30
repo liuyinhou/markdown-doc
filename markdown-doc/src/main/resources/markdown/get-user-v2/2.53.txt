@@ -1,0 +1,64 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.53
+
+##2.53 wap支付结果确认
+###URL:
+/user/v2/confirmOrderPay
+###方式:
+POST
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|orderId |String | 订单ID |否 | |
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|paySuccess |boolean |是否支付成功| |
+|tips |String |未支付成功时的提示|当paySuccess为true时,有值|
+ 
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "tips": "支付正在处理,请稍候...",
+        "paySuccess": false
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2016-01-18 17:23:17",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+```
+
+---
+
+####开发环境：
+http://121.41.27.42:8081/user/v2/confirmOrderPay?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=7ac42f09e3af7e09203fcbc84566c560
+
+```
+{
+	"orderId":"u00011601151735036584020736"
+}
+```
+####测试环境：
+http://120.55.117.53:8081/user/v2/confirmOrderPay?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=7ac42f09e3af7e09203fcbc84566c560
+
+```
+{
+	"orderId":"u00011601151735036584020736"
+}
+```
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-1-18 |基础版 |刘定湘 |

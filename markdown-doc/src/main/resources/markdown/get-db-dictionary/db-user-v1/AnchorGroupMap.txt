@@ -1,0 +1,18 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/User.txt) > Get数据库文档 - V1
+ 
+##AnchorGroupMap  用户群关系表
+ 
+| 字段              | 类型     | 描述 | 备注 | 版本 |
+| --------------- | ------ | -- | -- | -- |
+| _id | String | |  | v2 |
+| UserId | String |UserId |    | v2 |
+| AnchorGroupId | String |用户群ID  |    | v2 |
+| OperatorId | String   |创建者Id|  | v2 |
+| IsDel | Int   |正常=0，禁用=1|  | v2 |
+| CreateTime | Date   |创建时间|  | v2 |
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-06-17 |v2   |韩飞 | |

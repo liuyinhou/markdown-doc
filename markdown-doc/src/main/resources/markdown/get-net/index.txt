@@ -1,0 +1,17 @@
+* [接口文档](/markdown) > Get-Net接口文档
+
+#Get-Net接口文档
+
+* 1 项目描述
+ * 1.1 [通用参数](/markdown/get-net/1.1.txt)
+* 1 接口说明
+ * 2.1 [创建工单](/markdown/get-net/2.1.txt)
+ * 2.2 [Tag修改](/markdown/get-net/2.2.txt)
+ * 2.3 [获取员工的主播群](/markdown/get-net/2.3.txt)
+ * 2.4 [获取主播群的全部用户ID](/markdown/get-net/2.4.txt)
+ * 2.5 [订单查询](/markdown/get-net/2.5.txt)
+ * 2.6 [服务单查询](/markdown/get-net/2.6.txt)
+ * 2.7 [采购单查询](/markdown/get-net/2.7.txt)
+ * 2.8 [订单取消](/markdown/get-net/2.8.txt)
+ * 2.9 [服务单取消](/markdown/get-net/2.9.txt)
+ * 2.10 [采购单取消](/markdown/get-net/2.10.txt)

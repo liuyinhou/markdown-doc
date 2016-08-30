@@ -1,0 +1,55 @@
+* [授权中心](/markdown/get-auth) > 3.3
+
+##3.3 根据公众号 appid  获取微信 AccessToken 调用接口凭证
+###URL
+/auth/v1/getWxAccessToken
+
+###调用方式
+POST
+
+###请求参数:
+|字段	 	|类型 	|描述 			|可为空 	|备注 	|版本	|	
+|:-----		|:-----	|:------		|:-----	|:----	|:----	|
+|appId 		|String |公众号 appid		|否		| 		|v1.0	|
+
+###返回数据:
+|字段	|类型 	|描述 						|备注 	|版本	|
+|:-----	|:-----	|:------					|:----	|:----	|
+| 		|String	|微信 AccessToken 调用接口凭证	| 		| 01	|
+ 
+---
+###返回json格式示例: 
+
+
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": "A0-Y237kTNS2X4_cid5LamD7mjCpJGFvB110SE_i9rXo3zgKQK0zNllo4XuW70amfv6YLLszfpw6kxf-8idBBJN680n8YYrWo3f4bIlQmtoHMKjAEAXCA",
+    "page": null,
+    "foot": {
+        "operationTime": "2016-07-15 14:35:12",
+        "servicePhone": "400800400",
+        "host": "yinuo-PC"
+    }
+}
+```
+
+---
+
+###测试环境
+http://authtest.getgaoding.com/auth/v1/getWxAccessToken?apiVersion=01&client=79be015f7aadb568d76a590fb5cdb0f6&version=1.0&sign=06a4362b3e999fc137705f8f2a1aa9b8&channel=81086f21b14cb137d256b9b078ff42e5 
+
+
+```
+{
+    "appId": "gh_50a99dc3020b"
+}
+```
+
+###版本历史：
+
+|版本	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:------|:------|
+|01 	|2016-07-15 |基础版 	|何红林 	|
+

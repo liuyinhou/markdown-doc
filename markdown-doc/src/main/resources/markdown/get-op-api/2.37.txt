@@ -1,0 +1,122 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.37
+
+##2.37 当前会话信息（用于会话搜索）
+
+###URL:
+/op/v2/chatMessageList
+
+###方式:
+post
+
+###输入参数:
+|字段		|类型 	|描述 	|可为空 	|备注 	|
+|:-----		|:-----	|:------|:-----	|:----	|
+|chatId 	|String |会话ID 	|否 		| 		|
+|pageNum	|Integer|页码	|是		|默认值为`1`	|
+|pageSize	|Integer|每页展示数量	|是		|默认为`20` 		|
+|needMark 	|Boolean |查询标记记录 	|是 		| 		|
+|needFavorite 	|Boolean |查询用户收藏记录 	|是 		| 		|
+
+
+###返回数据:
+|字段	|类型	|描述 		|备注											|
+|:----	|:----	|:----		|:----											|
+|chatId |String |会话ID 		| 												|
+|status |String |会话状态 		|文本内容 :1 等待接待;3 聊天中 	;5 已结束	6 用户删除 ; 30 挂起	|
+|msg 	|`msg`	|会话详细信息 	|详见 `msg`										|
+
+
+###消息内容  msg :
+|字段			|类型			|描述 											|备注					|
+|:----			|:----			|:----											|:----					| 
+|userMessageId 	|String 		|消息ID 											| 						|
+|hxMsgId		|String			|环信messageID									|						|
+|form 			|String 		|发送者 											| 						|
+|to 			|String 		|接收者 											|是用户或者群组 				|
+|type 			|String 		|消息类型 											| 						|
+|msg 			|String 		|消息内容 											| 						|
+|url 			|String 		|链接地址 											| 						|
+|filename 		|String 		|文件名 											| 						|
+|thumb 			|String 		|缩略图地址 										| 						|
+|secret 		|String 		|secret在上传图片后会返回，只有含有secret才能够下载此图片 	| 						|
+|thumb_secret 	|String 		|thumb_secret在上传缩略图后会返回 					| 						|
+|length 		|Integer		|语音时长，单位为秒，这个属性只有语音消息有 				| 						|
+|file_length 	|Integer		|文件大小，视频消息有 								| 						|
+|addr 			|String 		|中文地址，地址消息有 								| 						|
+|lat 			|Double 		|地址纬度，地址消息有 								| 						|
+|lng 			|Double 		|地址经度，地址消息有 								|	 					|
+|createTime 	|Date 			|创建时间 											|yyyy-MM-dd HH:mm:ss	|
+|getUrl 		|String 		|图片七牛存放url									| 						|
+|ext 			|Map 			|扩展字段 											| 						|
+|favorite 		|Boolean		|用户是否收藏 										|true 已收藏  false 未收藏 	|
+|mark 			|`List<Stirng>` |mark 标识										| 						|
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "status": "聊天中",
+    "msg": [
+      {
+        "to": "148992112329753020",
+        "createTime": "2016-02-19 18:43:00",
+        "form": "u0001fd9fb3524e52470899cba2d5ee84a801",
+        "thumb_secret": null,
+        "file_length": "0",
+        "addr": null,
+        "lng": null,
+        "type": "txt",
+        "msg": "黑胡椒",
+        "ext": {
+          "template": {}
+        },
+        "url": null,
+        "getUrl": "http://7xkq6j.com1.z0.glb.clouddn.com/?attname=&imageView2/1/w/200/h/200&e=1613793593&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:fzDjkZUCroMthDZEfRfOqwKUjAQ=",
+        "length": "0",
+        "secret": null,
+        "filename": null,
+        "userMessageId": "164556432430072736",
+        "thumb": null,
+        "lat": null
+      },...
+    ],
+    "chatId": "u000103b6237d8f94447ab3bd6cbe9c89d70a"
+  },
+  "page": {
+    "total": 3,
+    "page": 1,
+    "pageSize": 20,
+    "count": 3,
+    "next": false,
+    "startIndex": 0
+  },
+  "foot": {
+    "operationTime": "2016-02-22 11:59:53",
+    "servicePhone": "400800400",
+    "host": "test3"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://120.55.94.183:8080/op/v2/chatMessageList?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=f4e702296d9682ffef1c0d8744b0cdc9
+
+```
+{
+  "chatId":"u0001106263884645532116"
+}
+```
+
+####线上环境：
+
+
+###版本历史：
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-03-03 |基础版 |刘定湘|

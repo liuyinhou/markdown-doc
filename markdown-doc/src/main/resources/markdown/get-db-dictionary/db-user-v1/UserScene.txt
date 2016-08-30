@@ -1,0 +1,18 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##UserScene  用户所属场景表
+ 
+| 字段              | 类型     | 描述 | 备注 | 版本 |
+| --------------- | ------ | -- | -- | -- |
+| _id | String | |  | v2 |
+| UserId | String |用户ID |    | v2 |
+| RouterSceneId | String |路由场景ID  |    | v2 |
+| UpdateTime | Date   |更新时间|  | v2 |
+| CreateTime | Date   |创建时间|  | v2 |
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-04-20 |v2   |刘印后 | |

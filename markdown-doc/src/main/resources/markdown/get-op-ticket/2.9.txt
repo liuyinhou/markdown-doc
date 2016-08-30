@@ -1,0 +1,79 @@
+* [OP 优惠券 接口文档](/markdown/get-op-ticket) > 2.9
+
+##2.9 给OP集合派发指定礼包
+###URL:
+http://120.55.94.183:8082/op/v2/opReceiveTicketPackage
+
+
+###方式:
+post
+###输入参数:
+
+ >  请求消息结构
+
+|字段|类型|描述|可为空 |备注|版本|
+|----|-----|--|--|--|--|
+|TicketPackageCode|String|礼包唯一编码|否| |v2.1|
+|OperatorIds|List`<String>`|操作人ID 集合 |否| |v2.1|
+|From| String |参数|是| |v2.1|
+|UseChannel| String |渠道 |是| |v2.1|
+
+***
+
+###返回结果:
+|字段|类型|描述|备注|版本|
+|----|-----|--|--|--|
+| |List`<OpTicketUser>`|OP 用户优惠券 id 集合 | |v2.1|
+
+### OpTicketUser OP 用户优惠券 
+|字段|类型|描述|备注|版本|
+|----|-----|--|--|--|
+|opId|String|OP id| |v2.1|
+|ticketUserIds|List`<String>`|OP 用户优惠券 id 集合 | |v2.1|
+
+***
+
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": [
+        {
+            "opId": "o00013b5f37250fc94768a345fef6353ae24a",
+            "ticketUserIds": [
+                "o00015ef98e3e49db41c8a1756593f2eee485",
+                "o0001aeb061736a5d4cf1b8f9bca805e233f3",
+                "o0001a98001a9ec8d47db8108e809af298fde"
+            ]
+        }
+    ],
+    "page": null,
+    "foot": {
+        "operationTime": "2015-11-30 20:23:19",
+        "servicePhone": "400800400",
+        "host": "yinuo-PC"
+    }
+}
+```
+
+***
+
+####测试环境：
+
+ http://120.55.94.183:8082/op/v2/opReceiveTicketPackage?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&version=2.0&sign=64089f8e90605825455a26d56c66784c
+ 
+```
+{
+    "TicketPackageCode": "1bfb390cc3144de3b45c662047693f8e",
+    "OperatorIds":["11112","11112","11112"]
+}
+```
+
+####线上环境：
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-16 |基础版 |何红林 |

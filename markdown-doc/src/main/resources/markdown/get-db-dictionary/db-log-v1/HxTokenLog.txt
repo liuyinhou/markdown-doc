@@ -1,0 +1,24 @@
+﻿ * [Get数据库文档](/markdown/get-db-dictionary/Log.txt) > Get数据库文档 - V1
+ 
+ ## HxTokenLog  获取环信token 记录（暂时先定义一天获取一次）
+ 
+ 
+| 字段          			| 类型 		| 描述 							| 备注 															| 版本 	|
+| ----------- 		| ------ 	| -- 							| -- 															| -- 	|
+| _id         		| String 	| id							|    															| v1 	|
+| OrgName 			| String 	| 企业 ID							|企业的唯一标识，开发者在环信开发者管理后台注册账号时填写的企业 ID				| v1 	|
+| AppName			| String	| 应用名称						|同一“企业”下“APP”唯一标识，开发者在环信开发者管理后台创建应用时填写的“应用名称”	| v1	|
+| AppClientId   	| String 	| 应用名称,对应的client_id 			|    															| v1 	|
+| AppClientSecret   | String 	| 应用名称,对应的client_secret		|    															| v1 	|
+| AccessToken  		| String   	| token 值 						|    															| v1 	|
+| Application		| String  	| 当前应用(APP) 的 UUID 值			|     															| v1 	|
+| ExpiresIn    		| Integer 	| 有效时间  						|秒为单位，默认是七天，在有效期内是不需要重复获取的 							| v1 	|
+| CreateTime  		| Date   	| 创建时间 						|    															| v1 	|
+
+ 
+
+###版本历史：
+
+|版本 	|时间 		|描述	|操作人 	|备注	|
+|:----	|:------	|:------|:------|:------|
+|01 	|2016-07-08	|v1   	|何红林	|初始化	|

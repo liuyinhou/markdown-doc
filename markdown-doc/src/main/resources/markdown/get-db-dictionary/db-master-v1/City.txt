@@ -1,0 +1,17 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ ##City  公司
+ 
+ 
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+| _id   | int |   主键 |    | v1 |
+| Name    | String   |   名称 |    | v1 |
+| ProvinceId    | int   |   省id |    | v1 |
+| IsOpen    | boolean   |   是否开启,ture=开启，false=关闭 |    | v1 |
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-24 |v1   |Jim | |

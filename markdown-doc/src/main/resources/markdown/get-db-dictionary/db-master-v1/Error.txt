@@ -1,0 +1,21 @@
+
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ ##Error   日志错误表（.net ）
+ 
+ 
+| 字段         | 类型      | 描述 | 备注 | 版本 |
+| ---------- | ------- | -- | -- | -- |
+| ClientId   | Number  |  客户端Id  |    | v1 |
+| CreateTime | Date    |  创建时间 |    | v1 |
+| Message    | String  |  内容  |    | v1 |
+| Solved     | Boolean |  是否解决  |    | v1 |
+| Title      | String  |  标题  |    | v1 |
+| _id        | String  |  id  |    | v1 |
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

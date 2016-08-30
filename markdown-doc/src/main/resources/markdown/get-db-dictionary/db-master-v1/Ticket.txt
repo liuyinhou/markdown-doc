@@ -1,0 +1,23 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ * [ 返回 TicketPackage 表](/markdown/get-db-dictionary/db-master-v1/TicketPackage.txt)
+ 
+ ## Ticket  优惠券
+|字段|类型|描述|备注|版本|
+|----|-----|--|--|--|
+|TicketName|String| 优惠券名称| |v2.1|
+|TicketCode|String|优惠券唯一编号| |v2.1|
+|TicketType|Integer|优惠券类型|1 优惠金额;2 折扣 |v2.1|
+|UseChannels|List`<String>`|使用渠道| 渠道是最小的粒度的控制单位 如：七煌 微信公众号1;  不限定时 该值为空|v2.1|
+|Count|Integer|优惠券个数| 包含了几张此类券 |v2.1|
+|TicketAmount|Double|优惠券优惠额度|  优惠券类型为优惠金额时该值为减金额数（单位是分）; 优惠券类型为折扣时该值为折扣数（如：8.5折）|v2.1|
+|ThemeId|String|主题id| 详见[ Theme 表](/markdown/get-db-dictionary/db-master-v1/Theme.txt)|v2.1|
+|ThemeName|String|主题名称|详见[ Theme 表](/markdown/get-db-dictionary/db-master-v1/Theme.txt)|v2.1|
+|TicketRule|`TicketRule`|优惠券规则| 详见[TicketRule](/markdown/get-db-dictionary/db-master-v1/TicketRule.txt) |v2.1|
+
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

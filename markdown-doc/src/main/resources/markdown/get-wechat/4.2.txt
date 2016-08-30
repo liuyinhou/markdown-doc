@@ -1,0 +1,23 @@
+* [微信收发器文档](/markdown/get-wechat) > 3.2
+
+**用户提醒模板**
+
+## 模板ID
+测试环境 newwear：**Ddf5Yf_NOvgLQFODBBqKetXthWqRhrjexL7r8SzUVfc** 
+线上环境 Get一下：**zEsRmNxLq4jBfQGXHto4Xe372UGsUihMQc8mW3mQQuc**
+
+## 模板所需参数
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|openId |String | 用户的微信openId |否 | |
+|templateId |String | 模板ID |否 | |
+|url |String | 跳转url |否 | |
+|first |String | 标题 |否 | |
+|keyword1 |String | 待办事项 |否 | |
+|keyword2 |String | 优先级 |否 | |
+
+```
+亲爱的印后
+待办事项：微信红包余额账户充值
+优先级：1
+```

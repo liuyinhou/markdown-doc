@@ -1,0 +1,50 @@
+* [Get CMS接口文档](/markdown/get-cms) > 2.4 关闭提醒记录
+
+##2.4 关闭提醒记录
+###URL:
+http://120.55.117.53:8088/jobRecordApi/closeRecord
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|recordId|String |规则ID |否| |
+|opId|String |操作人ID |否| |
+					
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|-	|-	| | |
+
+
+---
+###返回json格式示例：
+```
+{
+	code: 200
+	message: "成功"
+	data: null
+	page: null
+	foot: {
+		operationTime: "2015-08-18 15:44:42"
+		servicePhone: "400800400"
+		host: "iZ23qvhf9nmZ"
+	}
+}
+```
+
+---
+
+####测试环境：
+http://120.55.117.53:8088/jobRuleApi/closeRule?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&sign=e616b400f1c8b8f020f0c4ad0647e480
+
+{"ruleId":"653d16027f884b209b02fbc17ab28ae1","opId":"o0001f6a926ab2e6b48f0866d52d65a448e74"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-10-11 |基础版 |刘印后 |

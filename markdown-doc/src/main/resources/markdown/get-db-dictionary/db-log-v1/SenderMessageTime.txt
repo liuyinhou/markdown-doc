@@ -1,0 +1,22 @@
+﻿ * [Get数据库文档](/markdown/get-db-dictionary/Log.txt) > Get数据库文档 - V1
+ 
+ ## SenderMessageTime  发送消息时间记录
+ 
+ 
+| 字段          		| 类型 		| 描述 				| 备注 															| 版本 	|
+| ----------- 	| ------ 	| -- 				| -- 															| -- 	|
+| _id         	| String 	| 消息发送id			|    															| v1 	|
+| MessageType	| Integer	| 消息类型         			|1 文本;2 图片;3 语音;4 视频;5 位置;6 透传;7 图文;8 自定义图文;9 模板;10 扩展;	| v1	|
+| SendCenterTime| Date   	| 调用消息中心时间 		|    															| v1 	|
+| SendExeTime	| Date  	| 执行消息发送成功时间 	|     															| v1 	|
+| ReceiveTagTime| Date  	| 消息收到确认时间		|  																| v1 	|
+| From 			| String 	| 消息发送者   			|    															| v1 	|
+| To       		| String 	| 群组id   			|    															| v1 	|
+| Status       	| Integer 	| 状态  				|1 发送成功;2 发送失败;3 消息已收到;									    | v1 	|
+ 
+  
+###版本历史：
+
+|版本 	|时间 		|描述	|操作人 	|备注	|
+|:----	|:------	|:------|:------|:------|
+|01 	|2016-07-12	|v2   	|何红林	|初始化	|

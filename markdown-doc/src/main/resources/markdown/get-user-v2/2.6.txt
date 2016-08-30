@@ -1,0 +1,59 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.6
+
+##2.6 用户昵称头像
+###URL:
+http://120.55.117.53:8081/user/v2/userMiNiInfo
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userId |String | 用户ID |否 | |
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|userId|String|用户ID | |
+|nickName|String|用户昵称| |
+|userIcon|String |用户头像| |
+
+**注释：**
+
+可以查询User和Operator的用户信息，通过userId前缀"o"/"p"区分
+
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "nickName": "米兰的小铁匠",
+        "userId": "o0001258ebe7cf57f47e19e46ec87873de22b",
+        "userIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/o0001258ebe7cf57f47e19e46ec87873de22b_200.png?attname=&imageView2/1/w/200/h/200&e=1602298727&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:N3tIhhcOf11velqsgTz1wKgfKBw="
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2015-10-12 10:58:47",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+```
+
+---
+
+####测试环境：
+http://120.55.117.53:8081/user/v2/userMiNiInfo?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=3d8bad7401ffa437f6425732e1905057
+
+{"userId":"o0001258ebe7cf57f47e19e46ec87873de22b"}
+
+####线上环境：
+
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-10-07 |基础版 |刘印后 |

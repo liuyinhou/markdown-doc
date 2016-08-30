@@ -1,0 +1,70 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.26
+
+##2.26 H5微信登录
+###URL:
+http://120.55.117.53:8081/user/v2/h5WxLogin
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|appId |String |微信公众号appId |是 |appId与devAppId不可同时为空 |
+|devAppId |String |微信公众号dev appId |是 |appId与devAppId不可同时为空 |
+|openId |String |用户对应的微信公众号openId |否 | |
+|unionid |String |用户对应的微信unionid |是 | |
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|nickName | String | 昵称| |
+|icon | String| 用户头像| |
+|isNewUser|Boolean|是否新微信用户|该微信用户未关注过Get公众账号 |
+|userId|String|用户UserId|也是环信的登录名|
+|token | String |用户token| |
+|userRefId|String |环信登陆的密码 | |
+|hxAppKey |String |环信Key | |
+|groupId|String |环信groupId | |
+|phone|String |电话号码 | |
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "groupId": "119631567923446196",
+    "icon": "http://7xkq6j.com1.z0.glb.clouddn.com/7b149d509cba433f8a685f03009d6610_200.png?attname=&imageView2/1/w/200/h/200&e=1603689699&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:BKAqMYMmeyNCczp3Pbeyqf5hLoQ=",
+    "phone": "18615354011",
+    "token": "u00014d72c651f96c4004ab2d32d45eb6784f",
+    "nickName": "969866994646",
+    "userRefId": "@#@#@@#SD443S",
+    "userId": "u00011cd651eea21d4f1989e50fc97b2086e4",
+    "hxAppKey": "abujj#@#@#@@#SD443S",
+    "isNewUser": false,
+    "channel" : "xxxx"
+  },
+  "page": null,
+  "foot": {
+    "operationTime": "2015-10-28 13:21:39",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+http://120.55.117.53:8081/user/v2/h5WxLogin?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&channel=eba920d452d34adb8f2badb08b9e69bb&version=2.0&sign=e5d33805f8215be6b292156e9e9dfab3
+
+{"unionid":"owsjOs_xPmM9rYpJr0xJcWekoYSc","appId":"gh_c73bb586ef8f","openId":"oxkn5t0o-7qC9Sdx50olcqgXUPfI"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-10-07 |基础版 |刘印后 |

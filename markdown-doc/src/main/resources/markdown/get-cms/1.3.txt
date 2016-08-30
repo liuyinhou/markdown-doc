@@ -1,0 +1,28 @@
+* [Get CMS接口文档](/markdown/get-cms) > 1.3
+
+**Json返回结果：**
+
+返回结果样式：
+
+```
+{
+	code: 请求结果code，参见附录3.1
+	message: 描述内容
+	data: 结果
+	page: 分页（有分页时才返回）{
+		total: 13, 满足条件的总记录条数
+		page: 1, 页码，从1开始
+		pageSize: 10, 每页大小
+		count: 3, 本次请求页返回的记录数
+		next: true, 是否还有下一页
+		startIndex:1 记录的开始位置,从1开始
+	},
+	foot: 尾部 {
+		operationTime: 操作时间时间 yyyy-MM-dd HH:mm:ss
+		servicePhone: 服务电话
+		host: 服务器名
+	}
+}
+```
+
+ 

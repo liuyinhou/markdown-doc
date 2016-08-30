@@ -1,0 +1,25 @@
+﻿ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ ##ProductKind 产品分类 表
+ 
+ 
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+| AdminUserId | String |    |  添加人ID  | v1 |
+| CreateTime  | Date   |    |   创建时间 | v1 |
+| Name        | String |    |  分类名称  | v1 |
+| Order       | Number |    |   排序值 | v1 |
+| ParentId    | String |    |   父类ID | v1 |
+| _id         | String |    |    | v1 |
+| ActiveIcon  | String |    |  激活图标的url  | v2.1 |
+| NoActiveIcon  | String |    |  非激活图标的url  | v2.1 |
+| Status   |EnabledEnum|  Enabled = 1,Disabled = 2,|状态|
+| CompanyId       | Number |    |   公司ID | v1 |
+| NameEn        | String |    |  分类英文名称  | v2.1 |
+ 
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

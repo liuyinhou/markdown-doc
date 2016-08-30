@@ -1,0 +1,55 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.15
+
+##2.15 检查手机号是否已经被使用
+###URL:
+http://120.55.94.183:8080/op/v2/checkPhone
+###方式:
+get
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|phone|String|电话号码|否| |
+|ignoreStaffId|String|员工ID|是 |当传此值时，手机号检查会排除此用户 |
+
+**注意：**当修改用户手机号时，需要传入ignoreStaffId，不传的话会提示手机号被占用，因为手机号已经被自己给占用。
+
+###返回数据:
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|isExist|Boolean|此手机号是否已经存在 | |
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "isExist": false
+  },
+  "page": null,
+  "foot": {
+    "operationTime": "2015-12-18 20:09:57",
+    "servicePhone": "400800400",
+    "host": "test3"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://120.55.94.183:8080/op/v2/checkPhone?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&channel=eba920d452d34adb8f2badb08b9e69bb&version=2.0&sign=1ee4ea855b9e7fdd2ac32fbbcfcf84ed
+
+{"ignoreStaffId": "o0001f6a926ab2e6b48f0866d52d65a448e74","phone": "13671853833"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-21 |基础版 |刘印后 |

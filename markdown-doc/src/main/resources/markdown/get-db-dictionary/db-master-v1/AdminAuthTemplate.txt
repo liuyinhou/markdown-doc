@@ -1,0 +1,19 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ ##AdminAuthTemplate 后台权限
+ 
+ 
+| 字段                | 类型     | 描述 | 备注 | 版本 |
+| ----------------- | ------ | -- | -- | -- |
+| AdminAuthModulars | Array  |  所属模块  |    | v1 |
+| CreateTime        | Date   |  创建时间  |    | v1 |
+| Description       | String |  描述 |    | v1 |
+| Name              | String |  模版名  |    | v1 |
+| _id               | String |   模版id |    | v1 |
+ 
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

@@ -1,0 +1,79 @@
+* [Get CMS接口文档](/markdown/get-cms) >  2.8
+
+##2.9 通过微信信息查找用户
+
+###URL:
+http://120.55.117.53:8080/cms/userInfo/getUserInfoForWx
+
+###方式:
+post
+
+###输入参数:
+
+|	字段		|类型	|描述		|可为空	|备注	|
+|	----	|-----	|--			|--		|--	|
+|appId		|String	| 微信appId	|否		|	|
+|openId	|String	|openId		|否		| |
+
+
+***
+
+###返回结果:
+
+|字段	|类型|描述 |备注|
+|----|-----	|--	|--|
+|userId|String|用户ID| |
+|groupId|String|用户群组ID| |
+
+
+***   
+  
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+    },
+    "foot": {
+        "operationTime": "2015-12-02 21:01:48",
+        "servicePhone": "400800400",
+        "host": "yinuo-PC"
+    }
+}
+```
+
+***
+
+####测试环境：
+
+http://120.55.117.53:8088/cms/userInfo/getUserInfoForWx?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&sign=0403a125a9d93dc38708f24383264200
+
+{"openId":"ocYiSs4HRd9-2qOaah5ciGf2nDbA","appId":"gh_19a61756b609"}
+
+```
+{
+    "code": 200,
+    "msg": "成功",
+    "result":
+    {
+        "groupId": "121493164153373116",
+        "userId": "u0001bb24e5861957494894fca462e0dfcd12"
+    },
+    "foot":
+    {
+        "operationTime": "2016-07-21 10:20:32",
+        "servicePhone": "400800400",
+        "host": "test1"
+    }
+}
+```
+
+####线上环境：
+
+###版本历史：
+
+|版本 	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:-----	|:------|
+|01 	|2016-07-20 |基础版 	|刘印后 	|
+

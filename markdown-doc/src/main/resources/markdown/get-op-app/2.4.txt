@@ -1,0 +1,88 @@
+* [Op App Api接口文档](/markdown/get-op-app) > 2.4
+
+##2.4 员工信息接口(中转)
+###URL:
+~~http://120.55.94.183:8086/opapp/transfer~~
+http://120.55.94.183:8086/opapp/staffInfo
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|reqUrl|String|请求的url|否 | |
+|token|String|登录token|否| |
+
+
+###返回数据:
+
+公司List
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|staffId|String|员工ID| |
+|companyId|String|公司ID| |
+|companyName|String|公司名称| |
+|nickName|String|昵称| |
+|icon|String|头像| |
+|phone|String|电话 | |
+|easemobUserId|String|环信ID | |
+|hxAppKey|String|环信APP的key | |
+|isOnline|Boolean|是否在线 | |
+|isReceive|Boolean|是否可以接收新会话 | |
+|staffRoleId|String|角色ID |虽然用户可以有多个身份,但是用户登录获得token,此token对应唯一的角色 |
+|staffRoleList|List(StaffRole)|角色列表 | |
+|isPushShow|Boolean|显示消息提示框|true:显示 false:隐藏|
+|isRing|Boolean|消息提示音|true:有 ,false:无|
+
+---
+
+###返回json格式示例：
+
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "isOnline": false,
+    "icon": "http://7xkq6j.com1.z0.glb.clouddn.com/0b0ad3b5e8fa496db5b4fdf79f755f28_200.png?attname=&imageView2/1/w/200/h/200&e=1606807292&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:SEhN7B8GUeqEBfdIFug5trcmMd8=",
+    "phone": "13671853833",
+    "staffId": "o0001f6a926ab2e6b48f0866d52d65a448e74",
+    "nickName": "印后",
+    "staffRoleList": [
+      {
+        "roleName": "Operator",
+        "staffRoleId": "69ea418785b24ff5ab041e7f53ef74a3"
+      }
+    ],
+    "hxAppKey": "${mvn.easemob.orgname}#${mvn.easemob.appname}",
+    "easemobUserId": "o0001f6a926ab2e6b48f0866d52d65a448e74",
+    "companyId": "b3c4924122d34dc0846a755abc47b416",
+    "companyName": "Get一下",
+    "staffRoleId": "69ea418785b24ff5ab041e7f53ef74a3",
+    "isReceive": true
+  },
+  "page": null,
+  "foot": {
+    "operationTime": "2015-12-03 15:21:33",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://120.55.94.183:8086/opapp/staffInfo?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&token=eba920d452d34adb8f2badb08b9e69bb&sign=5c31676eed6b92e97fd3c8df59a5d1cc
+
+{"reqUrl":"/op/v2/staffInfo","token":"o00013b47af1062fa438cb15335008c535343"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-05-25 |基础版 |季宇轩 |

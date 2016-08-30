@@ -1,0 +1,45 @@
+* [Get-Net接口文档](/markdown/get-net) > 2.7
+
+##2.9 服务单取消
+###URL:
+正式环境:
+
+测试环境:http://apitest.2020880.com/ServiceOrder/v1/ServiceOrderCancel
+###方式:
+Post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|serviceOrderId |String |服务单ID|否| |
+
+**注意：**
+        
+
+---
+###返回json格式示例：
+```
+{"Code":200,"Message":"","Data":"","Page":null,"Foot":{"OperationTime":"2016-08-09 16:44:19","ServicePhone":"400800400"}}
+```
+
+---
+
+####测试环境：
+
+url:
+
+http://apitest.2020880.com/ServiceOrder/v1/ServiceOrderCancel?wk\_client=b2736195b38346639463ee889d6b8ff4&wk\_sign=3F2F1596434E159C8E268128A2B5EB5B&wk\_operatorToken=o000161a87f7eadce4308ab46e690d8139469
+
+body:
+
+serviceOrderId=u00013d214b197a6f4995bfcdb3e1596a4573
+
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-08-09 |基础版 |韩飞 |
+

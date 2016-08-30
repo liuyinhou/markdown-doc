@@ -1,0 +1,67 @@
+
+
+* [Get-User接口文档](/markdown/get-user-v2) > 2.57
+
+##2.57 更新发送消息记录状态
+> 该接口用来标记，消息发送成功，由消息接收者来调取，并更新状态为“已接收”  
+
+
+###URL:
+http://120.55.117.53:8081/user/v2/updateSenderLogStatus?getMessageId=Get消息id&callbackparam=?
+
+
+
+###方式:
+Get
+
+
+
+|    字段            	|类型    		|描述        		|可为空   	|备注            	|版本    	|
+|    ----       |-----    	|--        	|--    	|--   		|--     |
+|getMessageId   |String    	|Get消息id   |否       	|     	 	|v2.1   |
+|callbackparam  | 			|默认?  		|否        	|          	|v2.1   |
+
+
+
+***
+
+###返回结果:
+
+|字段|类型			|描述							|备注|版本	|
+|---|-----			|--								|--	|--		|
+|	|boolean 		|true 更新成功，false 更新失败		| 	|v2.1	|
+
+
+***   
+  
+###返回jsonp格式示例：
+```
+?
+{
+    "code": 200,
+    "message": "成功",
+    "data": true,
+    "foot": {
+        "operationTime": "2016-06-03 14:19:17",
+        "servicePhone": "400800400",
+        "host": "yinuo-PC"
+    }
+}
+```
+
+***
+
+####测试环境：
+
+http://120.55.117.53:8081/user/v2/updateSenderLogStatus?getMessageId=u00012e500527217e4ac1aa2a7c5fd628cb32&callbackparam=?
+
+ 
+
+####线上环境：
+
+###版本历史：
+
+|版本 	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:-----	|:------|
+|01 	|2016-06-03 |基础版 	|何红林 	|
+

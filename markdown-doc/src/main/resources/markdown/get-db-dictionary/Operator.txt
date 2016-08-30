@@ -1,0 +1,16 @@
+﻿* [Get数据库文档](/markdown/get-db-dictionary) > Get数据库文档 - V1
+
+###Operator数据库文档 - V1
+
+* [ Operator 表](/markdown/get-db-dictionary/db-operator-v1/Operator.txt)
+* [ OperatorGroup 表](/markdown/get-db-dictionary/db-operator-v1/OperatorGroup.txt)
+* [ OperatorLog 表](/markdown/get-db-dictionary/db-operator-v1/OperatorLog.txt)
+* ~~[ OperatorQueue 表]~~(/markdown/get-db-dictionary/db-operator-v1/OperatorQueue.txt)
+* [ OperatorTalk 表](/markdown/get-db-dictionary/db-operator-v1/OperatorTalk.txt)
+* [ Staff 表](/markdown/get-db-dictionary/db-operator-v1/Staff.txt)
+* [ StaffGroup 表](/markdown/get-db-dictionary/db-operator-v1/StaffGroup.txt)
+* [ StaffRoleMap 表](/markdown/get-db-dictionary/db-operator-v1/StaffRoleMap.txt)
+* [ StaffAttach 表](/markdown/get-db-dictionary/db-operator-v1/StaffAttach.txt)
+* [ StaffGroupAttach 表](/markdown/get-db-dictionary/db-operator-v1/StaffGroupAttach.txt)
+* [ TicketUser 表](/markdown/get-db-dictionary/db-operator-v1/TicketUser.txt)
+* [ StaffChatQueue 表](/markdown/get-db-dictionary/db-operator-v1/StaffChatQueue.txt)

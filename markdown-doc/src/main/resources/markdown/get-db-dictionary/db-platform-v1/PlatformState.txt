@@ -1,0 +1,20 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Platform.txt) > Get数据库文档 - V1
+ 
+ ##PlatformState 授权State暂存表
+ 
+ 
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+|_id | int |   主键 |    | v1 |
+|State|String|中转值 | | v1 |
+|RedirectUrl|String|回调业务系统url | | v1 |
+|AppId|String|微信公众号appId | | v1 |
+|Scope|String|授权域 |snsapi_base （不弹出授权页面，直接跳转，只能获取用户openid），snsapi_userinfo （弹出授权页面，可通过openid拿到昵称、性别、所在地。 | v1 |
+|CreateTime|Date|创建时间 | | v1 |
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-08-09 |v1   |印后 | |

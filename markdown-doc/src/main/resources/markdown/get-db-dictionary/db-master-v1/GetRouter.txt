@@ -1,0 +1,24 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##GetRouter Get路由表
+
+|字段|类型|描述|备注|版本|
+|----|-----|--|--|--|
+|_id|String| | |v2.1|
+|FromCompanyId|String|来源公司ID| |v2.1|
+|FromChannelId|String|来源渠道ID|空表示公司的全部渠道|v2.1|
+|ToCompanyId|String|目标公司| |v2.1|
+|ToStaffGroupId|String|目标组|空表示公司的全部组 |v2.1|
+|IsDel|Integer|是否删除|0/空 正常；1 删除，默认空|v2.1|
+|OperatorId|String|操作人ID| |v2.1|
+|CreateTime|Date|创建时间| |v2.1|
+|UpdateTime|Date|更新时间| |v2.1|
+
+
+
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-17|v1   |印后 | |

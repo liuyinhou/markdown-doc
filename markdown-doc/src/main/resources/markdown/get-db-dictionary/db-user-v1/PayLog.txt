@@ -1,0 +1,26 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/User.txt) > Get数据库文档 - V1
+ 
+## PayLog 支付log表
+ 
+ 
+| 字段         | 类型     | 描述 | 备注 | 版本 |
+| ---------- | ------ | -- | -- | -- |
+| _id        | String | 用户dbTag+Guid  |    | v1 |
+| Amount     | Double | 金额   |    | v1 |
+| ChargeId   | String | pingxx ChargeId  | 每次点击去支付，都会更新凭证   | v1 |
+| ChargeContent|string |pingxx chargec内容|为了fix 订单号已使用的bug,添加, |v1|
+| CreateTime | Date   | 创建时间   |    | v1 |
+| OperatorId | String | operator Id   |    | v1 |
+| OrderId    | String | order Id   |    | v1 |
+| PayTime    | Date   | 支付时间   |    | v1 |
+| PayType    | int | 支付类型   |  AliPay=1，WxPay =2  | v1 |
+| Steps      | int |  状态  |  None = 0, Charges = 1（获取pingxx 凭证）,  Success = 5（成功）, Fail = 10（失败）| v1 |
+| UserChatId | String | 会话Id   |    | v1 |
+| UserId     | String | UserId  |    | v1 |
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

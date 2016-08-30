@@ -1,0 +1,91 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Platform.txt) > Get数据库文档 - V1
+ 
+ ##PlatformWxAccount 微信公众号授权表
+
+
+| 字段          						| 类型     					| 描述 				| 备注 | 版本 |
+| ----------- 					| ------ 				| -- 				|	 -- | -- |
+|_id 							|String 				|   主键 				|    | v1 |
+|WxPlatformId					|String					|公众号对接平台ID 		| | v1 |
+|ComponentAppId					|String					|公众号对接平台appId 	| | v1 |
+|NickName						|String					|公众号昵称 			| | v1 |
+|HeadImg						|String					|公众号头像 			| | v1 |
+|UserName						|String					|公众号的原始ID 		|即微信公众号appid | v1 |
+|Alias							|String					|公众号所设置的微信号 	| 微信号，可能为空| v1 |
+|QrcodeUrl						|String					|二维码图片的URL		| 开发者最好自行也进行保存| v1 |
+|Idc							|String					|idc	 			| 暂时忽略，微信做异地多活，这个是地区编号| v1 |
+|AuthorizerAppId				|String					|公众号appId 			| | v1 |
+|AuthorizerAccessToken			|String					|公众号接口调用凭据 		| | v1 |
+|AuthorizerRefreshToken			|String					|公众号接口调用的刷新凭据 	| | v1 |
+|AuthorizationCode				|String					|授权码			 	| 可用于换取公众号的接口调用凭据| v1 |
+|AuthorizationCodeExpiredTime	|Date					|授权码过期时间 			| 暂时忽略| v1 |
+|CreateTime						|Date					|创建时间 				| | v1 |
+|UpdateTime						|Date					|更新时间 				| | v1 |
+|Status							|Integer				|授权状态				| 0 未授权/取消授权 ; 1 授权 | v1 |
+|AuthorizerOption				|List(AuthorizerOption)	|公众号设置信息 			| | v1 |
+|BusinessInfo					|List(BusinessInfo)		|公众号功能的开通状况 	| （0代表未开通，1代表已开通）| v1 |
+|FuncInfo						|List(FuncScopeCategory)|开通功能列表 			| | v1 |
+|ServiceTypeInfo				|Integer				|公众号类型 			|0代表订阅号，1代表由历史老帐号升级后的订阅号，2代表服务号 | v1 |
+|VerifyTypeInfo					|Integer				|公众号认证类型 			|-1代表未认证，0代表微信认证，1代表新浪微博认证，2代表腾讯微博认证，3代表已资质认证通过但还未通过名称认证，4代表已资质认证通过、还未通过名称认证，但通过了新浪微博认证，5代表已资质认证通过、还未通过名称认证，但通过了腾讯微博认证 | v1 |
+
+
+
+### AuthorizerOption:公众号选项设置信息
+
+| 字段          			| 类型     | 描述 		| 备注 	| 版本|
+| ----------- 		|------| -- 		| -- 	| -- |
+|AuthorizerAppid 	|String|公众号appid	|    	| v1 |
+|OptionName			|String|选项名称 		| 		| v1 |
+|OptionValue		|String|选项值 		| 		| v1 |
+
+
+### BusinessInfo: 功能的开通状况
+
+| 字段          			| 类型     	| 描述 		| 备注 				| 版本|
+| ----------- 		|------	| -- 		| -- 				| -- |
+|FunctionName		|String	|功能名称 		|详见下面	 			| v1 |
+|FunctionKey		|String	|功能key值	|详见下面	 			| v1 |
+|FunctionValue		|Integer|功能开通状况值 	|0代表未开通，1代表已开通	| v1 |
+
+
+```
+ open_store:是否开通微信门店功能
+ open_scan:是否开通微信扫商品功能
+ open_pay:是否开通微信支付功能
+ open_card:是否开通微信卡券功能
+ open_shake:是否开通微信摇一摇功能
+```
+
+
+### FuncScopeCategory: 权限消息
+
+| 字段          			| 类型     	| 描述 		| 备注 	| 版本|
+| ----------- 		|------	| -- 		| -- 	| -- |
+|CategoryName		|String	|权限名称 		| 		| v1 |
+|CategoryValue		|Integer|权限表示值 	|详见下面	| v1 |
+
+
+```
+公众号授权给开发者的权限集列表，ID为1到15时分别代表：
+1  消息管理权限
+2  用户管理权限
+3  帐号服务权限
+4  网页服务权限
+5  微信小店权限
+6  微信多客服权限
+7  群发与通知权限
+8  微信卡券权限
+9  微信扫一扫权限
+10 微信连WIFI权限
+11 素材管理权限
+12 微信摇周边权限
+13 微信门店权限
+14 微信支付权限
+15 自定义菜单权限
+```
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-08-08 |v1   |印后 | |

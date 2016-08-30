@@ -1,0 +1,20 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Platform.txt) > Get数据库文档 - V1
+ 
+ ##PlatformDispatcher 微信公众号业务消息分发表
+
+
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+|_id | int |   主键 |    | v1 |
+|AppUserName|String|微信公众号UserName |对应PlatformWxAccount表的UserName | v1 |
+|BizSystemId|String|业务系统ID | | v1 |
+|MsgTypes|List(String)|转发消息类型 |text、image、event....，如果此值为空，则表示所有类型均转发 | v1 |
+|CreateTime|Date|创建时间 | | v1 |
+|UpdateTime|Date|更新时间 | | v1 |
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-08-18 |v1   |印后 | |

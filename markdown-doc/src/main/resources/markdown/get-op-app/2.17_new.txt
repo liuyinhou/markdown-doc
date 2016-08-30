@@ -1,0 +1,106 @@
+* [Op app Api接口文档](/markdown/get-op-app) > 2.17
+
+##2.17 公司的员工列表（中转）
+###URL:
+http://120.55.94.183:8086/opapp/getOnlineStaffList
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|reqUrl|String|请求的url|否 | |
+|reqUrlHost|String|请求的url的host|否 |值为`router_url_pre` |
+|operatorId|String|操作人ID|否 | |
+|companyId|String|公司ID|否 | |
+|isOnline|Boolean|是否在线|是 | |
+|roleId|String|角色ID|是| |
+|searchKey|String|筛选值|是|模糊匹配用户名/手机号|
+|pageNum|Integer|当前页码|是|默认1 |
+|pageSize|Integer|页显示大小|否|默认200 |
+
+
+
+###返回数据:
+
+微信账号List
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|nickName|String|昵称 | |
+|realName |String|真实姓名 | |
+|icon|String|头像 | |
+|staffId|String|员工ID | |
+|roleId |String|角色ID | |
+|roleName |String|角色名称 | |
+|phone|String|手机号 | |
+|tags |String|标签 | |
+|status |String|状态 | |
+|createTime |String|创建时间 | |
+
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": [
+    {
+      "tags": null,
+      "createTime": "2015-11-17 13:51:32",
+      "icon": "http://7xkq6j.com1.z0.glb.clouddn.com/623f40ac2b39405a91a458aeb1161313_200.png?attname=&imageView2/1/w/200/h/200&e=1602298591&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:tett55s3fDrJAT7CRpPM2fS55gQ=",
+      "phone": "13671000000",
+      "staffId": "d01f6a6b498a41a8aa39ca9688f7e4ce",
+      "status": 1,
+      "nickName": "我的昵称",
+      "roleName": "",
+      "realName": "印后",
+      "roleId": "sfsdf"
+    },
+    {
+      "tags": null,
+      "createTime": "2015-11-17 15:35:54",
+      "icon": "http://7xkq6j.com1.z0.glb.clouddn.com/623f40ac2b39405a91a458aeb1161313_200.png?attname=&imageView2/1/w/200/h/200&e=1602298591&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:tett55s3fDrJAT7CRpPM2fS55gQ=",
+      "phone": "13671000000",
+      "staffId": "1818f50447cc424987054ec940360908",
+      "status": 1,
+      "nickName": "我的昵称",
+      "roleName": "",
+      "realName": "印后",
+      "roleId": "sfsdf"
+    }
+  ],
+  "page": null,
+  "foot": {
+    "operationTime": "2015-11-18 14:01:18",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+http://120.55.94.183:8086/opapp/getOnlineStaffList?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&channel=eba920d452d34adb8f2badb08b9e69bb&version=2.0&sign=8290adcc4cb4f8bd41f1e7a798156c67
+
+```
+{
+  "reqUrl":"/router/v2/staffList",
+  "reqUrlHost":"router\_url\_pre",
+  "operatorId":"5e79e3a77d294c4493a40a56f330df38",
+  "companyId":"b3c4924122d34dc0846a755abc47b416",
+  "pageNum":1,
+  "pageSize":200,
+  "isOnline":true
+}
+```
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-06-12 |基础版 |季宇轩 |

@@ -1,0 +1,30 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##JobRule 定时任务规则表
+ 
+|列名|类型|描述|备注| 版本 |
+|---|---|---|---| -- |
+|_id|String|主键||v2 |
+|timeType|Integer|时间类型|1 定点；2周期|v2 |
+|excuteTime|Date|定点任务时间|yyyy-MM-dd HH:mm|v2 |
+|startTime|Date|周期任务的起始时间|yyyy-MM-dd HH:mm|v2 |
+|endTime|Date|周期任务的结束时间|yyyy-MM-dd HH:mm|v2 |
+|week|Integer|循环周期|周一至周日，1-7|v2 |
+|dayTime|String|循环周期的当天时间|HH:mm|v2 |
+|userId|String|用户ID||v2 |
+|opId|String|操作人ID||v2 |
+|jobType|Integer|任务类型|1 推送微信；2 推送短信；3 推送电话 ；4 环信|v2 |
+|jobContent|String|消息内容||v2 |
+|redirectUrl|String|跳转url||v2 |
+|status|Integer|状态|1正常；2关闭|v2 |
+|createTime|Date|创建时间||v2 |
+|updateTime|Date|更新时间||v2 |
+|isDel|Integer|是否删除|0或空 正常；1删除|v2 |
+ 
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

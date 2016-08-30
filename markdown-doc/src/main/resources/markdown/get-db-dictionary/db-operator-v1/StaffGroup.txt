@@ -1,0 +1,27 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Operator.txt) > Get数据库文档 - V1
+ 
+##StaffGroup 员工组表
+
+|字段|类型|描述|备注|版本|
+|----|-----|--|--|--|
+|_id|String| | |v2.1|
+|CompanyId|String|公司ID| |v2.1|
+|Name|String|名称| |v2.1|
+|StaffIds|List(String)|员工ID| |v2.1|
+|Status|Integer|状态|暂时没有意义|v2.1|
+|RandomStatus|Integer|是否接受随机分配的用户 |null/0 接受；1不接受|v2.1|
+|IsDel|Integer|是否删除|0 正常；1 删除，默认0|v2.1|
+|TotalCount|Integer|组内人数| |v2.1|
+|OnlineCount|Integer|在线人数| |v2.1|
+|OperatorId|String|操作人ID| |v2.1|
+|CreateTime|Date|创建时间| |v2.1|
+|UpdateTime|Date|更新时间| |v2.1|
+
+
+
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-17|v1   |印后 | |

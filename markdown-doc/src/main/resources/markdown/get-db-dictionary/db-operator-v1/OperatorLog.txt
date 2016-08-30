@@ -1,0 +1,23 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Operator.txt) > Get数据库文档 - V1
+ 
+  
+##OperatorLog 客服操作日志
+ 
+ 
+| 字段         | 类型     | 描述 | 备注 | 版本 |
+| ---------- | ------ | -- | -- | -- |
+| _id        | String |   客服dbTag+Guid |    | v1 |
+| ChatId     | String |  会话ID  |    | v1 |
+| CreateTime | Date   |  创建时间  |    | v1 |
+| OperatorId | String | 客服Id   |    | v1 |
+| OrderId    | String |  订单Id  |    | v1 |
+| Remark     |        | 备注   |    | v1 |
+| Type       | int |  日志类型 |    None = 0, 上线 Online = 3, 拒绝会话 RefuseChat = 5, 接受会话 ReviceChat = 5, 会话转出  ChatOut = 7, 会话转入 ChatIn = 9, 完成会话 FinishChat = 18, 下线 DownLine = 20, 下单 NewOrder = 45, 会话挂起 ChatSuspend = 60,  | v1 |
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

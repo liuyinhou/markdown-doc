@@ -1,0 +1,52 @@
+* [Get-Net接口文档](/markdown/get-net) > 2.2
+
+##2.1 Tag修改
+###URL:
+正式环境:http://api.getgaoding.com/Operator/v1/UserTagSet
+
+测试环境:http://apitest.2020880.com/Operator/v1/UserTagSet
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userId |String |用户ID|否| |
+|tag |String |tag的内容|否| 如果为修改，需要把新旧字符串用逗号拼接传递过来，如把“text”改为“text1”,需要传“text,text1”|
+|tagType |String |修改类型|否|Delete,Add,Edit |
+|chatId |String |chatId|否|直接传空|
+
+
+**注意：**
+
+
+---
+###返回json格式示例：
+```
+{"Code":200
+,"Message":""
+,"Data":""
+,"Page":null
+,"Foot":{"OperationTime":"2016-05-26 11:17:08","ServicePhone":"400800400"}
+}
+```
+
+---
+
+####测试环境：
+
+url:
+http://apitest.2020880.com/Operator/v1/UserTagSet?wk\_client=b2736195b38346639463ee889d6b8ff4&wk\_sign=BB7AD43F3E102667C260E25ECC8F892A&wk\_operatorToken=o0001261d30fe69174d17ac4dd35e0fe74a20
+ 
+body:
+userId=u0001a0befa5f334f497aa3f2bc6a04cf6f80&tag=这是一个测试,这是一个测试3&tagType=Edit&chatId=
+
+####线上环境：
+
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-05-26 |基础版 |韩飞 |
+

@@ -1,0 +1,28 @@
+* [Get-User接口文档](/markdown/get-user) > 2.3
+
+**Json返回结果：**
+
+返回结果样式：
+
+```
+{
+	Code: 请求结果code，参见附录4.1
+	Message: 描述内容
+	Data: 结果
+	Page: 分页（有分页时才返回）
+	Foot: 尾部 {
+		OperationTime: 操作时间时间 yyyy-MM-dd HH:mm:ss
+		ServicePhone: 服务电话
+		Host: 服务器名
+	}
+}
+```
+
+**约定：**
+
+所有的返回字段必然存在于结果json中
+
+ * 字符串：当字段不存在值时，返回空，即 ""
+ * 布尔类型：当字段不存在值时，返回false
+ * 数字类型：当字段不存在值时，返回-1
+ 

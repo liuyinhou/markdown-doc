@@ -1,0 +1,19 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/User.txt) > Get数据库文档 - V1
+ 
+~~##UserPush 发送Push表(弃用)~~
+ 
+ 
+| 字段           | 类型     | 描述 | 备注 | 版本 |
+| ------------ | ------ | -- | -- | -- |
+| ClientType   | Number |    |    | v1 |
+| CreateTime   | Date   |    |    | v1 |
+| DevicePushId | String |    |    | v1 |
+| UserId       | String |    |    | v1 |
+| _id          | String |    |    | v1 |
+ 
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

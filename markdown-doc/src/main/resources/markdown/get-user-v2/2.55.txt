@@ -1,0 +1,65 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.55
+
+##2.55 用户所属场景
+
+###URL:
+
+http://120.55.117.53:8081/user/v2/userScene 
+
+###方式:
+post
+
+### url 中必传参数:
+|字段	 		|类型 	|描述 		|可为空 	|备注 		|
+|:-----			|:-----	|:------	|:-----	|:----		|
+|openId 		|String |微信OpenId	|否 		| 			|
+|devAappId	 	|String |微信AppId	|是		|属于哪个公众号，微信H5嵌入必传 	|
+|routerSceneId 	|String |路由场景ID	|是		|微信H5嵌入必传 			|
+|userToken	    |String |用户Token	|是		|普通H5嵌入必传 			|
+
+###返回数据:
+|字段	|类型	|描述 	|备注	|
+|:----	|:----	|:----	|:----	|
+|- 		|- 		|- 		|- 		|
+
+---
+
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "更新用户所属场景成功  userId = u000193f6f02e01764a0f869be49a2be21e01 routerSceneId = 0bb0ebcf1a504e6bbac50b7046060c1a",
+    "data": null,
+    "page": null,
+    "foot": {
+        "operationTime": "2016-04-20 17:11:06",
+        "servicePhone": "400800400",
+        "host": "yinuo-PC"
+    }
+}
+```
+
+---
+
+####测试环境：
+
+http://localhost:8080/user/v2/userScene
+
+```
+{
+    "openId": "oPsRhtwtuPvqMWr9Q-4UluYbPpZc",
+    "devAappId": "wx62dd43b7250949ca",
+    "routerSceneId": "0bb0ebcf1a504e6bbac50b7046060c1a"
+}
+```
+
+
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:------|:------|
+|01 	|2016-04-20 |基础版 	|何红林	|

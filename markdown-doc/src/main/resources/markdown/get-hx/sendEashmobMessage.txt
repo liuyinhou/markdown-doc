@@ -1,0 +1,117 @@
+* [环信收发器文档](/markdown/get-hx) > 发送环信消息
+##发送环信消息
+###URL:
+http://120.55.117.53:8087/easemob/sendEasemobMessage
+###方式:
+post
+
+###请求输入参数
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----:|
+|msgType|String|消息类型|否|"txt"、"audio"、"img"、"loc"、"video"、"file"、"cmd"|
+|msgBody|String|请求消息体内容|否|无论是发送文本还是多媒体消息，该字段必须有，消息格式如下`请求消息体格式`，请求消息体格式为json字符串|
+|mediaFile|File|请求图片、语音、视频等多媒体文件|是|如果是发送文本消息，可以没有该字段|
+
+
+
+###请求消息体格式（json格式）:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|fromUser |String |发送者|否| |
+|toUser |String |接收者|否| |
+|msgType |String |消息类型（"txt"、"audio"、"img"、"loc"、"video"、"file"、"cmd"）|否| |
+|msg |String |文本消息内容|消息类型：text不能为空| |
+|mediaFile |String |多媒体文件|消息类型：img、audio不能为空| |
+|ext |Map |自定义消息|消息类型：cmd、loc、video、file不能为空| |
+|targetType|String|发送消息对象|是|取值：users 给用户发消息, chatgroups 给群发消息，默认chatgroups|
+
+####msgType取值
+* txt -- 文本消息
+* img -- 图片消息
+* audio -- 语音消息
+* video -- 视频消息
+* loc -- 地址
+* file -- 文件
+* cmd -- 命令
+
+######请求消息体格式例子：
+文本消息体
+
+```
+{
+    "toUser": "116650956573114804",
+    "fromUser": "test",
+    "msgType": "txt",
+    "msg": "123",
+    "mediaFile": "",
+    "ext": null
+}
+```
+
+多媒体消息体（图片）
+
+```
+{
+    "toUser": "116650956573114804",
+    "fromUser": "test",
+    "msgType": "img",
+    "msg": "",
+    "mediaFile": "1.jpg",
+    "ext": null
+}
+```
+
+命令消息体
+
+```
+{
+    "toUser": "116650956573114804",
+    "fromUser": "test",
+    "msgType": "cmd",
+    "msg": null,
+    "mediaFile": "",
+    "ext": {"xxx":"xxx",......}
+}
+```
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|||||
+
+**注释：**
+
+
+---
+###返回json格式示例：
+```
+{
+  "Code": 200,
+  "Message": "成功",
+  "Data": null,
+  "Page": null,
+  "Foot": {
+    "OperationTime": "2015-09-09 15:51:44",
+    "ServicePhone": "400800400",
+    "Host": "Sam.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+http://localhost:8080/easemob/sendEasemobMessage
+
+{"fromUser":"xxoo","toUser":"103668585670377912","msgType":"txt","msg":"测试下"}
+
+####线上环境：
+
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-09-09 |基础版 |闵振华 |
+|01 |2015-19-16 |修改 |何红林 |

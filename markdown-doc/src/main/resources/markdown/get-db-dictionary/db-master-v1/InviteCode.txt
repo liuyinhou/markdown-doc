@@ -1,0 +1,20 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##InviteCode   邀请码
+ 
+ 
+| 字段         | 类型              | 描述 | 备注 | 版本 |
+| ---------- | --------------- | -- | -- | -- |
+| _id        | String          |    |    | v1 |
+| Code       | String            |   编号 |    | v1 |
+| Description    | String         |   描述 |    | v1 |
+| CreateTime      | date          | 创建时间   |    | v1 |
+| StartTime      | date          |  开始时间  |    | v1 |
+| EndTime      | date          |   结束时间 |    | v1 |
+| UseTime      | date          |  使用时间  |    | v1 |
+| UserId     | String          | 用户ID   |    | v1 |
+| CreateId     | String          |   创建人 |    | v1 |
+| Status  | EnabledEnum          | Enabled = 1,    Disabled = 2,|   状态 | v1 |
+ 
+   
+ 

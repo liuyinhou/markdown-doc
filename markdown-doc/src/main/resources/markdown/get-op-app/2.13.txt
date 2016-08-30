@@ -1,0 +1,64 @@
+* [Op App Api接口文档](/markdown/get-op-app) > 2.13
+
+##2.13 获取用户标签接口(中转)
+###URL:
+http://120.55.94.183:8086/opapp/transfer
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|reqUrl|String|请求的url|否 | |
+|userId|String|用户ID|否 | |
+
+
+###返回数据:
+
+参见[OP Api 用户标签V2](/markdown/get-op-api/2.23.2.txt)
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|userId|String|正参与中的项目| |
+|nickName|String|非正在参与中的项目| |
+|tags|List|非正在参与中的项目| |
+
+###返回json格式示例：
+
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": [
+    {
+      "tags": [
+        "GetTest",
+        "Test"
+      ],
+      "nickName": "阿洋",
+      "userId": "u00013058217037704c358367f6e1fd1da545"
+    }
+  ],
+  "foot": {
+    "operationTime": "2016-06-06 09:58:42",
+    "servicePhone": "400800400",
+    "host": "c2"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://120.55.94.183:8086/opapp/transfer?apiVersion=02&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=000f98f2460b594d11b9a266471de334
+
+{"reqUrl":"/op/v2/userTagList","userId":"u00013058217037704c358367f6e1fd1da545"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-05-25 |基础版 |季宇轩 |

@@ -1,0 +1,35 @@
+* [授权中心](/markdown/get-auth) > 2.1
+
+##2.1 授权承接页
+###URL
+授权中心部署地址/pages/auth.html
+
+###调用方式
+window.href.location=URL
+
+###请求参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |版本|
+|:-----|:-----|:------|:-----|:----|:----|
+|actId 	|String |活动ID|否|用于授权中心回调时，查询`ActUrl` |v1.0|
+|authType 	|String |授权类型|否 |此字段值由`Activity.SupportAuthType`给定 |v1.0|
+|authplatformId 	|String |授权平台ID|否| |v1.0|
+|state 	|String |透传数据|是| |v1.0|
+
+###返回数据:
+授权成功后，授权中心会重定向到此活动的部署页面`(ActUrl)`,同时会在`(ActUrl)`后带上以下参数 
+
+|字段	 |类型 	|描述 	|备注 |版本|
+|:-----|:-----|:------|:----|:----|
+|actId|String | 授权活动ID| | 01|
+|authUserId|String | 授权信息在`AuthUser`表中的主键ID| 当`授权成功`时有值,否则为`空串`,根据`statusCode`判断是否成功| 01|
+|statusCode|Integer | 参见 [授权返回状态码](/markdown/get-auth/4.2.txt)| | 01|
+|state|String | 透传参数| 如果调用时未指定`state`参数,则回调URL里`不包含`state参数| 01|
+
+###测试环境
+http://authtest.getgaoding.com/pages/auth.html?actId=5e0b6c809df8494a83ed48d6fb3b784e&authType=wechat&authPlatformId=22ddcf4a66f143cda5cbef95af997c23 
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-03-03 |基础版 |刘定湘 |

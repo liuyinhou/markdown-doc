@@ -1,0 +1,39 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##Company  公司
+ 
+ 
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+| _id   | String |   主键 |    | v1 |
+| Name  | String |   公司名 |    | v1 |
+| ProvinceId    | int   |   省id |    | v1 |
+| CityId    | int   |   城市id |    | v1 |
+| DistrictId    | int   |   区县id |    | v1 |
+| Address    | String   |   公司具体地址 |    | v1 |
+| Principal    | String   |   负责人 |    | v1 |
+| PrincipalPhone    | String   |   负责人手机号 |    | v1 |
+| Status    | int   |   状态（1=启用，2=禁用） |    | v1 |
+| Remark    | String   |   备注 |    | v1 |
+| ProductKind    | String   |   经营项目ProductKindId,多个用逗号分开 |    | v1 |
+| NickName       | String |   公司昵称 |    | v1 |
+| IntiPhone     | String  |   初始化手机号 |    | v1 |
+| IsActiveChat     | boolean  |   是否可以主动发起会话 |    | v1 |
+| IsDel       | int |   0=未删除，1=删除 |    | v1 |
+| UpdateTime     | Date  |   修改时间 |    | v1 |
+| CreateTime       | Date |   创建时间 |    | v1 |
+| OperatorId       | String |   操作人 |    | v1 |
+| DefaultRouter | Router |默认路由组 |    | v2.1 |
+
+Router
+
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+| CompanyId | String |公司ID |    | v2.1 |
+| StaffGroupId | String |员工组ID |如果此值为空，则在对应公司里随机挑选一个路由   | v2.1 |
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-24 |v1   |Jim | |

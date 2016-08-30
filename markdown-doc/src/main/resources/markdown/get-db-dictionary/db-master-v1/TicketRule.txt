@@ -1,0 +1,26 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ * [ 返回 Ticket ](/markdown/get-db-dictionary/db-master-v1/Ticket.txt)
+ 
+ * [ 返回  TicketUser 表](/markdown/get-db-dictionary/db-user-v1/TicketUser.txt)
+ 
+ * [ 返回 OP  TicketUser 表](/markdown/get-db-dictionary/db-operator-v1/TicketUser.txt)
+ 
+## TicketRule 优惠券规则 
+|字段|类型|描述|备注|版本|
+|----|-----|--|--|--|
+|UseStartTime|Date|使用开始时间|当`DelayDay`值不为空时，该值为空 （开始时间为当天凌晨 00:00:00） |v2.1|
+|UseEndTime|Date|使用结束时间|当`DelayDay`值不为空时，该值为空（结束时间为当天晚上23:59:59） |v2.1|
+|ProductKinds|List`<String>`|品类ID|例如：打车、咖啡，参见ProductKind表|v2.1|
+|OrderAmount|Integer|订单金额限制| 单位分，大于此金额的订单才可使用  |v2.1|
+|MaxAmount|Integer|最高优惠额|单位是分 |v2.1|
+|DelayDay|Integer|领用后多长天内有效|单位 天 ；当`UseStartTime`和`UseEndTime`值不为空时，该值为空 ;当该值不为空时，在领取礼包并生成优惠券时，需要给`UseStartTime`和`UseEndTime`赋值|v2.1|
+
+
+
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

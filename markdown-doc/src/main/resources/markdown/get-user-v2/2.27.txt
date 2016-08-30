@@ -1,0 +1,55 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.27
+
+##2.27 H5获取微信账户信息
+###URL:
+http://120.55.117.53:8081/user/v2/h5GetWxinfo
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|wxAppId |String |微信账户ID |否 | |
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|appId | String |账户ID| |
+|name | String |名称| |
+|devAppId | String |账户开发ID| |
+|devAppSecret | String|账户开发密钥| |
+
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "devAppSecret": "6c3f32d48698df1b8c69c882c5c5e849",
+    "devAppId": "wx059f22b3ea99f6f0"
+  },
+  "page": null,
+  "foot": {
+    "operationTime": "2015-10-29 14:46:21",
+    "servicePhone": "400800400",
+    "host": "test1"
+  }
+}
+```
+
+---
+
+####测试环境：
+http://120.55.117.53:8081/user/v2/h5GetWxinfo?apiVersion=01&client=98e43120159449318b54d64493121489&sign=2988168493cc683ae9b2e62a6dd12f62&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15
+
+{"wxAppId":"5e79e3a77d294c4493a40a56f330df38"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-10-29 |基础版 |刘印后 |

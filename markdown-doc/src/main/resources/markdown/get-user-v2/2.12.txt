@@ -1,0 +1,59 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.12
+
+##2.12 地址修改
+###URL:
+http://120.55.117.53:8081/user/v2/addressEdit
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userToken |String | 用户Token |否 | |
+|id |String |地址ID|否| |
+|city |String | 城市 |是| |
+|address |String |详细地址|否| |
+|remark|String|地址名称|否| |
+
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|- |- |- |- |
+
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {},
+    "page": null,
+    "foot": {
+        "operationTime": "2015-10-12 11:13:26",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+```
+
+---
+
+####测试环境：
+http://120.55.117.53:8081/user/v2/addressEdit?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=a9c6097c85402865362bc0c403104731
+
+{
+    "userToken": "u00015a9eb1101c934970a57b8d8f17e61005",
+    "id": "地址Id",
+    "city": "城市",
+    "address": "详细地址",
+    "remark": "地址名称"
+}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-10-07 |基础版 |刘印后 |

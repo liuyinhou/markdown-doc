@@ -1,0 +1,170 @@
+* [OP 优惠券 接口文档](/markdown/get-op-ticket) > 2.29
+
+##2.29 创建礼包  带结果和原因
+###URL:
+http://120.55.94.183:8082/op/v2/createTicketPackageWithResult
+
+###方式:
+post
+###输入参数:
+
+ >  请求消息结构
+ 
+##TicketPackage 礼包表（优惠券礼包）
+
+|字段|类型|描述|可为空 |备注|版本|
+|----|-----|--|--|--|--|
+|TicketPackageName|String|礼包名称|否| |v2.1|
+|TicketPackageAliasCodeType|Integer|礼包编码类型|否|1 唯一编码;2 相同编码 |v2.1|
+|CustomCode|String|自定义礼包编号|否|  |v2.1|
+|UseChannels|List`<String>`|使用渠道|是|当选择`不限定`时为空; 渠道是最小的粒度的控制单位 如：七煌 微信公众号1; |v2.1|
+|CreateUserId|String|创建人ID |否|  |v2.1|
+|CreateCompanyId|String|创建公司ID|否||v2.1|
+|TicketPackageRule|`TicketPackageRule`|礼包规则|否|详见`TicketPackageRule` |v2.1|
+|Tickets|List`<Ticket>`|优惠券列表|否|详见`Ticket` |v2.1|
+
+***
+
+## TicketPackageRule 包规则
+
+|字段|类型|描述|可为空 |备注|版本|
+|----|-----|--|--|--|--|
+|ReceiveStartTime|String|领用开始时间|否|时间格式为`yyyy-MM-dd`  |v2.1|
+|ReceiveEndTime|String|领用结束时间|否| 时间格式为`yyyy-MM-dd`  结束时间为当天晚上23:59:59 |v2.1|
+|TotalCountLimit|Integer|总个数限制|否| 所有人可以领用的总数|v2.1|
+|PersonalCountLimit|Integer| 个人领用数量限制|否| 每个人可以领用的个数; 当选择`不限制`时 为`-1`|v2.1|
+|UseChannels|List`<String>`|使用渠道|是|当选择`不限定`时为空;  渠道是最小的粒度的控制单位 如：七煌 微信公众号1;  |v2.1|
+
+***
+
+## Ticket  优惠券
+|字段|类型|描述|可为空|备注|版本|
+|----|-----|--|--|--|--|
+|TicketName|String| 优惠券名称|否| |v2.1|
+|TicketType|Integer|优惠券类型|否|1 优惠金额;2 折扣 |v2.1|
+|UseChannels|List`<String>`|使用渠道|是|当选择`不限定`时为空; 渠道是最小的粒度的控制单位 如：七煌 微信公众号1 |v2.1|
+|Count|Integer|优惠券个数| 否|包含了几张此类券 |v2.1|
+|TicketAmount|Double|优惠券优惠额度| 否 |优惠券类型为优惠金额时该值为减金额数（单位是分）; 优惠券类型为折扣时该值为折扣数（如：8.5折）|v2.1|
+|CreateUserId|String|创建人ID|否 |  |v2.1|
+|TicketRule|`TicketRule`|优惠券规则| 否|详见`TicketRule` |v2.1|
+
+***
+
+## TicketRule 优惠券规则 
+|字段|类型|描述|可为空|备注|版本|
+|----|-----|--|--|--|--|
+|UseStartTime|String|使用开始时间|是|当选择`领用超过多少天失效`时为空; 时间格式为`yyyy-MM-dd` |v2.1|
+|UseEndTime|String|使用结束时间|是|当选择`领用超过多少天失效`时为空; 时间格式为`yyyy-MM-dd` 结束时间为当天晚上23:59:59 |v2.1|
+|ProductKinds|List`<String>`|品类ID|否|例如：打车、咖啡，参见ProductKind表|v2.1|
+|OrderAmount|Integer|订单金额限制|否| 大于此金额的订单才可使用  单位分 |v2.1|
+|MaxAmount|Integer|最高优惠额|是| 当优惠券类型为`折扣`时不能为空;   单位是分 |v2.1|
+|DelayDay|Integer|领用后多长天内有效|是|当选择`领用超过多少天失效`时不为空; 单位 天 |v2.1|
+
+###返回结果:
+|字段|类型|描述|备注|版本|
+|----|-----|--|--|--|
+| |String|礼包id| |v2.1|
+
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": "7f845f1d478c438d97a9ea9cc371252b",
+    "page": null,
+    "foot": {
+        "operationTime": "2015-11-23 15:04:16",
+        "servicePhone": "400800400",
+        "host": "test3"
+    }
+}
+```
+
+***
+####测试环境：
+
+ http://120.55.94.183:8082/op/v2/createTicketPackageWithResult?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&version=2.0&sign=64089f8e90605825455a26d56c66784c
+
+``` 
+{
+    "TicketPackageName": "测试礼包",
+    "TicketPackageAliasCodeType": 2,
+    "CustomCode": "get 优惠券   测试",
+    "UseChannels": [
+        "d6f102bd587d41d0b06f9f63ec845572",
+        "b1784cf9aca34a4aae341752a4179842",
+        "bc91b9499d304c638bc9497eb256e8e8"
+    ],
+    "CreateUserId": "1234",
+    "CreateCompanyId": "x1111111111",
+    "TicketPackageRule": {
+        "ReceiveStartTime": "2015-12-11",
+        "ReceiveEndTime": "2015-12-12",
+        "TotalCountLimit": 100,
+        "PersonalCountLimit": 2,
+        "UseChannels": [
+            "d6f102bd587d41d0b06f9f63ec845572",
+            "b1784cf9aca34a4aae341752a4179842",
+            "bc91b9499d304c638bc9497eb256e8e8"
+        ]
+    },
+    "Tickets": [
+        {
+            "TicketName": "测试优惠券1",
+            "TicketType": 1,
+            "UseChannels": [
+                "d6f102bd587d41d0b06f9f63ec845572",
+                "b1784cf9aca34a4aae341752a4179842",
+                "bc91b9499d304c638bc9497eb256e8e8"
+            ],
+            "Count": 12,
+            "TicketAmount": 500,
+            "CreateUserId": "1234",
+            "TicketRule": {
+                "UseStartTime": "2015-12-11",
+                "UseEndTime": "2015-12-12",
+                "ProductKinds": [
+                    "564ed52765cd45cbb779998ff5f5c55b",
+                    "aea513510de24ca5aa03193411ef74f9",
+                    "95a1854f21664f1ea975c1bba343304d"
+                ],
+                "OrderAmount": 1000,
+                "MaxAmount": 10000,
+                "DelayDay": 10
+            }
+        },
+        {
+            "TicketName": "测试优惠券2",
+            "TicketType": 1,
+            "UseChannels": [
+                "d6f102bd587d41d0b06f9f63ec845572",
+                "b1784cf9aca34a4aae341752a4179842",
+                "bc91b9499d304c638bc9497eb256e8e8"
+            ],
+            "Count": 12,
+            "TicketAmount": 500,
+            "CreateUserId": "1234",
+            "TicketRule": {
+                "UseStartTime": "2015-12-11",
+                "UseEndTime": "2015-12-12",
+                "ProductKinds": [
+                    "564ed52765cd45cbb779998ff5f5c55b",
+                    "aea513510de24ca5aa03193411ef74f9",
+                    "95a1854f21664f1ea975c1bba343304d"
+                ],
+                "OrderAmount": 1000,
+                "MaxAmount": 10000,
+                "DelayDay": 10
+            }
+        }
+    ]
+}
+```
+
+####线上环境：
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-16 |基础版 |何红林 |

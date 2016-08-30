@@ -1,0 +1,32 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ ##StandardAttach  标准画像表
+ 
+ 
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+| _id   | String |   主键 |    | v1 |
+| StandardAttachKindId     | String |   标准画像分类id |    | v1 |
+| Key | String    |   属性字段(Sex,Age之类，暂不维护) |    | v1 |
+| KeyType  | Int   |   0=文本，1=日期，2=bool，3=枚举，4=数字 |    | v1 |
+| Name  | String |   属性名称(对应Sex,Age，性别，年龄。需要维护) |    | v1 |
+| Value     | String |   属性初始值 |    | v1 |
+| IsRoute      | bool |   是否参与路由 |    | v1 |
+| Type       | int |   分类(0=用户，1=员工，2=员工组) |    | v1 |
+| OperatorId    | String   |   操作人 |    | v1 |
+| CreateTime       | Date |   创建时间 |    | v1 |
+| UpdateTime     | Date  |   修改时间 |    | v1 |
+| EnumValues|List(EnumValue)| 枚举值 | |v2.1|
+
+EnumValue：
+
+| 字段          | 类型     | 描述 | 备注 | 版本 |
+| ----------- | ------ | -- | -- | -- |
+| EnumId | String |   主键 |    | v2.1 |
+| EnumValue | String |  展示值 |    | v2.1 |
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-24 |v1   |Jim | |

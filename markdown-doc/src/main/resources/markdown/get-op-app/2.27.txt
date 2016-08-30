@@ -1,0 +1,75 @@
+* [Op app Api接口文档](/markdown/get-op-app) > 2.27
+
+##2.27 主播群发送消息接口
+
+###URL:
+http://120.55.94.183:8086/opapp/anchorSent
+
+###方式:
+post
+
+
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|staffId|String|主播ID|否 | |
+|liveId|String|直播ID|否| |
+|from|String|消息发送者|否| |
+|to|String|接收者|否| |
+|anchorGroupId|String|主播群ID|否| |
+|msgType|String|消息类型|否|"txt"、"audio"、"img"、"loc"、"video"、"file"、"cmd" |
+|fileUrl| String |请求图片、语音、视频等多媒体文件|是|如果是发送文本消息，可以没有该字段|
+|msg |String |文本消息内容|消息类型：text不能为空| |
+|mediaFile |String |多媒体文件|是| |
+|ext |Map |自定义消息|是| |
+|targetType|String|发送消息对象|是|取值：users 给用户发消息, chatgroups 给群发消息，默认chatgroups|
+
+###返回数据:
+
+|字段	|类型	|描述 |备注|
+|:-----|:-----|:-----|:-----|:-----|
+|messageId |String |消息ID | |
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {"messageId":"u00012b2e588bd93843168dfb67ae12cc2ee9"},
+  "page": null,
+  "foot": {
+    "operationTime": "2015-11-18 22:19:32",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+
+####测试环境
+
+http://120.55.94.183:8086/opapp/anchorSent?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o000106a215139e454ab491d0654a92a69807&sign=e99870f6752d7695c9807f9a3ba6496f
+
+```
+{
+  "staffId": "o0001c50f32abad2a443ba36da03f5f10371c",
+  "anchorGroupId": "u000139b3f07231f7417f971452975e798c23",
+  "liveId": "u0001a7bb85e5e9774deaaf37eaf995d39157",
+  "msgType": "txt",
+  "from": "o0001c50f32abad2a443ba36da03f5f10371c",
+  "to": "u0001f2b130bd193d40a1979c090ae8c7ab8e",
+  "msg": "直播的第4句话",
+  "ext": {
+    "isHide": false
+  }
+}
+```
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-06-17 |基础版 |季宇轩|

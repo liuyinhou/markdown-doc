@@ -1,0 +1,18 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Log.txt) > Get数据库文档 - V1
+ 
+##NginxHourLog  记录nginx日志表
+ 
+| 字段              | 类型     | 描述 | 备注 | 版本 |
+| --------------- | ------ | -- | -- | -- |
+| _id     | String | ID  |  | v2 |
+| ServerName | String |服务名称 | | v2 |
+| LogTime |Date | 统计时间|精确到小时| v2 |
+| CountNum        | Integer |统计数 | | v2 |
+| CreateTime      | Date   | 创建时间|  | v2 |
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-01-13 |v1   |刘印后 | -|

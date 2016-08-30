@@ -1,0 +1,160 @@
+
+
+* [Op Api接口文档](/markdown/get-op-api) > 2.38
+
+##2.38 创建关键词自动回复
+
+###URL:
+http://120.55.94.183:8080/op/v2/createKeyWord
+
+
+ 
+###方式:
+post
+
+###输入参数:
+
+ >  请求消息结构
+
+|	字段				|类型					|描述			|可为空	|备注													|版本	|
+|	----			|-----					|--				|--		|--														|--		|
+|KeyWord			|String					|关键词 			|否		|	多个关键词用`","`(逗号)分隔								|v2.1	|
+|CompanyId			|String					|公司ID 			|否		| 														|v2.1	|
+|PlatformId			|Integer				|平台 ID			|否		|  -1 表示所有平台											|v2.1	|
+|GroupId			|String					|组ID 			|否		| 														|v2.1	|
+|InvalidTime		|String					|失效时间			|否		|时间格式为`yyyy-MM-dd` 	     							|v2.1	|
+|IsCreateChat		|boolean				|是否需要创建会话 	|否		|true 创建会话;false 不需要创建会话 							|v2.1	|
+|MessageType		|Integer				|回复消息类型		|否		|	1 文本;2 图片;3 图文（微信内链图文）;4 自定义图文（ 微信外链图文）;	|v2.1	|
+|ReplyTxtMessageList|`List<String>`			|回复文本信息		|是		| 	        			                                |v2.1	|
+|MediaFileUrlList	|`List<String>`			|多媒体文件名称		|是		| 多媒体文件在`七牛`上的名称			          				|v2.1 	|
+|InnerTeleTextList	|`List<InnerTeleText>`	| 图文 			|是  		| 微信内链图文 ，详见`InnerTeleText`							|v2.1	|
+|CustomTeleTextList	|`List<CustomTeleText>`	|自定义图文		|是		| 自定义图文，详见`CustomTeleText`							|v2.1	|
+
+> 
+|~~ChannelId		|String					|渠道ID			|否		| 已被弃用				                  	          	|v2.1	|~~
+
+
+#### 内链图文 InnerTeleText ：
+|字段			|类型				|描述			|备注			|版本|
+|----			|-----				|--				|--				|--	|	
+|MediaId		|String				|微信的`media_id`	| 				|v1	|
+|TeleText		|`List<TeleText>`	|自定义图文		| 详见`TeleText`	|v1	|
+
+#### 自定义图文 CustomTeleText：
+|字段			|类型		sssssss		|描述		|备注			|版本|
+|----			|-----				|--			|--				|--	|	
+|CustomTeleText	|`List<TeleText>`	|自定义图文	| 详见`TeleText`	|v1	|
+
+
+#### 自定义图文  TeleText：
+|字段			|类型	|描述		|备注			|版本|
+|----			|-----	|--			|--				|--	|	
+|ImgUrl			|String	|图片名称	 	| 图片在`七牛`上名称|v1	|
+|LinkUrl		|String	|文章链接url	|  				|v1	|
+|Title			|String	|标题		|  				|v1	|
+|Description	|String	|描述		|可以没有该字段		|v1	|
+
+
+>  内链图文和自定义图文例子
+
+##### 内链图文 InnerTeleText 
+```
+{
+    "MediaId": "w018AoHwrF9yseS4s1C9Koq8tSi9uB4g-txb9RGzoQA",
+    "TeleText": [
+        {
+            "Title": "eee",
+            "Description": "自定义图文描述，该段可以为空",
+            "LinkUrl": "http://mp.weixin.qq.com/s?__biz=MzA4NjU2Nzg3OA==&mid=401999558&idx=1&sn=56969724d24457e558f6f4fe92d661b6#rd",
+            "ImgUrl": "bb9c2fa87ac14a6b9eb5c04c0f5db305.png"
+        },
+        {
+            "Title": "BBBBB",
+            "Description": "自定义图文描述，该段可以为空",
+            "LinkUrl": "http://mp.weixin.qq.com/s?__biz=MzA4NjU2Nzg3OA==&mid=401999558&idx=2&sn=a1048e15b5be2b5fa6273fcce1e13474#rd",
+            "ImgUrl": "76c2adc3475f422b8594124aaf1d4b12.png"
+        },
+        {
+            "Title": "CCC",
+            "Description": "自定义图文描述，该段可以为空",
+            "LinkUrl": "http://mp.weixin.qq.com/s?__biz=MzA4NjU2Nzg3OA==&mid=401999558&idx=3&sn=eecf291fe683599a9bd460639ff9b653#rd",
+            "ImgUrl": "a3a8dc990daf4efc99a369bd9192f985.png"
+        }
+    ]
+}
+```
+
+#####   自定义图文  CustomTeleText
+```
+{
+    "CustomTeleText": [
+        {
+            "Title": "eee",
+            "Description": "自定义图文描述，该段可以为空",
+            "LinkUrl": "http://www.163.com",
+            "ImgUrl": "bb9c2fa87ac14a6b9eb5c04c0f5db305.png"
+        },
+        {
+            "Title": "BBBBB",
+            "Description": "自定义图文描述，该段可以为空",
+            "LinkUrl": "http://www.12306.cn",
+            "ImgUrl": "76c2adc3475f422b8594124aaf1d4b12.png"
+        }
+    ]
+}
+```
+
+
+#####   自定义图文  TeleText
+```
+{
+    "Title": "eee",
+    "Description": "自定义图文描述，该段可以为空",
+    "LinkUrl": "http://www.baidu.com",
+    "ImgUrl": "a3a8dc990daf4efc99a369bd9192f985.png"
+}
+```
+
+
+***
+
+###返回结果:
+
+|字段|类型	|描述				|备注|版本	|
+|---|-----	|--					|--	|--		|
+|	|Boolean|true 成功，false 失败	| 	|v2.1	|
+
+***
+
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": true,
+    "foot": {
+        "operationTime": "2015-12-02 21:01:48",
+        "servicePhone": "400800400",
+        "host": "yinuo-PC"
+    }
+}
+```
+
+***
+
+####测试环境：
+
+ http://120.55.94.183:8080/op/v2/createKeyWord?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=f4e702296d9682ffef1c0d8744b0cdc9
+ 
+```
+
+```
+
+####线上环境：
+
+###版本历史：
+
+|版本 	|时间 		|描述 	|操作人 	|
+|:----	|:------	|:------|:------|
+|01 	|2016-05-07 |基础版 	|何红林 	|
+

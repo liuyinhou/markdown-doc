@@ -1,0 +1,62 @@
+* [路由接口文档](/markdown/get-router) > 2.22
+
+##2.22 查询公司路由规则
+###URL:
+http://120.55.94.183:8081/router/v2/addChannelRouter
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|operatorId|String|操作人ID|否 | |
+|channelRouterId|String|规则ID |否| |
+|companyId |String|公司ID| |
+|channelId |String|渠道ID| |
+
+
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|channelRouterId|String|规则ID | |
+|companyId |String|公司ID| |
+|channelId |String|渠道ID| |
+|fromOp |String|操作 |= != > <，目前仅支持"=" |
+|fromKey |String|来源key |StandardAttach表的_id |
+|fromValue |String|来源value | |
+|toOp |String|操作 |= != > <，目前仅支持"=" |
+|toKey |String|目标key |StandardAttach表的_id |
+|toValue |String|目标value | |
+|weight |Integer|权重 |1-99，数字越大优先级越高 |
+|createTime |String|创建时间 |yyyy-MM-dd HH:mm:ss |
+
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": null,
+  "page": null,
+  "foot": {
+    "operationTime": "2015-11-18 15:53:22",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-26 |基础版 |刘印后 |

@@ -1,0 +1,89 @@
+* [OP 优惠券 接口文档](/markdown/get-op-ticket) > 2.12
+
+##2.12 根据公司id获取渠道
+###URL:
+http://120.55.94.183:8082/op/v2/getChannelsByCompanyId
+
+###方式:
+post
+###输入参数:
+
+ >  请求消息结构
+
+|字段|类型|描述|可为空 |备注|版本|
+|----|-----|--|--|--|--|
+|CompanyId|String|公司ID|否| |v2.1|
+
+***
+
+###返回结果:
+|字段|类型|描述|备注|版本|
+|----|-----|--|--|--|
+||List`<Channel>`|品类集合| |v2.1|
+
+***
+
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": [
+        {
+            "id": "dc2cd31373e7438ab43eb7f80190672e",
+            "name": "fadsfdasf渠道",
+            "clientId": 9,
+            "downUrl": "",
+            "userCount": 0,
+            "chatCount": 0,
+            "deviceCount": 0,
+            "adminId": "4537d0bf83c143bfa42ff35bcbfbd3de",
+            "sceneUrl": null,
+            "status": false,
+            "companyId": "111111222222",
+            "createTime": 1447749122726,
+            "defaultGroupIds": null
+        },{
+            "id": "dc2cd31373e7438ab43eb7f801906766",
+            "name": "渠道测试6",
+            "clientId": 9,
+            "downUrl": "",
+            "userCount": 0,
+            "chatCount": 0,
+            "deviceCount": 0,
+            "adminId": "4537d0bf83c143bfa42ff35bcbfbd3de",
+            "sceneUrl": null,
+            "status": false,
+            "companyId": "111111222222",
+            "createTime": 1447749122726,
+            "defaultGroupIds": null
+        }
+    ],
+    "page": null,
+    "foot": {
+        "operationTime": "2015-11-23 21:43:27",
+        "servicePhone": "400800400",
+        "host": "test3"
+    }
+}
+```
+
+***
+
+####测试环境：
+
+ http://120.55.94.183:8082/op/v2/getChannelsByCompanyId?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&version=2.0&sign=64089f8e90605825455a26d56c66784c
+
+```
+{
+   "CompanyId":"111111222222"
+}
+```
+
+####线上环境：
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-16 |基础版 |何红林 |

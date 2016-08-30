@@ -1,0 +1,34 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##TicketPackage 礼包表（优惠券礼包）
+
+|字段|类型|描述|备注|版本|
+|----|-----|--|--|--|
+|_id|String| | |v2.1|
+|TicketPackageCode|String|礼包唯一编码| |v2.1|
+|TicketPackageName|String|礼包名称| |v2.1|
+|TicketPackageAliasCodeType|Integer|礼包编号类型|1 唯一编号;2 相同编号 |v2.1|
+|TicketPackageAlias|String|礼包别名|用于前端展示，方便用户识别 |v2.1|
+|UseChannels|List`<String>`|使用渠道| 渠道是最小的粒度的控制单位 如：七煌 微信公众号1;  不限定时 该值为空  |v2.1|
+|UseStatus|Integer|使用状态| 1 正常;2 已过期; 3 尚未生效 |v2.1|
+|IsDelete|Boolean|是否删除|true 删除，默认为false |v2.1|
+|SendStatus|Integer|发送状态|1 待审核;2 审核中;3 审核未通过;4待发布;5 已发布;6 关闭 ;7 删除 ;8 发放完毕|v2.1|
+|OperatorId|String|操作人ID |最后一个操作者id |v2.1|
+|CreateUserId|String|创建人ID |  |v2.1|
+|CreateCompanyId|String|创建公司ID||v2.1|
+|CreateTime|Date|创建时间| |v2.1|
+|UpdateTime|Date|更新时间| |v2.1|
+|ExaminerId|String|审核者id| |v2.1|
+|Suggestion|String|审核意见| |v2.1|
+|URL|String|礼包领取URL| |v2.1|
+|Remark|String|备注| |v2.1|
+|TicketPackageRule|`TicketPackageRule`|礼包规则|详见[TicketPackageRule](/markdown/get-db-dictionary/db-master-v1/TicketPackageRule.txt)|v2.1|
+|Tickets|List`<Ticket>`|优惠券列表|详见[Ticket ](/markdown/get-db-dictionary/db-master-v1/Ticket.txt)|v2.1|
+
+
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

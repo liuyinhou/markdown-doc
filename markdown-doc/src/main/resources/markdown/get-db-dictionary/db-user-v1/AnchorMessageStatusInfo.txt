@@ -1,0 +1,24 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/User.txt) > Get数据库文档 - V1
+ 
+## AnchorMessageStatusInfo 消息发送状态表
+ 
+| 字段         | 类型     | 描述 | 备注 | 版本 |
+| ---------- | ------ | -- | -- | -- |
+| _id        | String | 消息ID |    | v1 |
+| AnchorGroupId     | String | 群ID   |    | v1 |
+| LiveId     | String | 直播ID   |    | v1 |
+| TotalNum   | Integer | 需要连接的总人数| | v1 |
+| SucceedNum|Integer |成功数 | |v1|
+| FailedNum | Integer   | 失败数 |    | v1 |
+| CreateTime | Date   | 创建时间   |    | v1 |
+| UpdateTime | Date   | 更新时间   |    | v1 |
+
+
+ps. 
+SendingNum字段不在数据库中保存，在获取时计算
+SendingNum = TotalNum - SucceedNum - FailedNum;
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-06-20 |v1   | |初始化|

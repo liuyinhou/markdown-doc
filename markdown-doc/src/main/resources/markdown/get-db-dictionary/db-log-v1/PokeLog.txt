@@ -1,0 +1,21 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Log.txt) > Get数据库文档 - V1
+ 
+##PokeLog  记录poke一下日志表
+ 
+| 字段              | 类型     | 描述 | 备注 | 版本 |
+| --------------- | ------ | -- | -- | -- |
+| UserToken          | String |点击poke用户Token  |  | v2 |
+| PokeId          | String |点击的poke  |  | v2 |
+| PokeName        | String |点击的poke名称 |  | v2 |
+| PokeType        | String |poke类型 1 现有服务 2 话题性内容 | | v2 |
+| Longitude       | String |经纬度    |  | v2 |
+| CreateTime      | Date   |创建时间|  | v2 |
+| UpdateTime      | Date   |修改时间|  | v2 |
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

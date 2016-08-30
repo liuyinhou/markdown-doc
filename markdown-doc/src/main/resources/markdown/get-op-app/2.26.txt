@@ -1,0 +1,96 @@
+* [Op app Api接口文档](/markdown/get-op-app) > 2.26
+
+##2.26 主播群状态轮询接口
+
+###URL:
+http://120.55.94.183:8086/opapp/anchorPollingStatus
+
+###方式:
+post
+
+
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|anchorGroupId|String|主播群ID|否| |
+|liveId|String|直播ID|否| |
+|messageIds|List<String>|主播群中需要查询状态的消息ID数组|是 | |
+
+###返回数据:
+
+|字段	|类型	|描述 |备注|
+|:-----|:-----|:-----|:-----|:-----|
+|connectedStatus|Object|连接状态|详情见下方`connectedStatus` |
+|messageSentStatus|List<Object>|消息发送状态|详情见下方`messageSentStatus` |
+
+
+### connectedStatus
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|
+|totalNum|Integer|需要连接的总人数 | |
+|connectedNum|Integer|已连接人数 | |
+|connectingNum|Integer|正在连接中人数| |
+|connectFailedNum|Integer|连接失败人数| |
+
+### messageSentStatus
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|
+|messageId|String|消息ID | |
+|totalNum|Integer|需要发送的总数量 | |
+|succeedNum|Integer|发送成功数| |
+|failedNum|Integer|发送失败数| |
+|sendingNum|Integer|发送中数量| |
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "messageSentStatus": [
+      {
+        "failedNum": 0,
+        "totalNum": 97,
+        "sendingNum": 0,
+        "messageId": "u00012c2fae19bd6b4dc0b5b5348500618a17",
+        "succeedNum": 97
+      }
+    ],
+    "connectedStatus": {
+      "totalNum": 97,
+      "connectingNum": 0,
+      "connectFailedNum": 0,
+      "connectedNum": 97
+    }
+  },
+  "foot": {
+    "operationTime": "2016-06-23 12:13:32",
+    "servicePhone": "400800400",
+    "host": "jekyodeMacBook-Pro.local"
+  }
+}
+```
+
+---
+
+
+####测试环境
+
+http://120.55.94.183:8086/opapp/anchorPollingStatus?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o000106a215139e454ab491d0654a92a69807&sign=e99870f6752d7695c9807f9a3ba6496f
+
+```
+{
+"anchorGroupId":"u0001a06efd984cc5445496041312cd987e36",
+"liveId":"u0001f2b130bd193d40a1979c090ae8c7ab8e",
+"messageIds":[
+        "u00012c2fae19bd6b4dc0b5b5348500618a17"
+        ]
+}
+```
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-06-17 |基础版 |季宇轩|

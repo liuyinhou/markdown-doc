@@ -1,0 +1,67 @@
+* [Op app Api接口文档](/markdown/get-op-app) > 2.22
+
+##2.22 主播群列表接口
+###URL:
+http://120.55.94.183:8086/opapp/getAnchorGroup
+###方式:
+POST
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|staffId|String|主播员工ID|否 |  |
+
+###返回数据:
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|
+|anchorGroupId |String |群ID | |
+|liveStatus |int |直播状态(直播中`1`、非直播中`0`)| |
+|liveId |String |直播ID 非直播中时值为0| |
+|liveTitle |String |当前直播的标题，如果非直播状态 则为空| |
+|groupName |String |群名称 | |
+|status |String |状态| |
+|createTime |String |群的创建时间,`yyyy-MM-dd HH:mm:ss`格式| |
+|userCount |Integer |该群的人数| |
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": [
+    {
+      "GroupName": "kyo",
+      "Status": 0,
+      "UserCount": 6,
+      "CreateTime": "2016-06-30 12:34:40",
+      "LiveId": "u0001a7bb85e5e9774deaaf37eaf995d39157",
+      "AnchorGroupId": "u000139b3f07231f7417f971452975e798c23",
+      "LiveStatus": 1
+    }
+  ],
+  "foot": {
+    "operationTime": "2016-06-30 17:59:50",
+    "servicePhone": "400800400",
+    "host": "bogon"
+  }
+}}
+```
+
+---
+
+
+####测试环境
+http://120.55.94.183:8086/opapp/getAnchorGroup?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=7c2b94e2e584989f0bef4d88a25d9d63
+ 
+```
+{ 
+  "staffId":"o0001c50f32abad2a443ba36da03f5f10371c"
+}
+```
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-06-14 |基础版 |季宇轩|

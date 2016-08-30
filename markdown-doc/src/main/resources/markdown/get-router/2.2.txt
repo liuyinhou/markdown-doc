@@ -1,0 +1,67 @@
+* [路由接口文档](/markdown/get-router) > 2.2
+
+##2.2 添加用户
+###URL:
+http://120.55.94.183:8081/router/v2/addStaff
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|companyId|String|公司ID|否 | |
+|groupIds|List(String)|分组ID|否|数组 |
+|roleIds|List(String)|角色ID|否|数组 |
+|phone|String|电话号码|否| |
+|nickName|String|昵称|否| |
+|realName|String|真实姓名|否| |
+|icon|String|用户头像|否|头像url |
+|bankName|String|开户银行|是| |
+|bankUserName|String|用户银行账户名称|是| |
+|bankUserCardCode|String|用户银行卡号|是| |
+|invoiceTitle|String|发票抬头|是| |
+|tags|List(String)|标签|是|数组 |
+|remark|String|备注|是| |
+|operatorId|String|操作人ID|否 | |
+|isReceive|Boolean|是否可以接单|是|默认是true |
+|settleUnit|String|结算单位|是|-|
+
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|staffId |String|员工ID| |
+
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "staffId": "1818f50447cc424987054ec940360908"
+  },
+  "page": null,
+  "foot": {
+    "operationTime": "2015-11-17 15:35:54",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+http://127.0.0.1:8080/router/v2/addStaff?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&channel=eba920d452d34adb8f2badb08b9e69bb&version=2.0&sign=c180dc1550044b860ffe7220435aed1d
+
+{"companyId":"da4fa37ca7274579af38320703c1ec7b","groupIds":["11a5595791ea4c57b2751cb4745ed9d1"],"roleIds":["sfsdf"],"phone":"13671000000","nickName":"我的昵称","realName":"印后","icon":"http://7xkq6j.com1.z0.glb.clouddn.com/623f40ac2b39405a91a458aeb1161313_200.png?attname=&imageView2/1/w/200/h/200&e=1602298591&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:tett55s3fDrJAT7CRpPM2fS55gQ=","operatorId":"o00012a3a17632216411d82b3e81008b7c1b1"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-16 |基础版 |刘印后 |

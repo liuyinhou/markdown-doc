@@ -1,0 +1,70 @@
+* [Op App Api接口文档](/markdown/get-op-app) > 2.14
+
+##2.14 获取用户参与项目列表接口(中转)
+###URL:
+http://120.55.94.183:8086/opapp/transfer
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|reqUrl|String|请求的url|否 | |
+|userId|String|用户ID|否 | |
+|containRelateUser|Boolean|查询是否包含关联用户|是 | |
+
+
+###返回数据:
+
+参见[OP Api 获取用户参与项目列表](/markdown/get-op-api/2.49.txt)
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|participationList|`List<UserManagerProjcet>`|正参与中的项目|详见`UserManagerProjcet`|
+|nonParticipationList|`List<UserManagerProjcet>`|非正在参与中的项目| |
+
+### UserManagerProjcet :
+|字段		|类型		|描述      |备注	|
+|:----		|:----		|:----     |:----	|
+|id |String|主键|    	|
+|managerProjectId|String|项目ID |    	|
+|managerProjectName|String|项目名称 |    	|
+|companyId|String|项目所属公司ID |    	|
+|state|Int|1 参与中;2 删除;3退出; 	|		|
+|marks| `List<String>`|mark 标识列表|   	|
+
+
+
+###返回json格式示例：
+
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "participationList": [],
+    "nonParticipationList": []
+  },
+  "foot": {
+    "operationTime": "2016-06-06 10:25:37",
+    "servicePhone": "400800400",
+    "host": "c2"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://120.55.94.183:8086/opapp/transfer?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=000f98f2460b594d11b9a266471de334
+
+{"reqUrl":"/op/userManagerProject/list","userId":"u00013058217037704c358367f6e1fd1da545"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-05-25 |基础版 |季宇轩 |

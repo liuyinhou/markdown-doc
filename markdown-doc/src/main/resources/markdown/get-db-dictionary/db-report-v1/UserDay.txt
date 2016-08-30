@@ -1,0 +1,29 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/report.txt) > Get数据库文档 - V1
+ 
+##UserDay用户运营工作量：【一天一条记录】【累积】 
+
+| 字段               | 类型      | 描述 | 备注 | 版本 |
+| ---------------- | ------- | -- | -- | -- |
+| _id               |String   |   主键   |  | v1 |
+| Title            |String   |   日期   |  | v1 |
+| UserCount        |int   |   来访问用户数 |    | v1 |
+| NewUserCount     |int   |   新用户数   |  | v1 |
+| OldUserCount     |int   |   再来用户数 |    | v1 |
+| ChatCount        |int   |   会话数  |   | v1 |
+| ReturnVisitChatCount |int |  回访会话数|   |v1 |
+| TaskCount        |int   |   任务数  |   | v1 |
+| OderCount        |int   |   订单数  |   | v1 |
+| OrderFinishedCount|int   |   完成订单数 |    | v1 |
+| Median            |int   |   首响中位值 |    | v1 |
+| RetentionForSevenDay |int   |   七日留存率(7天后，才会填写) |    | v1 |
+|RetentionForSevenDayByIntervalSevenDay|int  |隔7日 后的7日留存,2周后才会填写||v1|
+| CreateTime       |Date    |  创建时间   |   | v1 |
+
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

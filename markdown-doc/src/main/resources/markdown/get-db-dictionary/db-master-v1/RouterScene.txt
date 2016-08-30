@@ -1,0 +1,20 @@
+﻿ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##RouterScene  场景路由表
+ 
+| 字段              | 类型     | 描述 | 备注 | 版本 |
+| --------------- | ------ | -- | -- | -- |
+| _id | String | |  | v2 |
+| Name | String |场景名称 |    | v2 |
+| SceneValue | String |场景提示语句 |    | v2 |
+| ChannelId | String |所属群组ID  |    | v2 |
+| StaffGroup | String |路由到的OP群组  |    | v2 |
+| InvalidTime |Integer |失效时间，单位分钟|  | v2 |
+| CreateTime | Date   |创建时间|  | v2 |
+| UpdateTime | Date   |更新时间|  | v2 |
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-04-20 |v2   |刘印后 | |

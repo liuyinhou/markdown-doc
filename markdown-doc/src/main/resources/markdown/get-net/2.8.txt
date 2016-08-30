@@ -1,0 +1,45 @@
+* [Get-Net接口文档](/markdown/get-net) > 2.7
+
+##2.8 订单取消
+###URL:
+正式环境:
+
+测试环境:http://apitest.2020880.com/Order/v1/OrderCancle
+###方式:
+Post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|orderId |String |订单ID|否| |
+
+
+**注意：**
+已支付和打车的订单不能取消！
+
+---
+###返回json格式示例：
+```
+{"Code":200,"Message":"","Data":"","Page":null,"Foot":{"OperationTime":"2016-08-09 16:20:59","ServicePhone":"400800400"}}
+```
+
+---
+
+####测试环境：
+
+url:
+
+http://apitest.2020880.com/Order/v1/OrderCancle?wk\_client=b2736195b38346639463ee889d6b8ff4&wk\_sign=BA685444B04BB72C7D5475C323611721&wk\_operatorToken=o000161a87f7eadce4308ab46e690d8139469
+
+body:
+
+orderId=u00011608091612504334569100
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-08-09 |基础版 |韩飞 |
+

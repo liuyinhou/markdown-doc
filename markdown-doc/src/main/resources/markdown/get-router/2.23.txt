@@ -1,0 +1,83 @@
+* [路由接口文档](/markdown/get-router) > 2.23
+
+##2.23 查询员工组信息
+###URL:
+http://120.55.94.183:8081/router/v2/staffGroupInfo
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|staffGroupId|String|员工组ID |否| |
+
+
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|staffGroupId|String|员工组ID | |
+|staffGroupName |String|员工组名称| |
+|staffList |List(Staff)|组内员工列表| |
+
+Staff
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|staffId|String|员工ID | |
+|nickName|String|员工名称 | |
+|icon|String|员工头像 | |
+
+
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "staffGroupId": "o00014dd4922cc76b40b2bff3524b38b7534c",
+    "staffGroupName": "Get一下默认分组",
+    "staffList": [
+      {
+        "staffId": "o0001f6a926ab2e6b48f0866d52d65a448e74",
+        "nickName": "印后",
+        "icon": "http://7xkq6j.com1.z0.glb.clouddn.com/0b0ad3b5e8fa496db5b4fdf79f755f28_200.png?attname=&imageView2/1/w/200/h/200&e=1606619330&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:hwelDfMuGpvprjOh87-w3I-MNVs="
+      },
+      {
+        "staffId": "o000187dacd0a85464a5288adb2c1a37edd99",
+        "nickName": "小郭",
+        "icon": "http://7xkq6j.com1.z0.glb.clouddn.com/c77a77b84b1e403ca6e97b2138988b9d.png?attname=&imageView2/1/w/200/h/200&e=1606619330&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:Agy76haTbqpjelSltYZTjRhS9g4="
+      },
+      {
+        "staffId": "o0001c50f32abad2a443ba36da03f5f10371c",
+        "nickName": "kyo",
+        "icon": "http://7xkq6j.com1.z0.glb.clouddn.com/o0001c50f32abad2a443ba36da03f5f10371c_200.png?attname=&imageView2/1/w/200/h/200&e=1606619330&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:GPivSHxjeU9b-mdBKzStBZeMZVE="
+      }
+    ]
+  },
+  "page": null,
+  "foot": {
+    "operationTime": "2015-12-01 11:08:51",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://127.0.0.1:8080/router/v2/staffGroupInfo?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o00010d74d821ae444fb0affeef3fd69f4bfe&sign=689271f981a2f6193859c9561f7f20ea
+
+{"staffGroupId":"o00014dd4922cc76b40b2bff3524b38b7534c"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-26 |基础版 |刘印后 |

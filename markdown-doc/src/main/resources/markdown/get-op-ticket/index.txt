@@ -1,0 +1,44 @@
+* [接口文档](/markdown) > Op Api接口文档
+
+#Op Api接口文档
+
+* 1 优惠券描述
+ * 1.1 [Op 优惠券 介绍](/markdown/get-op-ticket/1.1.txt)
+ * 1.2 [通用参数](/markdown/get-op-ticket/1.2.txt)
+* 2 接口说明
+ * 2.1 [创建礼包](/markdown/get-op-ticket/2.1.txt)
+ * 2.2 [修改礼包](/markdown/get-op-ticket/2.2.txt)
+ * 2.3 [删除礼包](/markdown/get-op-ticket/2.3.txt)
+ * 2.4 [更新礼包发送状态](/markdown/get-op-ticket/2.4.txt)
+ * 2.5 [更新礼包使用状态](/markdown/get-op-ticket/2.5.txt)
+ * 2.6 [根据礼包id获取礼包详细信息](/markdown/get-op-ticket/2.6.txt)
+ * 2.7 [获取     礼包    列表](/markdown/get-op-ticket/2.7.txt)
+ * 2.8 [OP帮用户领取指定礼包](/markdown/get-op-ticket/2.8.txt)
+ * ~~ 2.9 [给OP集合派发指定礼包](/markdown/get-op-ticket/2.9.txt) ~~
+ * 2.10 [获取用户礼包唯一编号列表](/markdown/get-op-ticket/2.10.txt)
+ * 2.11 [根据公司id获取品类](/markdown/get-op-ticket/2.11.txt)
+ * 2.12 [根据公司id获取渠道](/markdown/get-op-ticket/2.12.txt)
+ * 2.13 [获取用户/OP优惠券列表](/markdown/get-op-ticket/2.13.txt)
+ * 2.14 [根据公司id 获取组信息  列表 ](/markdown/get-op-ticket/2.14.txt)
+ * 2.15 [根据公司id和组id  获取员工信息 列表 ](/markdown/get-op-ticket/2.15.txt)
+ * 2.16 [给 用户 集合 派发指定礼包 ](/markdown/get-op-ticket/2.16.txt)
+ * 2.17 [判断用户自定义编号是否唯一 ](/markdown/get-op-ticket/2.17.txt)
+ * 2.18 [根据公司id 获取员工信息 列表](/markdown/get-op-ticket/2.18.txt)
+ * 2.19 [分配给公司全部或部分 OP礼包并生成优惠券](/markdown/get-op-ticket/2.19.txt)
+ * 2.20 [根据父礼包id  获取子礼包唯一编号集合](/markdown/get-op-ticket/2.20.txt)
+ * 2.21 [定时任务 更新礼包/用户优惠券  状态](/markdown/get-op-ticket/2.21.txt)
+ * 2.22 [向指定数量的用户通过短信     发送  礼包唯一编号](/markdown/get-op-ticket/2.22.txt)
+ * 2.23 [向指定数量的用户通过PUSH 发送  礼包唯一编号](/markdown/get-op-ticket/2.23.txt)
+ * 2.24 [根据父礼包id  获取子礼包    自定义编号  集合](/markdown/get-op-ticket/2.24.txt)
+ > 下面这几个  接口   为  新 替换   接口
+ * 2.25 [OP帮用户领取指定礼包 （带结果或原因）](/markdown/get-op-ticket/2.25.txt)
+ * 2.26 [根据父礼包id  获取子礼包    自定义编号  集合（带结果 或 原因 ）](/markdown/get-op-ticket/2.26.txt)
+ * 2.27 [派发指定礼包   给    指定用户或用户集合  （带结果或原因）](/markdown/get-op-ticket/2.27.txt)
+ * 2.28 [派发指定礼包   给公司全部或部分 OP用户   （带结果或原因）](/markdown/get-op-ticket/2.28.txt)
+ * 2.29 [创建礼包 （带结果或原因）](/markdown/get-op-ticket/2.29.txt)
+ * 2.30 [定时任务 更新   全部 礼包/用户优惠券  使用状态](/markdown/get-op-ticket/2.30.txt)
+ * 2.31 [根据 父礼包id 获取 任意一个子礼包 别名](/markdown/get-op-ticket/2.31.txt)
+ * 2.32 [获取  审核 礼包  列表](/markdown/get-op-ticket/2.32.txt)
+ * 2.33 [定时任务 判断  礼包  是否领取完毕 ](/markdown/get-op-ticket/2.33.txt)
+* 3 附录
+

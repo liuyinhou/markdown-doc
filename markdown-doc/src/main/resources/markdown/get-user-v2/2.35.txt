@@ -1,0 +1,205 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.35
+
+##2.35 收藏详细
+###URL:
+/user/v2/favoriteDetail
+###方式:
+**POST**
+###输入参数:
+|字段	 |类型  |描述 |可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userToken |String | 用户Token |否 |  |
+|collectionId |String | 收藏ID |否 | |
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|
+|detailFoot |String| 收藏时间 |- |
+|detailList |List| 收藏消息集合 | 字段参见`消息表` |
+
+###消息表
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|msgId |String |消息Id | |
+|msg |String |消息内容 | 消息为文本、表情时 此处有值|
+|typeId |Integer |消息类型 |如`1`为文本消息,详情参考`3.7消息类型表`|
+|typeDesc |String |消息类型描述 |如为文本消息`文本`,详情参考`消息类型表`|
+|fromIcon |String |消息发起人头像 | |
+|addr |String |地址 | 当typeDesc等于地图时有值 |
+|lng |String |经度 | 当typeDesc等于地图时有值 |
+|lat |String |纬度 | 当typeDesc等于地图时有值|
+|url |String |url地址 | 如图片地址  当typeDesc等于图片，视频，语音时有值|
+|filename |String |文件名称 | 如图片名称 |
+|length |Integer |语音长度 | 当typeDesc等于语音时有值|
+|getUrl |String |绝对url地址 | 如图片地址  当typeDesc等于图片，视频，语音时有值|
+|fromNickName |String |消息发起人昵称 | |
+|ext |对象 | 具体详见 ` ext扩展内容` |当typeDesc等于图文消息时有值 |
+|msgCreateTime |String |消息发送时间| |
+
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "detailFoot": "收藏于2015-11-27 13:46:43",
+        "detailList": [
+            {
+                "msgCreateTime": "2015-11-25 14:35:04",
+                "addr": "",
+                "lng": "",
+                "typeDesc": "文本",
+                "msg": "刚刚系统打了个盹，所以小Get没能及时赶来照顾您，请您原谅我！",
+                "url": "",
+                "ext": "",
+                "getUrl": "",
+                "length": "",
+                "fromIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/c77a77b84b1e403ca6e97b2138988b9d.png?attname=&imageView2/1/w/200/h/200&e=1606287617&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:Iy7BhpgOf_Wlu_e8_2IPmoorxRI=",
+                "msgId": "u0001d5a400b2ddae4620b7221032b391eb1f",
+                "filename": "",
+                "typeId": 1,
+                "lat": "",
+                "fromNickName": "小郭"
+            },
+            {
+                "msgCreateTime": "2015-11-11 00:28:23",
+                "addr": "",
+                "lng": "",
+                "typeDesc": "文本",
+                "msg": "[呵呵呵][呵呵呵][呵呵呵][呵呵呵][呵呵呵][呵呵呵][呵呵呵][呵呵呵][yes][yes][yes]",
+                "url": "",
+                "ext": "",
+                "getUrl": "",
+                "length": "",
+                "fromIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/21bba84c79094985bbddbd12e2a313c4.png?attname=&imageView2/1/w/200/h/200&e=1606287617&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:ceC7CwlQRpzec9AZUnWF2u3yQWU=",
+                "msgId": "u000122df1977e493412c9e3ab8c5e137d3a0",
+                "filename": "",
+                "typeId": 1,
+                "lat": "",
+                "fromNickName": "大神"
+            },
+            {
+                "msgCreateTime": "2015-11-17 17:57:23",
+                "addr": "",
+                "lng": "",
+                "typeDesc": "语音",
+                "msg": "",
+                "url": "https://a1.easemob.com/abujj/gettest/chatfiles/994785f0-8d11-11e5-846a-f52e50d1b160",
+                "length": 2,
+                "ext": "",
+                "getUrl": "http://7xkq6j.com1.z0.glb.clouddn.com/u0001ddc4ff4f6a7145818444a0155e928a53.amr?e=1606287617&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:sz6QTlA_6ppX2lvQ-ZazTtO5oJ4=",
+                "fromIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/3b64960cc96846f68455e9c6ca97590a_200.png?attname=&imageView2/1/w/200/h/200&e=1606287617&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:qULDz0PWj_H-V-jJt1krBChg-YY=",
+                "msgId": "u0001ddc4ff4f6a7145818444a0155e928a53",
+                "filename": "u0001ddc4ff4f6a7145818444a0155e928a53.amr",
+                "typeId": 2,
+                "lat": "",
+                "fromNickName": "allen"
+            },
+            {
+                "msgCreateTime": "2015-11-25 14:29:50",
+                "addr": "",
+                "lng": "",
+                "typeDesc": "文本",
+                "msg": "opo",
+                "url": "",
+                "ext": "",
+                "getUrl": "",
+                "fromIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/c77a77b84b1e403ca6e97b2138988b9d.png?attname=&imageView2/1/w/200/h/200&e=1606287618&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:Q0ljBOM0Y9vnDGsKjuhXWtgn7Mo=",
+                "msgId": "u000176c78f3b0a0e4327802da76c11074f81",
+                "filename": "",
+                "typeId": 1,
+                "lat": "",
+                "fromNickName": "小郭"
+            },
+            {
+                "msgCreateTime": "2015-11-27 10:42:27",
+                "addr": "北京市海淀区海淀中街16号",
+                "lng": "116.318301466228",
+                "typeDesc": "位置",
+                "msg": "",
+                "url": "",
+                "ext": "",
+                "getUrl": "",
+                "fromIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/3b64960cc96846f68455e9c6ca97590a_200.png?attname=&imageView2/1/w/200/h/200&e=1606287618&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:g9j1ZH1zzbtIt4lfCEI651w5Jxo=",
+                "msgId": "u0001765af17226fb4b1ca24f70eef8f89f36",
+                "filename": "",
+                "typeId": 4,
+                "lat": "39.98367597852923",
+                "fromNickName": "allen"
+            },
+            {
+                "msgCreateTime": "2015-11-27 10:45:35",
+                "addr": "",
+                "lng": "",
+                "typeDesc": "图片",
+                "msg": "",
+                "url": "https://a1.easemob.com/abujj/gettest/chatfiles/eec3c330-94b0-11e5-983f-85be958eaf47",
+                "ext": "",
+                "getUrl": "http://7xkq6j.com1.z0.glb.clouddn.com/u0001a189ca5f20054cf2be9280eb6f5b0f14.jpg?e=1606287618&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:E7anR6yQBNoYoQF_fbIgQwkSI3g=",
+                "fromIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/3b64960cc96846f68455e9c6ca97590a_200.png?attname=&imageView2/1/w/200/h/200&e=1606287618&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:g9j1ZH1zzbtIt4lfCEI651w5Jxo=",
+                "msgId": "u0001a189ca5f20054cf2be9280eb6f5b0f14",
+                "filename": "u0001a189ca5f20054cf2be9280eb6f5b0f14.jpg",
+                "typeId": 3,
+                "lat": "",
+                "fromNickName": "allen"
+            }
+        ]
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2015-11-27 15:00:19",
+        "servicePhone": "400800400",
+        "host": "Jimmy"
+    }
+}
+```
+
+###ext扩展内容 
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|template |对象 |模板信息 | 具体信息见 Template扩展内容 |
+
+###template扩展内容 
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|templetId |String |模板ID | 支付模板为1,图文消息为2 |
+|content |对象 |模板ID | 模板内容  具体信息见 支付模板Content或图文模板Content|
+
+###图文消息Content
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|msgs | 数组    | 图文消息 | 详情见  图文消息返回字段|
+
+###图文消息返回字段
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|title | String    | 标题 | |
+|imgUrl |  String  | 图片url| |
+|linkUrl | String    | 文章url | |
+
+
+####开发环境：
+http://121.41.27.42:8081/user/v2/favoriteDetail?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=e9e7a0ef65a820149e101c9f89f19996
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+    "collectionId": "u00016da5f7465db5481293ed28a632ca6c66"
+}
+```
+####测试环境：
+http://120.55.117.53:8081/user/v2/favoriteDetail?apiVersion=01&client=98e43120159449318b54d64493121489&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15&sign=e9e7a0ef65a820149e101c9f89f19996
+
+```
+{
+	"userToken":"u000148e46f50af2a4935896c51e3ed72c820",
+    "collectionId":"u00016da5f7465db5481293ed28a632ca6c66"
+}
+```
+####线上环境：
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-04 |基础版 |刘定湘 |

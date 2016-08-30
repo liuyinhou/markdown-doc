@@ -1,0 +1,156 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.16
+
+##2.16 获取会话信息
+###URL:
+http://120.55.94.183:8080/op/v2/getChatInfo
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|chatId|String|会话id|否 | |
+|isMsg|Boolean|*|否 | |
+
+
+###返回数据:
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|user|Object|用户信息|详细信息参考`User` |
+|operatorId|String|*/userChat.Operator.OperatorId| |
+|subtitle|String|*/userChat.Subtitle| |
+|channel|Object| |详细请参考`Channle`| |
+|refChatId|String|*/userChat.RefChatId| |
+|location|Object| |详细请参考`Location`|
+|groupId|String|*/userChat.GroupId| |
+|status|String|*userChat.Status| |
+|chatId|String|*/userChat.ChatId| |
+|isInGroup|Boolean| | |
+|versionCode|String| | |
+|createTime|String| | |
+|clientType|String| | |
+|client|Object| |详细请参考`Client`|
+|channelNameList|List(String)|用户关注过的渠道列表 | |
+|companyId|String|公司ID |-|
+
+
+
+#User
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|userId|String|用户ID| |
+|userName|String|用户Name| |
+|nickName|String|用户昵称| |
+|phone|String|号码| |
+|displayPhone|String|号码| |
+|tags|List|标签集合| |
+|address|List<Object>|用户地址|详细请参考`Address`|
+|icon|String|头像| |
+|contacts|List<Object>|联系方式|详细请参考`Contact`|
+｜serviceCount|Integer| | |
+
+#Address
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|userAddressId|String|用户地址Id| |
+|address|String|用户地址| |
+|remark|String|备注| |
+
+#Contact
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|name|String|联系名称| |
+|phone|String|号码| |
+|userContactId|String|联系Id/userContactId| |
+
+#Location
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|address|String|*/userChat.Location.Address| |
+|lat|Double|*/userChat.Location.Lat| |
+|lng|Double|*/userChat.Location.Lng| |
+
+#Channel
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|name|String|*| |
+|channelId|String|*| |
+
+#Client
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|name|String|*| |
+|logo|String|*| |
+|clientId|Integer| | |
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "user": {
+      "tags": [
+        "getTest"
+      ],
+      "phone": null,
+      "displayPhone": "u00013058217037704c358367f6e1fd1da545",
+      "nickName": "阿洋",
+      "address": [],
+      "serviceCount": 4,
+      "contacts": [],
+      "userName": "yzhou222",
+      "userId": "u00013058217037704c358367f6e1fd1da545",
+      "icon": "http://7xkq6j.com1.z0.glb.clouddn.com/f35fe1ecaec540869c9b764ac6f2783d.png?attname=&imageView2/1/w/200/h/200&e=1608198367&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:8C4KaF4-di9YAx7S0bZ8m9e412E="
+    },
+    "operatorId": "o00011d8019cd259247bcba1b20b585c74235",
+    "subtitle": "Get帮你搞定一切",
+    "channel": {
+      "name": "GetTest",
+      "channelId": "4066ab52578746c5b00c909c662e52f5"
+    },
+    "refChatId": "u00011d5bcc1b15364568a9d264acaca8866c",
+    "location": {
+      "lng": 116.305801,
+      "address": "北京市海淀区软件园六号路",
+      "lat": 40.050735
+    },
+    "groupId": "135222409673310808",
+    "status": "Chat",
+    "chatId": "u0001d6ddfcbef27e45aeaee5bf7db6ac83b5",
+    "isInGroup": false,
+    "versionCode": "2.1",
+    "createTime": "2015-12-15 00:54:15",
+    "clientType": "WX",
+    "client": {
+      "name": "Newwear",
+      "logo": "http://7xkq6j.com1.z0.glb.clouddn.com/3e6fa7a96acc4dce86abb3188c229234_100.png?attname=&imageView2/1/w/200/h/200&e=1608198367&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:dee1oIRAj4VTempAOsbwFIF7heg=",
+      "clientId": 6
+    }
+  },
+  "page": null,
+  "foot": {
+    "operationTime": "2015-12-19 17:46:07",
+    "servicePhone": "400800400",
+    "host": "DESKTOP-CG59P88"
+  }
+}
+```
+
+---
+
+####开发环境：
+
+http://127.0.0.1:8080/op/v2/getChatInfo?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&version=2.0&token=o00015804bf1478d0480c8c6b274260771e41&sign=8D98FA327705A2B48C28E28E32BC6046
+
+{"chatId":"u0001d6ddfcbef27e45aeaee5bf7db6ac83b5","isMsg":False}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-12-16 |基础版 |阿洋|

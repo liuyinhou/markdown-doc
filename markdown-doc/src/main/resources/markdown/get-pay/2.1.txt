@@ -1,0 +1,37 @@
+* [支付中心](/markdown/get-pay) > 2.1
+
+##2.1 生成支付单
+
+###调用方式
+Hessian
+
+###方法入口
+com.get.pay.api.interf.IHessianPayService.pay
+
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |版本|
+|:-----|:-----|:------|:-----|:----|:----|
+|bizSystemId 	|Integer |业务系统Id|否||v2.1|
+|channelId 	|Integer |渠道ID|否 ||v2.1|
+|subChannelId 	|Integer |子渠道ID|否| |v2.1|
+|bizOrderId 	|String |业务系统订单ID|否| |v2.1|
+|subject 	|String |商品标题|否| |v2.1|
+|amount 	|Integer |商品金额|否|币种最小单位 |v2.1|
+|clientIp 	|String |发起支付的终端IP|否| |v2.1|
+|body 	|String |商品描述|否| |v2.1|
+|sign 	|String |签名|否|当前由支付中心给定 |v2.1|
+|bizCallbackUrl 	|String |回调业务系统URL|否| |v2.1|
+|description 	|String |商品附加描述|是| |v2.1|
+|expireTime 	|Long |支付有效时间|是|默认为15分钟 |v2.1|
+|openId 	|String |微信用户openId|是|当使用微信公众账号支付时,此字段必填 |v2.1|
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|payContent	|String	|支付凭据的json 字符串形式 | |
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-12-08 |基础版 |刘定湘 |

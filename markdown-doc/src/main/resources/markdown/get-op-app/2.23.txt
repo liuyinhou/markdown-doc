@@ -1,0 +1,62 @@
+* [Op app Api接口文档](/markdown/get-op-app) > 2.23
+
+##2.23 主播群详情中转接口（中转.net接口）
+###URL:
+http://120.55.94.183:8086/opapp/getAnchorGroupUserIds
+###方式:
+POST
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|reqUrl|String|请求的url|否 |  |
+|reqUrlHost|String|请求的url的host|否 |值为`dot_net_url_pre` |
+|anchorGroupId|String|主播群ID|否 |  |
+
+###返回数据:
+
+---
+###返回json格式示例：
+```
+{
+    "Code": 200,
+    "Message": "Success",
+    "Data": [
+        "u00010c6cd57e2c47408aad9aa3b5ce97ac0e",
+        "u0001e693fb1350524325aaaa8a55671ac7e1",
+        "u000165eb644352ec47c8b33ddf6f604f1933",
+        "u00018913b5363ced4871891fe5d0fa182cd2",
+        "u00013af6fbd490914e50a3d7817cf7ba3d67",
+        "u0001543f3297440c46febfb0abcf8b4e0ef3",
+        "u00016e66eec360854484aa66b37041cb3126",
+        "u0001730ff366ee1941c594ec60b69f365ca1",
+        "u000122615a9ebe394a188d374159886fc140",
+        "u0001acb044bbd353412cafec03499bd99c56",
+        "u0001cb22aebe29e744a9ad2353e8c22a8d1d"
+    ],
+    "Page": null,
+    "Foot": {
+        "OperationTime": "2016-06-13 19:52:27",
+        "ServicePhone": "400800400"
+    }
+}
+```
+
+---
+
+
+####测试环境
+http://120.55.94.183:8086/opapp/getAnchorGroupUserIds?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=7c2b94e2e584989f0bef4d88a25d9d63
+ 
+```
+{ 
+  "reqUrl":"/AnchorGroup/v1/GetAnchorGroupUserIds",
+  "reqUrlHost":"dot\_net\_url\_pre",
+  "anchorGroupId":"o0001d175d1a7db244b9d9a6edcd16d084414"
+}
+```
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-06-14 |基础版 |季宇轩|

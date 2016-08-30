@@ -1,0 +1,62 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 2.4
+
+##2.4 匿名登录
+###URL:
+http://120.55.117.53:8081/user/v2/deviceLogin
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|deviceId |String |设备唯一ID |否| |
+|deviceType |String |设备类型 |否|Ios、Android|
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|token|String| | |
+|userId|String|用户UserId|也是环信的登录名 |
+|userRefId|String | |环信登陆的密码 |
+|hxAppKey |String |环信Key | |
+|phone|String | | |
+|groupId|String |环信groupId | |
+
+---
+###返回json格式示例：
+```
+{
+    "code": 200,
+    "message": "成功",
+    "data": {
+        "groupId": "环信groupId",
+        "phone": "",
+        "token": "u0001f79e7a0c22b94f33b1c2627ac9b75752",
+        "userRefId": "@#@#@@#SD443S",
+        "userId": "u0001ceda932bdaef4288bd40173486175ecc",
+        "hxAppKey": "环信Key"
+    },
+    "page": null,
+    "foot": {
+        "operationTime": "2015-10-12 10:52:46",
+        "servicePhone": "400800400",
+        "host": "ldx-pc"
+    }
+}
+```
+
+---
+
+####测试环境：
+http://120.55.117.53:8081/user/v2/deviceLogin?apiVersion=01&client=98e43120159449318b54d64493121489&sign=0802bb0106313ad5a0ffc175b4e439f8&channel=3f82a2da3a014b1880a4ef05ae3ace0a&version=1.15
+
+{"deviceId":"liuyinhoutest1","deviceType":"Ios"}
+
+####线上环境：
+
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-10-13 |基础版 |刘印后 |

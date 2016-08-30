@@ -1,0 +1,21 @@
+
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##OperatorOnline  operator 上线表
+ 
+ 
+| 字段         | 类型     | 描述 | 备注 | 版本 |
+| ---------- | ------ | -- | -- | -- |
+| _id        | String |    |    | v1 |
+| OperatorId | String |    |    | v1 |
+| CreateTime | Date   |    |    | v1 |
+| OpTime     | Date   |    |    | v1 |
+
+
+ 
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

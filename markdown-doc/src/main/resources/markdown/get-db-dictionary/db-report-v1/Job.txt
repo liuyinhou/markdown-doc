@@ -1,0 +1,32 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/report.txt) > Get数据库文档 - V1
+ 
+ ## Job  (job配置表)
+ 
+| 字段               | 类型      | 描述 | 备注 | 版本 |
+| ---------------- | ------- | -- | -- | -- |
+|_id              |String   |       | | v1 |
+|Name             |String  | job标识| | v1 |
+|Title            |String   |标题  |       | v1 |
+|Description      |String   |描述  |       | v1 |
+|JobParameters    |String   |job 执行参数 \n分割  |       | v1 |
+|-SendType        |Array[string]|发送类型  |wx,email | v1 |
+|-wxUserId        |String   |1,2,3 |微信要发送的人  | v1 |
+|-wxSendOpId      |String   | opId |微信发送通知，默认有opid发送的 | v1 |
+|-EmailAddress    |String   | 要发送的邮箱地址  |       | v1 |
+|-EmailAddressCC  |String   |抄送的邮箱地址  |       | v1 |
+|-EmailAccount    |String   |要发送的Email  |      | v1 |
+|-EmailPassword   |String   |要发送的Email 密码 |      | v1 |
+|-EmailRemark     |String   |备注,跟在邮件最后面|   |V1|
+|-自定义参数       |String   |自定义参数|   |V1|
+|Version	      |string   |版本|v1.0|V1|
+|VersionContent   |string   |每次版本更新的内容。累加|  |V1|
+
+ 
+ 
+ 
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

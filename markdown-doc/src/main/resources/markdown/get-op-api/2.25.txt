@@ -1,0 +1,8 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.25
+
+##2.25 关闭会话/批量关闭会话
+
+* 2.25.1 [关闭会话](/markdown/get-op-api/2.25.1.txt)
+
+* 2.25.2 [批量关闭会话](/markdown/get-op-api/2.25.2.txt)
+

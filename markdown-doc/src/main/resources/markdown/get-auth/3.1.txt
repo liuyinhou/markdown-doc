@@ -1,0 +1,35 @@
+* [授权中心](/markdown/get-auth) > 3.1
+
+##3.1 授权承接页
+###URL
+/pages/snh_auth.html
+
+###调用方式
+window.href.location=URL
+
+###请求参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |版本|
+|:-----|:-----|:------|:-----|:----|:----|
+|redirectUrl |String |回调URL|否| |v1.0|
+|scope 	|Integer |授权作用域|否 |`0`为显式授权,`1`为隐式授权 |v1.0|
+|appId 	|String |公众号ID|否| |v1.0|
+|state 	|String |透传数据|是| |v1.0|
+
+###返回数据:
+授权成功后，授权中心会重定向到`redirectUrl?state=STATE&authUserId=AUTH_USERID`  
+
+|字段	 |类型 	|描述 	|备注 |版本|
+|:-----|:-----|:------|:----|:----|
+|authUserId|String | 授权信息在`AuthUser`表中的主键ID| 当`授权成功`时有值,否则为`空串`| 01|
+|state|String | 透传参数| 如果调用时未指定`state`参数,则回调URL里`不包含`state参数| 01|
+
+
+###测试环境
+
+http://authtest.getgaoding.com/pages/snh\_auth.html?redirectUrl=http://cn.bing.com/&scope=1&appId=appId_123&state=state123456 
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2016-03-15 |基础版 |刘定湘 |

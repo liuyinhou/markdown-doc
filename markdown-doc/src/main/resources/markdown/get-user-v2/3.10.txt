@@ -1,0 +1,10 @@
+* [Get-User接口文档](/markdown/get-user-v2) > 3.10
+
+**clientType取值：**
+
+| value  | 描述 |
+|-----|--------|
+| Ios |Ios|
+| Android |安卓|
+| WxPub |微信公众平台环境)|
+| H5 |h5 web环境|

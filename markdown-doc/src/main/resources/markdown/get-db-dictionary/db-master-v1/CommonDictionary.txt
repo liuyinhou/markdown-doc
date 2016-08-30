@@ -1,0 +1,19 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ 
+##CommonDictionary  公共词典
+ 
+ 
+| 字段     | 类型     | 描述 | 备注 | 版本 |
+| ------ | ------ | -- | -- | -- |
+| _id    | String |  id  |    | v1 |
+| Remark | String |  备注 |    | v1 |
+| Value  | String |  内容  |    | v1 |
+| ValueEn  | String |  英文内容 |    | v1 |
+ 
+  
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

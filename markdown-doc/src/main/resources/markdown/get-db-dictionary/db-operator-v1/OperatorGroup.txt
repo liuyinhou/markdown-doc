@@ -1,0 +1,20 @@
+  * [Get数据库文档](/markdown/get-db-dictionary/Operator.txt) > Get数据库文档 - V1
+  
+  
+  ##OperatorGroup  客服群组表
+ 
+| 字段               | 类型      | 描述 | 备注 | 版本 |
+| ---------------- | ------- | -- | -- | -- |
+| _id              | String  |    |    | v1 |
+| Name             | String  | 群组名   |    | v1 |
+| Description      | String  | 群组描述 |    | v1 |
+| CreateTime       | Date    |         |     | v1 |
+
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

@@ -1,0 +1,22 @@
+
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ ##Poke  Poke文案表
+ 
+| 字段                  | 类型     | 描述 | 备注 | 版本 |
+| ------------------- | ------ | -- | -- | -- |
+| id | String |  pokeID |    | v2 |
+| Icon | String |  poke图标 |    | v2 |
+| Name | String |  poke名称 |    | v2 |
+| Type | String |  poke类型 1 现有服务 2 话题性内容  |    | v2 |
+| CreateTime| Date  | 创建时间  |     | v2 |
+| UpdateTime| Date  | 修改时间 |     | v2 |
+| OperaterId| Date  | 操作人ID |    | v2 |
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

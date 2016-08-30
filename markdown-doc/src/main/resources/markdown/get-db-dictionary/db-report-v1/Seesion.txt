@@ -1,0 +1,63 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/report.txt) > Get数据库文档 - V1
+ 
+##运营日报表OPDay 
+注：Seesion包括 （ChatId,TaskId,OrderId）
+
+| 字段               | 类型      | 描述 | 备注 | 版本 |
+| ---------------- | ------- | -- | -- | -- |
+| _id               |String   | 数据库主键  |        | v1 |
+| Title             |String   | 标题   |  2015-10-24   | v1 |
+| UserId            |String   | 用户ID  |      | v1 |
+| UserName          |String   | 用户名  |      | v1 |
+| UserNickName      |String   | 用户昵称  |      | v1 |
+| UserPhone         |String   | 用户手机号 |       | v1 |
+| UserCity          |String   | 用户城市  |       | v1 |
+| IsNewUser         |bool     | 是否新用户  |      | v1 |
+| UserChatCount     |int      | 用户会话数  |     | v1 |
+| UserTag           |String   | 用户标签   |    吃，喝 -逗号分割  | v1 |
+| UserChannel       |String   | 用户渠道   |     | v1 |
+| UserLevel         |int      | 用户等级   |     | v1 |
+| SessionId         |String   | 会话Id,任务ID，OrderId  |      | v1 |
+| ChatCreateTime     |Date     | 会话创建时间| |V1|
+| ChatTitle         |String   | 会话主题  |      | v1 |
+| Median             |int	  |首响值     |        |v1|
+| IsChatTo          |String   | 是否转接   |      | v1 |
+| ChatChannel       |String   | 会话渠道 |       | v1 |
+| ChatSatisfaction  |int      | 会话满意度   |     | v1 |
+| SessionMessageIn  |int      |  user 说了几句话   |      | v1 |
+| SessionMessageOut |int      |  op 说了几句话    |     | v1 |
+| SessionSize       |int      | 会话持续时间   | xxs,xs, s,m,l,xl,xxl，xxxl     | v1 |
+| ChatStartTime     |Date     | 会话开始时间   |      | v1 |
+| ChatEndTime       |Date     | 会话结束时间  |      | v1 |
+| ChatSpendTime     |int   | 会话花费时间 |   3M, 5M,10M，20M，30M，60M，1H，2H，3H，6H，12H，1D 2D 3D 6D，1W 2W 3W 4W MMS   | v1 |
+| SessionType       |int   |   SessionId |   [session=1,task=2,order=3]     | v1 |
+| ChatStatus        |int   | 会话状态   |  [开放=1，挂起=2，结束=3]     | v1 |
+| TaskId            |String  |任务ID    |       | v1 |
+| TaskStatus        |int     |任务状态    |   开放，完成，取消    | v1 |
+| OrderId           |String    |  订单ID    |       | v1 |
+| OrderPrice        |double    |  订单价格    |       | v1 |
+| OrderAmount       |double   |  订单金额    |       | v1 |
+| OrderStatus       |int      |  订单状态    |  待支付，支付完成，订单完成，用户取消，OP取消    | v1 |
+| PayStatus         | int     |  支付状态    |  支付/未支付     | v1 |
+| PayType           | int      |  支付类型    |   待支付，支付完成，订单完成，用户取消，OP取消    | v1 |
+| OpReplyChatTime   | int     |  op手动相应 会话时间差    |  秒     | v1 |
+| OpReplyUserTime   | int     |  op手动相应 用户时间差     |  秒     | v1 |
+| StartOperatorId   | String     |  初始OpId    |       | v1 |
+| StartOperatorName | String     |  初始OpName    |       | v1 |
+| StartOperatorGroup  | String     |  初始Op group    |       | v1 |
+| StartOperatorLevel| int     |  初始Op level    |       | v1 |
+| EndOperatorId     | String     |  结束Op id    |       | v1 |
+| EndOperatorName   | String     |  结束Op name    |       | v1 |
+| EndOperatorGroup  | String     |  结束Op group   |       | v1 |
+| EndOperatorLevel  | int     | 结束Op level   |       | v1 |
+|CreateTime |Date|创建时间|||v1|
+
+
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

@@ -1,0 +1,27 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ ##ManagerProject  项目表
+ 
+ 
+| 字段          			| 类型     				| 描述 						| 备注| 版本|
+| ----------- 		| ------ 			| -- 						| -- | -- |
+| _id   			| String 			|   主键 						|    | v1 |
+| Name   			| String 			|   项目名 					|    | v1 |
+| OrginId    		| String   			|   上级项目Id，顶级为0 		|    | v1 |
+| CompanyId    		| String   			|   公司ID 					|    | v1 |
+| StartTime    		| DateTime  		|   项目开始时间 				|    | v1 |
+| EndTime    		| DateTime  		|   项目结束时间 				|    | v1 |
+| Owner    			| String   			|   项目管理者 					|    | v1 |
+| State    			| Int   			|   状态（10 启用，20 停止 30 过期）|    | v1 |
+| DefaultGroupId    | String   			|   默认组ID 					|    | v1 |
+| CreateTime    	| Date				|   创建时间 					|    | v1 |
+| UpdateTime    	| Dat				|   修改时间 					|    | v1 |
+| OperatorId    	| String   			|   创建者ID 					|    | v1 |
+| Marks		    	| `List<String>`   	|   mark标识 					|    | v1 |
+  
+###版本历史：
+
+|版本 	|时间 		|	描述 	|操作人 	|备注	|
+|:----	|:------	|:------|:------|:------|
+|01 	|2016-5-16 	|v1   	|Jim 	|-		|
+

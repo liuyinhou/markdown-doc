@@ -1,0 +1,21 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/report.txt) > Get数据库文档 - V1
+ 
+##DayTaskReport 任务日报：【一天一条记录】【累积】
+| 字段               | 类型      | 描述 | 备注 | 版本 |
+| ---------------- | ------- | -- | -- | -- |
+| id               |String   |   id  |     | v1 |
+| Title            |String   |   日期  |     | v1 |
+| TasksCount       |int   |   总任务数   |    | v1 |
+| TasksOpenCount   |int   |   开放的任务  |     | v1 |
+| TasksFinishedCount|int  |   完成的任务 |      | v1 |
+| TasksCancelCount  |int  |   取消的任务  |     | v1 |
+| CreateTime        |Date |  创建时间| job 创建时间 | v1|
+
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

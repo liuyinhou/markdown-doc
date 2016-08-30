@@ -1,0 +1,122 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.19
+
+##2.19 服务中会话用户列表
+###URL:
+http://120.55.94.183:8080/op/v2/receives
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|staffId|String |OP的ID |是 |- |
+
+
+###返回数据:
+|字段		|类型	|描述 		|备注		|
+|:----		|:----	|:----		|:----		| 
+|isOnline 	|boolean|OP是否在线 	| 			|
+|chats 		|List	|会话集合 		|详见`chats`	|
+
+#####会话集合 chats ：
+|字段					|类型	|描述 		|备注				|
+|:----					|:----	|:----		|:----				|
+|userId 				|String |用户ID 		| 					|
+|userIcon 				|String |用户头像 		| 					|
+|chatId 				|String |会话ID 		| 					|
+|nickName 				|String |昵称 		| 					|
+|message 				|String |显示消息 		| 					|
+|groupId 				|String |群组ID 		| 					|
+|title 					|String |标题 		| 					|
+|status 				|String |状态 		| 					|
+|address 				|String |地址 		| 					|
+|createTime 			|String |创建时间 		|yyyy-MM-dd HH:mm:ss|
+|userGradeChatCount 	|Integer|用户会话统计	| 					|
+|userGradeOrderCount 	|Integer|用户订单统计 	| 					|
+|userGradeServiceCount 	|Integer|用户服务单统计 	| 					|
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "isOnline": false,
+    "chats": [
+      {
+        "message": "",
+        "createTime": "2016-01-06 10:59:12",
+        "groupId": "135222409673310808",
+        "title": "",
+        "nickName": "阿洋",
+        "status": "Service",
+        "address": "北京市海淀区万泉河路60号",
+        "userId": "u00013058217037704c358367f6e1fd1da545",
+        "userIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/f35fe1ecaec540869c9b764ac6f2783d.png?attname=&imageView2/1/w/200/h/200&e=1609915298&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:3WBjiPJ2c0rfWo8taQuwI1ztwqU=",
+        "chatId": "u0001d68d5da979194a4b831097de49db3dd2"
+      },
+      {
+        "message": "",
+        "createTime": "2015-12-02 18:12:57",
+        "groupId": "135232896775488092",
+        "title": "",
+        "nickName": null,
+        "status": "Service",
+        "address": "",
+        "userId": "u0001fd595b0a3dc649bf8f35bca6772001e6",
+        "userIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/defaultUserIcon.png?attname=&imageView2/1/w/200/h/200&e=1609915298&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:DE3Q5PUuDcWv89Nt_2nL_8Q0Njk=",
+        "chatId": "u00010b2345fc76de44d5813389f2345647e8"
+      },
+      {
+        "message": "",
+        "createTime": "2015-12-02 11:15:33",
+        "groupId": "135117882878067132",
+        "title": "",
+        "nickName": null,
+        "status": "Service",
+        "address": "",
+        "userId": "u0001482a64eaee094e7692c9cc9428643a8c",
+        "userIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/defaultUserIcon.png?attname=&imageView2/1/w/200/h/200&e=1609915298&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:DE3Q5PUuDcWv89Nt_2nL_8Q0Njk=",
+        "chatId": "u00014cd5a734bb77459bbac5362728848107"
+      },
+      {
+        "message": "",
+        "createTime": "2015-12-02 10:54:57",
+        "groupId": "135120022166045164",
+        "title": "",
+        "nickName": null,
+        "status": "Service",
+        "address": "",
+        "userId": "u000186e31667ecf444789155af6f49843506",
+        "userIcon": "http://7xkq6j.com1.z0.glb.clouddn.com/defaultUserIcon.png?attname=&imageView2/1/w/200/h/200&e=1609915298&token=1pd5YXbBmYR7QQqodYuItP927L99-O4qNLAynsmp:DE3Q5PUuDcWv89Nt_2nL_8Q0Njk=",
+        "chatId": "u00011e67202dd8fa4b0eb03d99d9b2513070"
+      }
+    ]
+  },
+  "page": null,
+  "foot": {
+    "operationTime": "2016-01-08 14:41:38",
+    "servicePhone": "400800400",
+    "host": "DESKTOP-CG59P88"
+  }
+}
+```
+
+---
+
+####开发环境：
+
+http://localhost:8080/op/v2/receives?apiVersion=01&client=b2736195b38346639463ee889d6b8ff4&token=o0001403351be22c648efa24c20e842fd7351&sign=cdbd563747880326326e3b611c187119
+
+
+
+
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-12-16 |基础版 |阿洋|

@@ -1,0 +1,39 @@
+
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+ ##WXAccount   微信账户
+ 
+ 
+| 字段             					| 类型     		| 描述 					| 备注| 版本|
+| -------------- 			| ------ 	| -- 					| -- | -- |
+| _id            			| String 	|主键   					|    | v1 |
+| AppId          			| String 	|微信原始ID  				|    | v1 |
+| Dev_AppId      			| String 	|    					|    | v1 |
+| Dev_AppSecret  			| String 	|    					|    | v1 |
+| Dev_Token      			| String 	|    					|    | v1 |
+| Menu           			| String 	|菜单内容    				|    | v1 |
+| Name           			| String 	|名称  					|    | v1 |
+| ChannelId      			| String 	|渠道   					|    | v1 |
+| ClientId       			| int    	|客户端Client表  			|    | v1 |
+| SubscribeDesc  			| String 	|    					|    | v1 |
+| SubscribeImage 			| String 	|    					|    | v1 |
+| SubscribeTitle 			| String 	|    					|    | v1 |
+| SubscribeUrl   			| String 	|    					|    | v1 |
+| UpdateTime     			| Date   	| 更新时间   				|    | v1 |
+| WXSercet       			| String 	| 微信登录密码  				|    | v1 |
+| WXUserId       			| String 	| 微信登录UserId   		|    | v1 |
+| CreateTime     			| Date    	| 创建时间   				|    | v1 |
+| Unionid        			| String 	| 微信Unionid   			|用于多个公众号、开发号的关联ID，刘印后 2015-10-16   | v2 |
+| CompanyId 				| String	|公司ID					|刘印后 2015-11-17 |v2.1|
+| Dev_JsapiTicket 			| String	|jsapi_ticket			|dxlau 2016-03-18 | |
+| RefreshJsapiTicketTime 	| Date		|最近刷新jsapi_ticket时间 	|dxlau 2016-03-18 | |
+| Status 			 		| Integer	|公众号状态,1-启用 2-禁用 	|   | |
+| ComponentAppId 			| String	|第三方平台appId 			|   | |
+| Type 						| Integer	|公众号类型 				|1 公众号委托在第三方平台;   | |
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

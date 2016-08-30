@@ -1,0 +1,74 @@
+* [路由接口文档](/markdown/get-router) > 2.15
+
+##2.15 用户画像查询
+###URL:
+http://120.55.94.183:8081/router/v2/userAttachDetail
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|userId|String|用户ID |否 | |
+
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|userId|String|用户ID | |
+|attachKindList|List(AttachKind)|属性分类列表|参见AttachKind|
+|userGradeChatCount |Integer |用户会话统计 | |
+|userGradeOrderCount |Integer |用户订单统计 | |
+|userGradeServiceCount |Integer |用户服务单统计 | |
+
+
+AttachKind
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|standardAttachKindId|String|分类ID | |
+|standardAttachKindName|String|分类名称 | |
+|attachList|List(Attach)|属性列表 |参见Attach |
+
+Attach
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|attachId|String|属性ID|当为标准属性时有可能为空，因为用户尚未维护此属性|
+|standardAttachId|String|标准属性ID| |
+|attachName|String|属性名| |
+|attachValue|String|属性值| |
+|standardAttachValue|String|标准属性默认值|比如枚举类型，则返回逗号分隔的值 |
+|attachKeyType|String|属性值的类型|参见附表3.1 属性值类型枚举-StandardAttachKeyTypeEnum |
+|standardAttachEnumValue|List(EnumValue)|标准属性枚举值| |
+
+EnumValue
+
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|enumId|String|枚举ID| |
+|enumValue|String|枚举展示值| |
+|currSelected|Boolean|是否为当前选中 |当用户没有设置此标准属性时，所有currSelected=false |
+
+
+**业务逻辑：**
+
+标准属性必须返回，即使用户没有设置此属性的值，所以属性列表是标准属性+自定义属性
+
+---
+###返回json格式示例：
+```
+```
+
+---
+
+####测试环境：
+
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-16 |基础版 |刘印后 |

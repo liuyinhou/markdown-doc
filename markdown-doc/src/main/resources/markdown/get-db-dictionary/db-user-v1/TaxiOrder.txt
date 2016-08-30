@@ -1,0 +1,63 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/User.txt) > Get数据库文档 - V1
+
+##TaxiOrder  打车订单 表
+ 
+ 
+| 字段     | 类型     | 描述 | 备注 | 版本 |
+| ------ | ------ | -- | -- | -- |
+| _id    | String |   主键 |    | v1 |
+| ChatId    | String |    |   对话ID | v1 |
+| HXGroupId| String |    |  环信ID | v1 |
+| UserId| String |    |   用户ID | v1 |
+| ChatId    | String |    |   对话ID | v1 |
+| OperatorId| String |    |    客服ID | v1 |
+| CarType| int |    |   201：专车，301： 快车| v1 |
+| CarLevelId| String |    |   【车型 】 舒适型：100，豪华型：200，商务型：400，普通型：600| v1 |
+| RefOrderId| String |    |  第三方订单ID，例如滴滴订单ID | v1 |
+| City| String |    |   出发城市ID | v1 |
+| PassengerPhone| String |    |  乘客手机号 | v1 |
+| DriverName| String |    |   司机称呼| v1 |
+| DriverPhone| String |    |   司机手机号 | v1 |
+| DriverNum| int          |    |  已通知司机数量| v1 |
+| DriverCarType| String |    |   司机车型| v1 |
+| DriverCard| String |    |   司机车牌 | v1 |
+| DriverAvatar| String |    |   司机头像| v1 |
+| DriverLng| double|    |   司机经度| v1 |
+| DriverLat| double|    |  司机维度 | v1 |
+| CurLng| double|    |  当前维度 | v1 |
+| DriverOrderCount| int|    |  司机抢单数 | v1 |
+| DriverLevel|double |    | 司机星级 | v1 |
+| FromLat| double|    |  出发地纬度 | v1 |
+| FromLng| double|    |  出发地经度 | v1 |
+| FromName|  String|    |  出发地名称 | v1 |
+| FromAddress|  String|    |   出发地地址 | v1 |
+| ToLat| double|    |  目的地纬度 | v1 |
+| ToLng| double|    |  目的地经度 | v1 |
+| ToName| String |    |   目的名称| v1 |
+| ToAddress| String |    |    目的地地址| v1 |
+| OrdeTime| Date   |    |   预约时间 | v1 |
+| CreateTime| Date   |    |   预约时间 | v1 |
+| BeginChargeTime| Date   |    |  开始计价时间  | v1 |
+| WaitTime| Date   |    |  最新等待时间  | v1 |
+| GetPayTime| Date   |    | Get 支付时间  | v1 |
+| PayTime| Date   |    | 支付时间  | v1 |
+| FinishTime| Date   |    | 行程结束时间   | v1 |
+| TaxiPrice| double|    |   打车价格 | v1 |
+| Price| double|    |  应付价格 | v1 |
+| PriceRemark| String |    |   价格备注| v1 |
+| NormalDistance| double|    |  实际行驶公里数 | v1 |
+| Remark| String |    |    备注| v1 |
+| Status| int          |    |  【订单状态】  等待应答：300,订单超时：311,等待接驾：400,司机已到达：410,行程开始：500,行程结束：600,等待支付：700,订单已取消：1100,已支付：1200,| v1 |
+| ProductId| String |    |    产品ID| v1 |
+| DiscountType| int|    |  【折扣类型】 0:无折扣,3:减免，5：打折  | v1 |
+| DiscountAmount| double|    |  折扣值 | v1 |
+| DiscountMaxAmount| double|    |  最大折扣金额 | v1 |
+| Pay| int|    | 支付标志 ,0为开始 1未支付 2已支付 | v1 |
+
+
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

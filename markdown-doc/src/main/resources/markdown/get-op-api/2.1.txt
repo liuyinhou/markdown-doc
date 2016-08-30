@@ -1,0 +1,55 @@
+* [Op Api接口文档](/markdown/get-op-api) > 2.1
+
+##2.1 用户登录接口
+###URL:
+http://120.55.94.183:8080/op/v2/staffLogin
+###方式:
+post
+###输入参数:
+|字段	 |类型 	|描述 	|可为空 |备注 |
+|:-----|:-----|:------|:-----|:----|
+|phone|String|手机号|否 | |
+|password|String|用户密码|否| |
+
+
+###返回数据:
+|字段	|类型	|描述 |备注|
+|:----|:----|:----|:----|:----|
+|staffId |String|员工ID| |
+|token |String|登录token|登录时获得此值，登录之后的接口请求需要带此值|
+
+---
+###返回json格式示例：
+```
+{
+  "code": 200,
+  "message": "成功",
+  "data": {
+    "staffId": "0161f0d40c034e349665af8be375412b",
+    "token": "dedf45d0443148d2abefc026b50c75a3"
+  },
+  "page": null,
+  "foot": {
+    "operationTime": "2015-11-18 22:19:32",
+    "servicePhone": "400800400",
+    "host": "yinhou-MacBook-Pro.local"
+  }
+}
+```
+
+---
+
+####测试环境：
+
+http://127.0.0.1:8080/op/v2/staffLogin?apiVersion=01&client=70374ddd0f3641368d419b2d93127b8f&token=eba920d452d34adb8f2badb08b9e69bb&sign=a48103465f7e4d0f9216228fb9538066
+
+{"phone":"13671853833","password":"11c8975f"}
+
+####线上环境：
+
+
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |
+|:----|:------|:------|:------|
+|01 |2015-11-10 |基础版 |刘印后 |

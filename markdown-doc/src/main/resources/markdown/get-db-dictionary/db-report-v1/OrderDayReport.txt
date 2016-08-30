@@ -1,0 +1,33 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/report.txt) > Get数据库文档 - V1
+ 
+## OrderDayReport订单日报：【一天一条记录】【累积】
+
+| 字段               | 类型      | 描述 | 备注 | 版本 |
+| ----------------| -------------- | ------- | ------- | ------- |
+| _id               |String   |  数据库主键  |  | v1 |
+| Title                   | string | 标题|   2015-10-24|v1|
+| OrderCount              |int  |   毛订单  | 只要op点击下单就算毛订单  | v1 |
+| OrderPrice              |double|  毛订单总金额 | 所有订单的总价格  | v1 |
+| OrderAmount             |double|  毛订单总结算金额 | 所有订单，打完折后的结算金额 | v1 |
+| OrderFinishedCount      |int   |  完成订单数  | 订单完成的数量。先根据付完款状态作为订单完成状态来算，后期会有订单结束状态| v1 |
+| OrderFinishedPrice      |double|  完成订单总金额 | 付款的订单的总价格  | v1 |
+| OrderFinishedAmount     |double|  完成订单总结算金额 | 付款的订单共支付的金额 | v1 |
+| OrderCancelCount        |int   |  取消订单数  |  取消的订单数量 | v1 |
+| OrderCancelPrice        |double|  取消订单总金额 | 取消的订单的总价格  | v1 |
+| 退款订单数               | int |  退款订单数      |退款订单数           |v1  |
+| 退款金额                 | int  |    退款金额       |退款金额           |v1  |
+| OrderCancelAmount       |double|  取消订单总结算金额  | 取消的订单的需支付总金额  | v1 |
+| OrderSubsidyAmount      |double|  补贴金额   | 完成订单总毛金额- 完成订单总结算金额 | v1 |
+| OrdersPayCost           |double|  总支出 |  成本累加      | v1 |
+| OrdersPayPrice          |double|  总收入 | 累加，所有天数的支付的  完成订单总金额  OrderFinishedPrice 累加    | v1 |
+| OrdersProfitAmount      |double|  总利润 |        | v1 |
+| CreateTime              |Date  |  创建时间| job 创建时间 | v1|
+ 
+ 
+ 
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2015-11-12 |v1   |dbAdmin |文档拆分|

@@ -1,0 +1,26 @@
+ * [Get数据库文档](/markdown/get-db-dictionary/Master.txt) > Get数据库文档 - V1
+ 
+##WxTemporaryCode 临时二维码表
+
+ 
+| 字段      			| 类型     		| 描述 				| 备注 	| 版本|
+| ------- 		| ------ 	| -- 				| -- 	| -- |
+| _id     		| String 	|  主键  				|   	| v1 |
+| WxAppId  		| String 	|  公众号appID 		|     	| v1 |
+| WxAccountId  	| String 	|  公众号ID 			|     	| v1 |
+| OpenId 		| String 	|  微信openID 		| 		| v1 |
+| UserId		| String 	|  用户ID			| 		| v1 |
+| EventKey  	| String  	|  微信菜单EventKey	|    	| v1 |
+| WxSceneId		| String 	|  微信二维码scene_id 	| 		| v1 |
+| ActivityId  	| String  	|  活动ID 			|    	| v1 |
+| CompanyId		| String 	|  公司ID  			|    	| v1 |
+| WxCodeUrl		| String 	|  微信短链接url 		| 		| v1 |
+| CodePicUrl	| String 	|  二维码图片 			| 		| v1 |
+| CreateTime  	| Date 		|  创建时间  			|    	| v1 |
+| UpdateTime  	| Date 		|  修改时间  			|    	| v1 |
+ 
+###版本历史：
+
+|版本 |时间 |描述 |操作人 |备注|
+|:----|:------|:------|:------|:------|
+|01 |2016-07-26 |v1   |dbAdmin |-|
