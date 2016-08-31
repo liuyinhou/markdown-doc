@@ -39,8 +39,6 @@ package com.get.markdown.utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.get.markdown.web.controller.MarkdownController;
-
 /**
  * Convert Markdown text into HTML, as per http://daringfireball.net/projects/markdown/ .
  * Usage:

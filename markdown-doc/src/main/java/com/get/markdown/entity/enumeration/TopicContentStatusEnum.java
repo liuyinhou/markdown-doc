@@ -2,7 +2,7 @@ package com.get.markdown.entity.enumeration;
 
 public enum TopicContentStatusEnum {
     
-    DEFAULT(0, "正常显示"),
+    DEFAULT(0, "正常"),
     RECOVERABLE(1, "可被恢复的记录"),
     EXPIRE(2, "已过期"),
     DELETED(9, "已删除");

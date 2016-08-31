@@ -74,10 +74,6 @@ ul, ol {
   padding-left: 2em;
 }
 
-li {
-  margin: 0.5em 0;
-}
-
 /* Space paragraphs in a list the same as the list itself. */
 li p {
   /* Needs !important to override rule above. */

@@ -4,3 +4,13 @@
     padding-bottom: 120px;
     padding-top: 70px;
 }
+
+tbody > tr > th {
+	background-color :#eee ;
+	font-weight: 400;
+}
+
+tbody > tr > td {
+	font-size: 90%;
+	font-weight: 400;
+}

@@ -8,18 +8,25 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<!-- Maps '/' requests to the 'home' view -->
-	<mvc:view-controller path="/"  view-name="redirect:markdown/frame"/>
+	<mvc:view-controller path="/"  view-name="redirect:markdown"/>
 	<context:annotation-config />
 	<context:component-scan base-package="com.get.markdown" />
 	
-	<!-- interceptors
+	<!-- interceptors -->
   <mvc:interceptors>
       <mvc:interceptor>
-        <mvc:mapping path="/markdown**" />
+        <mvc:mapping path="/markdown" />
         <mvc:mapping path="/markdown/**" />
-        <mvc:mapping path="/markdown/**/**" />
+        <mvc:mapping path="/topic/**" />
         <bean class="com.get.markdown.web.interceptor.CheckLoginInterceptor"></bean>
       </mvc:interceptor>
-  </mvc:interceptors> -->
+      <mvc:interceptor>
+        <mvc:mapping path="/markdown" />
+        <mvc:mapping path="/markdown/**" />
+        <mvc:mapping path="/topic/topicList" />
+        <mvc:mapping path="/user/userList" />
+        <bean class="com.get.markdown.web.interceptor.CheckMenuInterceptor"></bean>
+      </mvc:interceptor>
+  </mvc:interceptors>
   
 </beans>

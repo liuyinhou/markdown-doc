@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.get.markdown.entity.enumeration.ResultCodeEnum;
 import com.get.markdown.entity.vo.JsonResponse;
 import com.get.markdown.service.TopicService;
-import com.get.markdown.utils.Constants;
 
 @Controller
 @RequestMapping(value="/topic")
@@ -127,6 +126,20 @@ public class TopicController {
 		JsonResponse jr = new JsonResponse();
 		try {
 			jr = topicService.editTopic(id, name, uri);
+		} catch (Exception e) {
+			logger.error("", e);
+			jr.setCode(ResultCodeEnum.SYSTEM_ERROR.getCode());
+			jr.setMessage(ResultCodeEnum.SYSTEM_ERROR.getMessage());
+		}
+		return jr;
+	}
+	
+	@RequestMapping(value = "/deleteTopic", method = RequestMethod.POST)
+	@ResponseBody
+	public JsonResponse deleteTopic(@RequestParam(required=false) Integer id) {
+		JsonResponse jr = new JsonResponse();
+		try {
+			jr = topicService.deleteTopic(id);
 		} catch (Exception e) {
 			logger.error("", e);
 			jr.setCode(ResultCodeEnum.SYSTEM_ERROR.getCode());

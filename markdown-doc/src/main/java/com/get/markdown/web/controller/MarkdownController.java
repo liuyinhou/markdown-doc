@@ -34,9 +34,14 @@ public class MarkdownController {
 			result = new HashMap<String, Object>();
 			result.put("contentHtml", Constants.MARKDOWN_SYSTEM_ERROR);
 		}
-		model.addAttribute("topMenu", "markdown");
-		model.addAttribute("result", result);
-		return "topic";
+		
+		if (result.isEmpty()) {
+			return "init";
+		} else {
+			model.addAttribute("topMenu", "markdown");
+			model.addAttribute("result", result);
+			return "topic";
+		}
 	}
 	
 	@RequestMapping(value="/markdown/**")

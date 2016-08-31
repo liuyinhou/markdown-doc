@@ -17,9 +17,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
 		文档
-		<c:if test="${mn_markdown}">
 		<a class="btn btn-default pull-right" id="btnEdit" style="margin-top: -6px;">编辑</a>
-		</c:if>
 		</div>
 	<div class="panel-body" id="devShow">
 	 ${result.contentHtml}
@@ -32,6 +30,7 @@
 	</div>
 </div>
 </div>
+<script type="text/javascript" src="/resources/jquery/1.6/jquery.js" ></script>
 <script type="text/javascript">
 var currentContentId = ${result.contentId};
 $(document).ready(function() {

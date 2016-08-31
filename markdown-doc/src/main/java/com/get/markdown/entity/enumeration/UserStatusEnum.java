@@ -1,19 +1,29 @@
 package com.get.markdown.entity.enumeration;
 
-public enum TopicStatusEnum {
+public enum UserStatusEnum {
     
     DEFAULT(0, "正常"),
-    PROTECTED(8, "受保护的，不能删除"),
+    DISABLED(4, "禁用"),
+    PROTECTED(8, "受保护"),
     DELETED(9, "已删除");
 
     private Integer code;
     private String message;
 
-    private TopicStatusEnum(Integer code, String message) {
+    private UserStatusEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
 
+    public static String getMessageByCode(Integer code) {
+		for (UserStatusEnum e : UserStatusEnum.values()) {
+			if (e.getCode().equals(code)) {
+				return e.getMessage();
+			}
+		}
+		return null;
+    }
+    
 	public Integer getCode() {
 		return code;
 	}

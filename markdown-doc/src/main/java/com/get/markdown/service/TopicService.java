@@ -7,8 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.markdownj.MarkdownProcessor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,7 @@ public class TopicService {
 	private static final String DEFAULT_FORMAT = "yyyy-MM-dd HH:mm";
 	private SimpleDateFormat dateformat = new SimpleDateFormat(DEFAULT_FORMAT);
 	
-	private Logger logger = Logger.getLogger(this.getClass());
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private TopicDao topicDao;
@@ -40,10 +41,12 @@ public class TopicService {
 	
 	public JsonResponse getTopicList(Integer pageNum, Integer pageSize) {
 		JsonResponse jr = new JsonResponse();
-		List<Topic> list = topicDao.findPage(pageNum, pageSize, null, "uri asc"); // TODO uri asc
-		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("STATUS", TopicContentStatusEnum.DEFAULT.getCode());
+		params.put("status !=", TopicStatusEnum.DELETED.getCode());
+		List<Topic> list = topicDao.findPage(pageNum, pageSize, params, "uri asc");
+		List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+		params = new HashMap<String, Object>();
+		params.put("status", TopicContentStatusEnum.DEFAULT.getCode());
 		for (Topic topic : list) {
 			Map<String, Object> oneMap = new HashMap<String, Object>();
 			result.add(oneMap);
@@ -54,8 +57,8 @@ public class TopicService {
 			oneMap.put("status", topic.getStatus());
 			oneMap.put("uri", topic.getUri());
 			
-			params.put("TOPIC_ID", topic.getId());
-			List<TopicContent> topicContentList = topicContentDao.find(params, "CREATE_TIME desc");
+			params.put("topic_id", topic.getId());
+			List<TopicContent> topicContentList = topicContentDao.find(params, "create_time desc");
 			if (topicContentList.isEmpty()) {
 				oneMap.put("remark", "");
 				continue;
@@ -100,7 +103,8 @@ public class TopicService {
 	public JsonResponse addTopic(String name, String uri) {
 		JsonResponse jr = new JsonResponse();
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("URI", uri);
+		params.put("uri", uri);
+		params.put("status !=", TopicStatusEnum.DELETED.getCode());
 		List<Topic> topicList = topicDao.find(params, "CREATE_TIME asc");
 		if (!topicList.isEmpty()) {
 			jr.setCode(ResultCodeEnum.BIZ_ERROR.getCode());
@@ -134,14 +138,14 @@ public class TopicService {
 	}
 
 	public Map<String, Object> getTopicContentByUri(String uri) {
-		logger.debug("请求页面：" + uri);
+		logger.debug("请求页面：{}", uri);
 		Map<String, Object> result = new HashMap<String, Object>();
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("URI", uri);
 		params.put("STATUS !=", TopicStatusEnum.DELETED.getCode());
 		List<Topic> topicList = topicDao.find(params, "CREATE_TIME asc");
 		if (topicList.isEmpty()) {
-			result.put("contentHtml", Constants.MARKDOWN_INDEX_EMPTY);
+			logger.debug("无首页记录，需要初始化项目");
 			return result;
 		}
 		Topic topic = topicList.get(0);
@@ -181,7 +185,7 @@ public class TopicService {
 			return jr;
 		}
 		if (!TopicContentStatusEnum.DEFAULT.getCode().equals(topicContent.getStatus())) {
-			logger.warn("提交失败，文档已经被修改" + topicContent.getRemark());
+			logger.warn("提交失败，文档已经被修改:{}", topicContent.getRemark());
 			jr.setCode(ResultCodeEnum.BIZ_ERROR.getCode());
 			jr.setMessage("提交失败，文档已经被修改：" + topicContent.getRemark());
 			return jr;
@@ -233,6 +237,21 @@ public class TopicService {
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("name", name);
 		params.put("uri", uri);
+		params.put("update_time", new Date());
+		topicDao.update(id, params);
+		return jr;
+	}
+	
+	public JsonResponse deleteTopic(Integer id) {
+		JsonResponse jr = new JsonResponse();
+		Topic topic = topicDao.findById(id);
+		if (topic == null) {
+			jr.setCode(ResultCodeEnum.BIZ_ERROR.getCode());
+			jr.setMessage("未知的内容ID");
+			return jr;
+		}
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("status", TopicStatusEnum.DELETED.getCode());
 		params.put("update_time", new Date());
 		topicDao.update(id, params);
 		return jr;

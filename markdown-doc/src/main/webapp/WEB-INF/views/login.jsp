@@ -12,44 +12,38 @@
 </head>
 <body>
 <div class="container">
-	<div class="login">
-        <div class="login-screen">
-          <div class="login-icon">
-            <h4><small>Welcome to Markdown Doc</small></h4>
-          </div>
 
-          <div class="login-form">
-            <div class="control-group">
-              <input type="text" class="login-field" value="" placeholder="Enter your name" id="login-username">
-              <label class="login-field-icon fui-man-16" for="login-name"></label>
-            </div>
-
-            <div class="control-group">
-              <input type="password" class="login-field" value="" placeholder="Password" id="login-password">
-              <label class="login-field-icon fui-lock-16" for="login-pass"></label>
-            </div>
-
-            <a class="btn btn-primary btn-large btn-block" id="submitBtn" href="#" >Login</a>
-          </div>
+      <form class="form-signin">
+        <h2 class="form-signin-heading">欢迎使用Markdown Doc</h2>
+        <input type="txt" id="login-username" class="form-control" placeholder="用户名"  role="login" autofocus>
+        <input type="password" id="login-password" class="form-control" placeholder="密码" role="login">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> 记住用户名
+          </label>
         </div>
-      </div>
-</div>
+        <a class="btn btn-lg btn-primary" id="submitBtn">登 录</a>
+        <label id="errorMsg" class="alert-danger"></label>
+      </form>
 
+    </div> <!-- /container -->
+<script type="text/javascript" src="/resources/js/common.js" ></script>
 <script type="text/javascript" src="/resources/jquery/1.6/jquery.js" ></script>
 <script type="text/javascript" src="/resources/jquery/jquery.cookie.js" ></script>
-
 <script type="text/javascript">
 $(document).ready(function() {
 
 	$("#submitBtn").click(function() {
-		var _username = $('#login-username');
-		var _password = $('#login-password');
-		if ($.trim(_username.val()) == "") {
-			$('#login-message').html("请输入用户名");
-			return;
-		}
-		if ($.trim(_password.val()) == "") {
-			$('#login-message').html("请输入密码 ");
+		var valid = true;
+		$("input[role=login]").each(function(){
+			if (checkEmptyString($(this).val())) {
+				$(this).css({"border-color": "#DA5430"});
+				valid = false;
+			} else {
+				$(this).css({"border-color": ""});
+			}
+		});
+		if (!valid) {
 			return;
 		}
 		$.ajax({
@@ -58,16 +52,20 @@ $(document).ready(function() {
 			async: "true",
 			dataType: "JSON",
 			data: {
-				userName: $.trim(_username.val()),
-				pwd: $.trim(_password.val())
+				userName: $.trim($("#login-username").val()),
+				pwd: $.trim($("#login-password").val())
 			},
 			success: function(data){
 				if (data.code == 200) {
 					var res = data.data;
 					$.cookie('token', res.token);
-					window.location.href = "/main";
+					$.cookie('userId', res.userId);
+					$.cookie('userName', res.userName);
+					setTimeout(function(){
+						window.location.href = "/markdown";
+					},1000)
 				} else {
-					$('#login-message').html(data.message);
+					$('#errorMsg').html(data.message);
 					return false;
 				}
 			},
@@ -76,6 +74,7 @@ $(document).ready(function() {
 	});
 
 });
+
 </script>
 </body>
 </html>

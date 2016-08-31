@@ -15,21 +15,22 @@
 	<div class="content container" id="content">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-		页面列表
-		<a class="btn btn-default pull-right" name="btnAdd" style="margin-top: -6px;">新增页面</a>
+		用户列表
+		<a class="btn btn-default pull-right" name="btnAdd" style="margin-top: -6px;">新增用户</a>
 		</div>
 		<table class="table table-striped table-hover">
         <thead>
           <tr>
             <th>ID</th>
             <th>名称</th>
-            <th>URI</th>
-            <th>更新日志</th>
-            <th>更新时间</th>
+            <th>权限</th>
+            <th>状态</th>
+            <th>创建时间</th>
             <th>操作</th>
           </tr>
         </thead>
         <tbody id="table-content">
+        
         </tbody>
         </table>
 		  <ul class="pagination pull-right" id="pageUl">
@@ -51,14 +52,22 @@
 		        <li class="list-group-item">
 		        <div class="col-xs-2" style="margin-top:6px;"><span> 名 称：</span></div>
 			    <div class="input-group col-xs-10">
-			      <input type="text" id="edit-name" class="form-control" role="edit" placeholder="名称" aria-describedby="basic-addon1">
+			      <input type="text" id="edit-name"  disabled class="form-control" placeholder="名称" aria-describedby="basic-addon1">
 			    </div>
 		        </li>
 		        <li class="list-group-item">
-		        <div class="col-xs-2" style="margin-top:6px;"><span> URI：</span></div>
+		        <div class="col-xs-2" style="margin-top:6px;"><span> 权 限：</span></div>
 		        <div class="input-group col-xs-10">
-		        <span class="input-group-addon">/markdown/</span>
-			      <input type="text" id="edit-uri" class="form-control" role="edit" placeholder="URI" aria-describedby="basic-addon1">
+		        	<input type="checkbox" name="edit-menu" value="markdown" aria-label="...">编辑页面
+        			<input type="checkbox" name="edit-menu" value="topicList" aria-label="...">页面管理
+        			<input type="checkbox" name="edit-menu" value="userList" aria-label="...">用户管理
+			    </div>
+			    </li>
+			    <li class="list-group-item">
+		        <div class="col-xs-2" style="margin-top:6px;"><span> 状 态：</span></div>
+		        <div class="input-group col-xs-10">
+		        	<input type="radio" name="edit-status" value="0" aria-label="..." >启用
+        			<input type="radio" name="edit-status" value="4" aria-label="..." >禁用
 			    </div>
 			    </li>
       		</ul>
@@ -66,7 +75,8 @@
           </div>
           <div class="modal-footer"><div class="" id="editMessage" role="alert"></div>
           	<button type="button" class="btn btn-default" onclick="closeModal('editModal')">关闭</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-primary" onclick="editTopic()">修改</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" onclick="editUser()">修改</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-danger">删除</button>&nbsp;&nbsp;
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -85,16 +95,30 @@
           <div class="modal-body">
             <ul class="list-group">
 		        <li class="list-group-item">
-		        <div class="col-xs-2" style="margin-top:6px;"><span> 名 称：</span></div>
+		        <div class="col-xs-2" style="margin-top:6px;"><span> 用户名：</span></div>
 			    <div class="input-group col-xs-10">
 			      <input type="text" id="add-name" class="form-control" role="add" placeholder="名称" aria-describedby="basic-addon1">
 			    </div>
 		        </li>
 		        <li class="list-group-item">
-		        <div class="col-xs-2" style="margin-top:6px;"><span> URI：</span></div>
+		        <div class="col-xs-2" style="margin-top:6px;"><span> 密 码：</span></div>
+			    <div class="input-group col-xs-10">
+			      <input type="text" id="add-passwd" class="form-control" role="add" placeholder="密码" aria-describedby="basic-addon1">
+			    </div>
+		        </li>
+		        <li class="list-group-item">
+		        <div class="col-xs-2" style="margin-top:6px;"><span> 权 限：</span></div>
 		        <div class="input-group col-xs-10">
-		        <span class="input-group-addon">/markdown/</span>
-			      <input type="text" id="add-uri" class="form-control" role="add" placeholder="URI" aria-describedby="basic-addon1">
+		        	<input type="checkbox" name="add-menu" value="markdown" aria-label="...">编辑页面
+        			<input type="checkbox" name="add-menu" value="topicList" aria-label="...">页面管理
+        			<input type="checkbox" name="add-menu" value="userList" aria-label="...">用户管理
+			    </div>
+			    </li>
+			    <li class="list-group-item">
+		        <div class="col-xs-2" style="margin-top:6px;"><span> 状 态：</span></div>
+		        <div class="input-group col-xs-10">
+		        	<input type="radio" name="add-status" value="0" aria-label="..." checked>启用
+        			<input type="radio" name="add-status" value="4" aria-label="..." >禁用
 			    </div>
 			    </li>
       		</ul>
@@ -102,7 +126,7 @@
           </div>
           <div class="modal-footer"><div class="" id="addMessage" role="alert"></div>
           	<button type="button" class="btn btn-default" onclick="closeModal('addModal')">关闭</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-primary" onclick="addTopic()">保存</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-primary" onclick="addUser()">保存</button>&nbsp;&nbsp;
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -114,30 +138,32 @@
         <div class="modal-content modal-center">
       <div class="panel panel-danger">
             <div class="panel-heading">
-              <h3 class="panel-title">删除页面</h3>
+              <h3 class="panel-title">删除用户</h3>
             </div>
             <div class="panel-body">
-		      <strong>是否确认删除页面？</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="button" class="btn btn-danger" onclick="deleteTopic()">删除</button>&nbsp;&nbsp;
+		      <strong>是否确认删除用户？</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="button" class="btn btn-danger" onclick="deleteUser()">删除</button>&nbsp;&nbsp;
             <button type="button" class="btn btn-default" onclick="closeModal('deleteModal');">取消</button>&nbsp;&nbsp;
             </div>
           </div>
          </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+    
+    
 </div>
 	
 <script type="text/javascript">
-var currentEditTopicId = 0;
-var currentDeleteTopicId = 0;
+var currentEditUserId = 0;
+var currentDeleteUserId = 0;
 $(document).ready(function() {
-	getTopicList(1);
+	getUserList(1);
 	$('a[name="btnAdd"]').click(function() {
-		openAddTopic();
+		openAddUser();
     });
 });
 
-function addTopic() {
+function addUser() {
 	var valid = true;
 	$("input[role=add]").each(function(){
 		if (checkEmptyString($(this).val())) {
@@ -151,22 +177,34 @@ function addTopic() {
 		return;
 	}
 	var name = $("#add-name").val();
-	var uri = "/markdown/" + $("#add-uri").val();
+	var passwd = $("#add-passwd").val();
+	var menu = '';
+	$("input[name=add-menu]:checked").each(function(){
+		menu += $(this).val() + ",";
+	});
+	var status = 0;
+	$("input[name=add-status]").each(function(){
+          if ($(this).attr("checked")) {
+               status = $(this).val();
+          }
+     });
 	$.ajax({
-		url: "/topic/addTopic",
+		url: "/user/addUser",
 		type: "POST",
 		async: "true",
 		dataType: "JSON",
 		data: {
 			name: name,
-			uri: uri
+			passwd: passwd,
+			menu: menu,
+			status: status
 		},
 		success: function(data){
 			if (data.code == 200) {
 				//$('#addMessage').html("保存成功！");
 				//$('#addMessage').attr("class", "alert-success pull-left");
 				closeModal('addModal');
-				getTopicList(1);
+				getUserList(1);
 			} else {
 				$('#addMessage').html(data.message);
 				$('#addMessage').attr("class", "alert-danger pull-left");
@@ -185,31 +223,31 @@ function closeModal(modalId) {
 	$('#' + modalId).attr("class", "modal fade");
 }
 
-function openAddTopic() {
+function openAddUser() {
 	$("input[role=add]").each(function(){
 		$(this).val('');
 	});
 	openModal('addModal');
 }
 
-function openDeleteTopic(id) {
+function openDeleteUser(id) {
 	openModal('deleteModal');
-	currentDeleteTopicId = id;
+	currentDeleteUserId = id;
 }
 
-function deleteTopic() {
+function deleteUser() {
 	$.ajax({
-		url: "/topic/deleteTopic",
+		url: "/user/deleteUser",
 		type: "POST",
 		async: "true",
 		dataType: "JSON",
 		data: {
-			id: currentDeleteTopicId
+			id: currentDeleteUserId
 		},
 		success: function(data){
 			if (data.code == 200) {
 				closeModal('deleteModal');
-				getTopicList(1);
+				getUserList(1);
 			} else {
 				alert(data.message);
 				return false;
@@ -219,23 +257,32 @@ function deleteTopic() {
 	});
 }
 
-function openEditTopic(topicId) {
+function openEditUser(userId) {
 	$.ajax({
-		url: "/topic/getTopic",
+		url: "/user/getUser",
 		type: "POST",
 		async: "true",
 		dataType: "JSON",
 		data: {
-			id: topicId
+			id: userId
 		},
 		success: function(data){
 			if (data.code == 200) {
 				var res = data.data;
 				$('#edit-name').val(res.name);
-				var uri = res.uri;
-				uri = uri.substring(10);
-				$('#edit-uri').val(uri);
-				currentEditTopicId = res.id;
+				$("input[name=edit-status]").each(function(){
+					$(this).attr("checked", false);
+			         if ($(this).val()==res.status) {
+			             $(this).attr("checked", true);
+			         }
+			     });
+				$("input[name=edit-menu]").each(function(){
+					$(this).attr("checked", false);
+					if(res.authMenu.indexOf($(this).val())>=0) {
+						$(this).attr("checked", true);
+					}
+			     });
+				currentEditUserId = res.id;
 				openModal('editModal');
 			} else {
 				alert(data.message);
@@ -246,38 +293,32 @@ function openEditTopic(topicId) {
 	});
 }
 
-function editTopic() {
-	var valid = true;
-	$("input[role=edit]").each(function(){
-		if (checkEmptyString($(this).val())) {
-			$(this).css({"border-color": "#DA5430"});
-			valid = false;
-		} else {
-			$(this).css({"border-color": ""});
-		}
+function editUser() {
+	var menu = '';
+	$("input[name=edit-menu]:checked").each(function(){
+		menu += $(this).val() + ",";
 	});
-	if (!valid) {
-		return;
-	}
-	var name = $("#edit-name").val();
-	var uri = "/markdown/" + $("#edit-uri").val();
+	var status = 0;
+	$("input[name=edit-status]").each(function(){
+          if ($(this).attr("checked")) {
+               status = $(this).val();
+          }
+     });
 	$.ajax({
-		url: "/topic/editTopic",
+		url: "/user/editUser",
 		type: "POST",
 		async: "true",
 		dataType: "JSON",
 		data: {
-			id: currentEditTopicId,
-			name:name,
-			uri:uri
+			id: currentEditUserId,
+			menu:menu,
+			status:status
 		},
 		success: function(data){
 			if (data.code == 200) {
 				var res = data.data;
-				$('#edit-name').val('');
-				$('#edit-uri').val('');
 				closeModal('editModal');
-				getTopicList(1);
+				getUserList(1);
 			} else {
 				alert(data.message);
 				return false;
@@ -287,9 +328,9 @@ function editTopic() {
 	});
 }
 
-function getTopicList(pageNum) {
+function getUserList(pageNum) {
 	$.ajax({
-		url: "/topic/getTopicList",
+		url: "/user/getUserList",
 		type: "POST",
 		async: "true",
 		dataType: "JSON",
@@ -304,20 +345,19 @@ function getTopicList(pageNum) {
 				for(var i=0; i<res.length; i++){
 					html += "<tr><td>" + res[i].id + "</td>";
 					html += "<td>" + res[i].name + "</td>";
-					html += "<td>" + res[i].uri + "</td>";
-					html += "<td>" + res[i].remark + "</td>";
+					html += "<td>" + res[i].authMenu + "</td>";
+					html += "<td>" + res[i].statusMessage + "</td>";
 					html += "<td>" + res[i].updateTime + "</td><td>";
 					if (res[i].status!=8) {
 						//status=8是受保护的，不能修改
-						html += '<a class="btn btn-default" onclick="openEditTopic(\'' + res[i].id + '\')">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;';
-						html += '<a class="btn btn-danger" onclick="openDeleteTopic(\'' + res[i].id + '\')">删除</a>';
+						html += '<a class="btn btn-default" onclick="openEditUser(\'' + res[i].id + '\')">修改</a>&nbsp;&nbsp;&nbsp;&nbsp;';
+						html += '<a class="btn btn-danger" onclick="openDeleteUser(\'' + res[i].id + '\')">删除</a>';
 					}
-					html += '&nbsp;&nbsp;<a class="btn btn-link" href="'+res[i].uri+'">查看</a></td>';
-					html += "</tr>";
+					html += "</td></tr>";
                 }
 				$('#table-content').html(html);
 				//页码
-				html = '<li><a href="#" aria-label="Previous" onclick="getTopicList(1)">';
+				html = '<li><a href="#" aria-label="Previous" onclick="getUserList(1)">';
 			    html += '<span aria-hidden="true">&laquo;</span></a></li>';
 			    var pages = data.page.pageShow;
 			    for (var i=0;i<pages.length;i++) {
@@ -325,10 +365,10 @@ function getTopicList(pageNum) {
 			    	if (pages[i]==data.page.pageNum) {
 			    		html += ' style="background-color: #eee;"';
 			    	}
-			    	html += ' onclick="getTopicList('+pages[i]+')">'+pages[i]+'</a></li>';
+			    	html += ' onclick="getUserList('+pages[i]+')">'+pages[i]+'</a></li>';
 			    }
 			    
-			   html += '<li><a href="#" aria-label="Next" onclick="getTopicList('+data.page.pageCount+')"><span aria-hidden="true">&raquo;</span></a></li>';
+			   html += '<li><a href="#" aria-label="Next" onclick="getUserList('+data.page.pageCount+')"><span aria-hidden="true">&raquo;</span></a></li>';
 			   $('#pageUl').html(html);
 			} else {
 				$('#content').html("请求数据异常");
