@@ -1,8 +1,0 @@
-* [OP 优惠券 接口文档](/markdown/get-op-ticket) > 2.33
-
-##2.33 定时任务 判断  礼包  是否领取完毕    
-
-
-* 2.33.1 [判断  相同礼包  是否领取完毕](/markdown/get-op-ticket/2.33.1.txt)
-
-* 2.33.2 [判断  唯一礼包  是否领取完毕](/markdown/get-op-ticket/2.33.2.txt)

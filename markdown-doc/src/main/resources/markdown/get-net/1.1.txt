@@ -1,9 +1,0 @@
-* [Get-Net接口文档](/markdown/get-net) > 1.1
-
-**通用参数：**
-
-| 参数名 | 描述 | 备注 |
-| ------------- |:-------------| -----|
-|wk_client | appId | 在http://admin.getgaoding.com/main/clients 中添加或查找AppId和Secret值(测试环境为http://admintest.2020880.com/main/clients) |
-|wk_sign | 加密后参数 |如参数体为UserId=u00001fasaduifh342349fdk12fjaADSslk&OrderId=u00001fasaduifh342349fdkfjaslk&Type=1 ，则wk_sign为参数体+Secret然后MD5加密，大写。 |
-|wk_operatorToken | op的token |  |

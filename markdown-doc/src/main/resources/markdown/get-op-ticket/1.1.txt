@@ -1,5 +1,0 @@
-* [OP 优惠券 接口文档](/markdown/get-op-ticket) > 1.1
-
-**描述：**
-
-为Op website提供 优惠券接口

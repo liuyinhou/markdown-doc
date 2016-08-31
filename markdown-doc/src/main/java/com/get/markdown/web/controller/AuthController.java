@@ -50,6 +50,11 @@ public class AuthController {
     	return jr;
 	}
 	
+	@RequestMapping(value="/init")
+	public String init() {
+		authService.init();
+    	return "login";
+	}
 	
 	
 }

@@ -1,6 +1,0 @@
-* [OP 优惠券 接口文档](/markdown/get-op-ticket) > 2.4
-
-* 2.4.1 [提交审核操作接口](/markdown/get-op-ticket/2.4.1.txt)
-* 2.4.2 [审核操作接口](/markdown/get-op-ticket/2.4.2.txt)
-* 2.4.3 [发布操作接口](/markdown/get-op-ticket/2.4.3.txt)
-* 2.4.4 [关闭操作接口](/markdown/get-op-ticket/2.4.4.txt)

@@ -1,7 +1,0 @@
-* [Op Api接口文档](/markdown/get-op-api) > 2.32
-
-##2.32 获取用户的所有聊天记录（用于聊天中、用户搜索）
-
-* 2.32.1 [V1](/markdown/get-op-api/2.32.1.txt)
-
-* 2.32.2 [V2](/markdown/get-op-api/2.32.2.txt)
