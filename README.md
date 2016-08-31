@@ -1,6 +1,13 @@
 # markdown-doc
 使用markdown语法的文档管理工具
 
+使用技术：springMVC、markdown4j、hsqldb、bootstrap、jQuery
+
+初始化项目：com.get.markdown.dao.DbInitUtil
+
+---
+语法示例
+
 # Header 1
 ## Header 2
 ### Header 3
