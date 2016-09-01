@@ -33,7 +33,7 @@ public class UserController {
 		return "userList";
 	}
 	
-	@RequestMapping(value = "/getUserList", method = RequestMethod.POST)
+	@RequestMapping(value = "/getUserList", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse getUserList(@RequestParam(required=false) Integer pageNum, 
 			@RequestParam(required=false) Integer pageSize) {
@@ -48,7 +48,7 @@ public class UserController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/addUser", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse addUser(@RequestParam(required=false) String name, 
 			@RequestParam(required=false) String passwd, 
@@ -65,7 +65,7 @@ public class UserController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/getUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/getUser", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse getTopic(@RequestParam(required=false) Integer id) {
 		JsonResponse jr = new JsonResponse();
@@ -79,7 +79,7 @@ public class UserController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteUser", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse deleteUser(@RequestParam(required=false) Integer id) {
 		JsonResponse jr = new JsonResponse();
@@ -93,7 +93,7 @@ public class UserController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
+	@RequestMapping(value = "/editUser", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse editUser(@RequestParam(required=false) Integer id, 
 			@RequestParam(required=false) String menu, @RequestParam(required=false) Integer status) {

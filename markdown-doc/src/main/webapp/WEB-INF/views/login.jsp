@@ -49,6 +49,7 @@ $(document).ready(function() {
 		$.ajax({
 			url: "/auth/doLogin",
 			type: "POST",
+			contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 			async: "true",
 			dataType: "JSON",
 			data: {

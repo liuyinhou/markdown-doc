@@ -103,6 +103,9 @@ public class TopicService {
 	public JsonResponse addTopic(String name, String uri) {
 		JsonResponse jr = new JsonResponse();
 		Map<String, Object> params = new HashMap<String, Object>();
+		if (uri.endsWith("/")) {
+			uri.substring(0, uri.length()-1);
+		}
 		params.put("uri", uri);
 		params.put("status !=", TopicStatusEnum.DELETED.getCode());
 		List<Topic> topicList = topicDao.find(params, "CREATE_TIME asc");
@@ -194,7 +197,7 @@ public class TopicService {
 		params.put("status", TopicContentStatusEnum.EXPIRE.getCode());
 		params.put("update_time", new Date());
 		topicContentDao.update(topicContent.getId(), params);
-		
+		logger.debug("新增topicContent，topicId={}, contentMarkdown={}", topicContent.getTopicId(), contentMarkdown);
 		TopicContent newTopicContent = new TopicContent();
 		newTopicContent.setCreateTime(new Date());
 		newTopicContent.setUpdateTime(new Date());
@@ -233,6 +236,9 @@ public class TopicService {
 			jr.setCode(ResultCodeEnum.BIZ_ERROR.getCode());
 			jr.setMessage("未知的内容ID");
 			return jr;
+		}
+		if (uri.endsWith("/")) {
+			uri.substring(0, uri.length()-1);
 		}
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("name", name);

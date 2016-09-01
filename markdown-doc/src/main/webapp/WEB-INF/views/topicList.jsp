@@ -155,6 +155,7 @@ function addTopic() {
 	$.ajax({
 		url: "/topic/addTopic",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
@@ -201,6 +202,7 @@ function deleteTopic() {
 	$.ajax({
 		url: "/topic/deleteTopic",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
@@ -223,6 +225,7 @@ function openEditTopic(topicId) {
 	$.ajax({
 		url: "/topic/getTopic",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
@@ -264,6 +267,7 @@ function editTopic() {
 	$.ajax({
 		url: "/topic/editTopic",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
@@ -291,11 +295,12 @@ function getTopicList(pageNum) {
 	$.ajax({
 		url: "/topic/getTopicList",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
 			pageNum: pageNum,
-			pageSize: 5
+			pageSize: 10
 		},
 		success: function(data){
 			if (data.code == 200) {

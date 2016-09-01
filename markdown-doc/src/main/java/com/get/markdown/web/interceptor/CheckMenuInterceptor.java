@@ -44,15 +44,16 @@ public class CheckMenuInterceptor extends HandlerInterceptorAdapter {
         
         User user = userDao.findById(Integer.valueOf(userId));
         if (user == null
-        		|| UserStatusEnum.DELETED.getCode().equals(user.getStatus())
-        		|| StringUtils.isEmpty(user.getAuthMenu())) {
+        		|| UserStatusEnum.DELETED.getCode().equals(user.getStatus())) {
         	logger.warn("登录用户异常！");
 			request.getRequestDispatcher("/auth/login")
 					.forward(request, response);
         }
-        String[] menus = user.getAuthMenu().split(",");
-        for(String menu : menus) {
-        	modelAndView.addObject("mn_" + menu, true);
+        if (!StringUtils.isEmpty(user.getAuthMenu())) {
+        	String[] menus = user.getAuthMenu().split(",");
+            for(String menu : menus) {
+            	modelAndView.addObject("mn_" + menu, true);
+            }
         }
 	}
 	

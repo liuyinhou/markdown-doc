@@ -49,6 +49,9 @@ public class MarkdownController {
 		Map<String, Object> result = null;
 		try {
 			String uri = request.getRequestURI();
+			if (uri.endsWith("/")) {
+				uri.substring(0, uri.length()-1);
+			}
 			result = topicService.getTopicContentByUri(uri);
 		} catch (Exception e) {
 			logger.error("", e);
@@ -59,25 +62,5 @@ public class MarkdownController {
 		model.addAttribute("result", result);
 		return "topic";
 	}
-	
-//	@RequestMapping(value="/markdown")
-//	public String markdownIndex(Model model, HttpServletRequest request) throws Exception {
-//		String path = request.getRequestURI();
-//		logger.debug("request.getRequestURI()={}", path);
-////		String result = markdownService.markdown(path);
-//		String result = path;
-//		model.addAttribute("markdown", result);
-//		return "/markdown";
-//	}
-//	
-//	@RequestMapping(value="/markdown/*")
-//	public String markdown(Model model, HttpServletRequest request) throws Exception {
-//		String path = request.getRequestURI();
-//		logger.debug("request.getRequestURI()={}", path);
-////		String result = markdownService.markdown(path);
-//		String result = path;
-//		model.addAttribute("markdown", result);
-//		return "/markdown";
-//	}
 	
 }

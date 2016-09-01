@@ -191,6 +191,7 @@ function addUser() {
 	$.ajax({
 		url: "/user/addUser",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
@@ -239,6 +240,7 @@ function deleteUser() {
 	$.ajax({
 		url: "/user/deleteUser",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
@@ -261,6 +263,7 @@ function openEditUser(userId) {
 	$.ajax({
 		url: "/user/getUser",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
@@ -307,6 +310,7 @@ function editUser() {
 	$.ajax({
 		url: "/user/editUser",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
@@ -332,6 +336,7 @@ function getUserList(pageNum) {
 	$.ajax({
 		url: "/user/getUserList",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {

@@ -52,6 +52,7 @@ function saveTopicContent(id) {
 	$.ajax({
 		url: "/topic/addTopicContent",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {
@@ -75,6 +76,7 @@ function getCurrentTopicContent(action) {
 	$.ajax({
 		url: "/topic/getTopicContentById",
 		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
 		async: "true",
 		dataType: "JSON",
 		data: {

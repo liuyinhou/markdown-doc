@@ -23,27 +23,13 @@ public class TopicController {
 	@Autowired
 	private TopicService topicService;
 	
-//	@RequestMapping(value = "/topicIndex")
-//	public String topicIndex(Model model) {
-//		String result = null;
-//		try {
-//			result = topicService.topicIndex();
-//		} catch (Exception e) {
-//			logger.error("", e);
-//			result = Constants.MARKDOWN_SYSTEM_ERROR;
-//		}
-//		model.addAttribute("topMenu", "topicIndex");
-//		model.addAttribute("result", result);
-//		return "topic";
-//	}
-	
 	@RequestMapping(value = "/topicList")
 	public String topicList(Model model) {
 		model.addAttribute("topMenu", "topicList");
 		return "topicList";
 	}
 	
-	@RequestMapping(value = "/getTopicList", method = RequestMethod.POST)
+	@RequestMapping(value = "/getTopicList", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse getTopicList(@RequestParam(required=false) Integer pageNum, 
 			@RequestParam(required=false) Integer pageSize) {
@@ -59,7 +45,7 @@ public class TopicController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/addTopic", method = RequestMethod.POST)
+	@RequestMapping(value = "/addTopic", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse addTopic(@RequestParam(required=false) String name, 
 			@RequestParam(required=false) String uri) {
@@ -74,7 +60,7 @@ public class TopicController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/getTopicContentById", method = RequestMethod.POST)
+	@RequestMapping(value = "/getTopicContentById", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse getTopicContentById(@RequestParam(required=false) String action, 
 			@RequestParam(required=false) Integer id) {
@@ -89,7 +75,7 @@ public class TopicController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/getTopic", method = RequestMethod.POST)
+	@RequestMapping(value = "/getTopic", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse getTopic(@RequestParam(required=false) Integer id) {
 		JsonResponse jr = new JsonResponse();
@@ -103,7 +89,7 @@ public class TopicController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/addTopicContent", method = RequestMethod.POST)
+	@RequestMapping(value = "/addTopicContent", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse addTopicContent(@RequestParam(required=false) String contentMarkdown, 
 			@RequestParam(required=false) String remark, 
@@ -119,7 +105,7 @@ public class TopicController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/editTopic", method = RequestMethod.POST)
+	@RequestMapping(value = "/editTopic", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse editTopic(@RequestParam(required=false) Integer id, 
 			@RequestParam(required=false) String name, @RequestParam(required=false) String uri) {
@@ -134,7 +120,7 @@ public class TopicController {
 		return jr;
 	}
 	
-	@RequestMapping(value = "/deleteTopic", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleteTopic", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
 	public JsonResponse deleteTopic(@RequestParam(required=false) Integer id) {
 		JsonResponse jr = new JsonResponse();
