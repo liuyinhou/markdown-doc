@@ -89,7 +89,8 @@ function saveTopicContent(id) {
 				currentContentId = data.data.id;
 				getCurrentTopicContent('show');
 			} else {
-				$('#devShow').html(data.message);
+				alert(data.message);
+				$("#editText").css({"border-color": "#DA5430"});
 				return false;
 			}
 		},

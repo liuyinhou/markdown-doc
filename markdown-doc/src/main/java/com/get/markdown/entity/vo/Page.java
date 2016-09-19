@@ -125,11 +125,12 @@ public class Page implements Serializable {
 	}
 
 	public List<Integer> getPageShow() {
+		//前4后5
 		pageShow = new ArrayList<Integer>();
-		if (getPageNum() > (getPageCount()-2)) {
-			//当前页后面不够两页 9 10
-			int index = getPageCount()-4;
-			for (int i=0;i<5;i++) {
+		if (getPageNum() > (getPageCount()-5)) {
+			//当后面不够5页 9 10
+			int index = getPageCount()-9;
+			for (int i=0;i<10;i++) {
 				//不要负值和0
 				if (index>0) {
 					pageShow.add(index);
@@ -137,17 +138,13 @@ public class Page implements Serializable {
 				index++;
 			}
 		} else {
-			int index = getPageNum()-2;
-			for (int i=0;i<5;i++) {
+			int index = getPageNum()-4;
+			while (pageShow.size() < 10) {
 				//不要负值和0
-				if (index>0) {
-					pageShow.add(index);
+				if (index<=0) {
+					index++;
+					continue;
 				}
-				index++;
-			}
-			//数量不足5个时，继续向后补
-			index = getPageNum()+3;
-			while (pageShow.size() < 5) {
 				//不能超过总页数
 				if (index>getPageCount()) {
 					break;

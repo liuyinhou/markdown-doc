@@ -75,7 +75,9 @@ public class TopicService {
 		}
 		jr.setData(result);
 		Page page = new Page(pageNum, pageSize);
-		Integer count = topicDao.count(null);
+		params = new HashMap<String, Object>();
+		params.put("status !=", TopicStatusEnum.DELETED.getCode());
+		Integer count = topicDao.count(params);
 		page.setTotal(count);
 		jr.setPage(page);
 		return jr;
@@ -198,9 +200,9 @@ public class TopicService {
 			return jr;
 		}
 		if (!TopicContentStatusEnum.DEFAULT.getCode().equals(topicContent.getStatus())) {
-			logger.warn("提交失败，文档已经被修改:{}", topicContent.getRemark());
+			logger.warn("提交失败，文档已经被修改:preId={}", preId);
 			jr.setCode(ResultCodeEnum.BIZ_ERROR.getCode());
-			jr.setMessage("提交失败，文档已经被修改：" + topicContent.getRemark());
+			jr.setMessage("提交失败，文档已经被修改！");
 			return jr;
 		}
 		Map<String, Object> params = new HashMap<String, Object>();
