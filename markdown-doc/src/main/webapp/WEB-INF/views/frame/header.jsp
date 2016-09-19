@@ -15,7 +15,7 @@
 		</div>
 		<div class="navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class=""><a href="#" id="curName"></a></li>
+				<li class=""><a href="/userCenter/user" id="curName"></a></li>
 				<li class=""><a href="#" onclick="logout()">退出</a></li>
 			</ul>
 		</div>

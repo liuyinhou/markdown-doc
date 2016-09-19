@@ -9,8 +9,8 @@ function checkEmptyString(str) {
 }
 
 function logout() {
-	$.cookie('token', null);
-	$.cookie('userId', null);
-	$.cookie('userName', null);
+	$.cookie('token', null, { path: "/"});
+	$.cookie('userId', null, { path: "/"});
+	$.cookie('userName', null, { path: "/"});
 	window.location.href = "/auth/logout";
 }

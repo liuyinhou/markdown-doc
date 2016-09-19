@@ -24,11 +24,22 @@
 	<div class="panel-body" id="devShow">
 	 ${result.contentHtml}
 	</div>
-	<div class="panel-footer fade" id="divFooter">
-	<a class="btn btn-default pull-right" id="btnCancle" style="margin-top: -6px;" data-action="edit">取消</a>
-	<span class="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-	 <a class="btn btn-primary pull-right" id="btnSave" style="margin-top: -6px;" data-action="edit">保存</a>
-	 &nbsp;&nbsp;
+	<div class="fade" id="divFooter">
+		<div class="col-xs-2" style="margin-top:6px;width:100px;">&nbsp;&nbsp;&nbsp;&nbsp;<span>描述：</span></div>
+	    <div class="col-xs-7" style="margin-top:-7px;">
+	      <input type="text" id="remark" class="form-control" role="edit" placeholder="修改描述" aria-describedby="basic-addon1">
+	    </div>
+	    <div class="col-xs-2 pull-right">
+		<a class="btn btn-default pull-right" id="btnCancle" style="margin-top: -6px;" data-action="edit">取消</a>
+		<span class="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+		 <a class="btn btn-primary pull-right" id="btnSave" style="margin-top: -6px;" data-action="edit">保存</a>
+		 &nbsp;&nbsp;
+		 </div>
+		 <a>&nbsp;</a>
+	</div>
+	<div class="panel-footer" id="divShowFooter">
+	<a>&nbsp;</a>
+	<span class="pull-right">最后更新：${result.lastUpdateTime} 【${result.operatorName}】 - ${result.remark}</span>
 	</div>
 </div>
 </div>
@@ -48,7 +59,20 @@ $(document).ready(function() {
 });
 
 function saveTopicContent(id) {
+	var valid = true;
+	$("input[role=edit]").each(function(){
+		if (checkEmptyString($(this).val())) {
+			$(this).css({"border-color": "#DA5430"});
+			valid = false;
+		} else {
+			$(this).css({"border-color": ""});
+		}
+	});
+	if (!valid) {
+		return;
+	}
 	var contentMarkdown = $("#editText").val();
+	var remark = $("#remark").val();
 	$.ajax({
 		url: "/topic/addTopicContent",
 		type: "POST",
@@ -57,7 +81,8 @@ function saveTopicContent(id) {
 		dataType: "JSON",
 		data: {
 			preId:id,
-			contentMarkdown:contentMarkdown
+			contentMarkdown:contentMarkdown,
+			remark:remark
 		},
 		success: function(data){
 			if (data.code == 200) {
@@ -88,10 +113,12 @@ function getCurrentTopicContent(action) {
 				if (action == 'edit') {
 					html = '<textarea id="editText" style="width: 100%;max-width: 100% !important;height:400px;">';
 					html += data.data.contentMarkdown + '</textarea>';
-					$('#divFooter').removeClass('fade');
+					$('#divFooter').attr('class','panel-footer');
+					$('#divShowFooter').attr('class','fade');
 				} else {
 					html = data.data.contentHtml;
-					$('#divFooter').addClass('fade');
+					$('#divFooter').attr('class','fade');
+					$('#divShowFooter').attr('class','panel-footer');
 				}
 				$('#devShow').html(html);
 			} else {

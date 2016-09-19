@@ -1,7 +1,5 @@
 package com.get.markdown.web.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +15,7 @@ import com.get.markdown.service.UserService;
 
 @Controller
 @RequestMapping(value="/user")
-public class UserController {
-
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+public class UserController extends BaseController {
 
 	@Autowired
 	private TopicService topicService;

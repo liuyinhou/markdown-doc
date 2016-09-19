@@ -15,11 +15,13 @@ import org.springframework.stereotype.Service;
 
 import com.get.markdown.dao.TopicContentDao;
 import com.get.markdown.dao.TopicDao;
+import com.get.markdown.dao.UserDao;
 import com.get.markdown.entity.enumeration.ResultCodeEnum;
 import com.get.markdown.entity.enumeration.TopicContentStatusEnum;
 import com.get.markdown.entity.enumeration.TopicStatusEnum;
 import com.get.markdown.entity.po.Topic;
 import com.get.markdown.entity.po.TopicContent;
+import com.get.markdown.entity.po.User;
 import com.get.markdown.entity.vo.JsonResponse;
 import com.get.markdown.entity.vo.Page;
 import com.get.markdown.utils.Constants;
@@ -35,9 +37,10 @@ public class TopicService {
 	
 	@Autowired
 	private TopicDao topicDao;
-	
 	@Autowired
 	private TopicContentDao topicContentDao;
+	@Autowired
+	private UserDao userDao;
 	
 	public JsonResponse getTopicList(Integer pageNum, Integer pageSize) {
 		JsonResponse jr = new JsonResponse();
@@ -163,6 +166,13 @@ public class TopicService {
 		TopicContent topicContent = topicContentList.get(0);
 		result.put("contentHtml", topicContent.getContentHtml());
 		result.put("contentId", topicContent.getId());
+		result.put("lastUpdateTime", dateformat.format(topicContent.getUpdateTime()));
+		result.put("operatorId", topicContent.getOperatorId());
+		result.put("remark", topicContent.getRemark());
+		if (topicContent.getOperatorId() != null) {
+			User user = userDao.findById(topicContent.getOperatorId());
+			result.put("operatorName", user.getName());
+		}
 		return result;
 	}
 	
@@ -178,7 +188,7 @@ public class TopicService {
 		return jr;
 	}
 
-	public JsonResponse addTopicContent(String contentMarkdown, String remark, Integer preId) {
+	public JsonResponse addTopicContent(String contentMarkdown, String remark, Integer preId, Integer operatorId) {
 		JsonResponse jr = new JsonResponse();
 		TopicContent topicContent = topicContentDao.findById(preId);
 		if (topicContent == null) {
@@ -201,7 +211,7 @@ public class TopicService {
 		TopicContent newTopicContent = new TopicContent();
 		newTopicContent.setCreateTime(new Date());
 		newTopicContent.setUpdateTime(new Date());
-//		newTopicContent.setOperatorId(operatorId);  // TODO
+		newTopicContent.setOperatorId(operatorId);
 		newTopicContent.setRemark(remark);
 		newTopicContent.setStatus(TopicContentStatusEnum.DEFAULT.getCode());
 		newTopicContent.setTopicId(topicContent.getTopicId());
@@ -229,7 +239,7 @@ public class TopicService {
 		return jr;
 	}
 	
-	public JsonResponse editTopic(Integer id, String name, String uri) {
+	public JsonResponse editTopic(Integer id, String name, String uri, Integer operatorId) {
 		JsonResponse jr = new JsonResponse();
 		Topic topic = topicDao.findById(id);
 		if (topic == null) {
@@ -244,6 +254,7 @@ public class TopicService {
 		params.put("name", name);
 		params.put("uri", uri);
 		params.put("update_time", new Date());
+		params.put("operatorId", operatorId);
 		topicDao.update(id, params);
 		return jr;
 	}

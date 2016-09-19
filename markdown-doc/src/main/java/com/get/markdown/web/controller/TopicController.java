@@ -1,7 +1,7 @@
 package com.get.markdown.web.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +16,7 @@ import com.get.markdown.service.TopicService;
 
 @Controller
 @RequestMapping(value="/topic")
-public class TopicController {
-
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+public class TopicController extends BaseController {
 
 	@Autowired
 	private TopicService topicService;
@@ -91,12 +89,14 @@ public class TopicController {
 	
 	@RequestMapping(value = "/addTopicContent", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
-	public JsonResponse addTopicContent(@RequestParam(required=false) String contentMarkdown, 
+	public JsonResponse addTopicContent(HttpServletRequest request,
+			@RequestParam(required=false) String contentMarkdown, 
 			@RequestParam(required=false) String remark, 
 			@RequestParam(required=false) Integer preId) {
 		JsonResponse jr = new JsonResponse();
 		try {
-			jr = topicService.addTopicContent(contentMarkdown, remark, preId);
+			Integer operatorId = getOperatorId(request);
+			jr = topicService.addTopicContent(contentMarkdown, remark, preId, operatorId);
 		} catch (Exception e) {
 			logger.error("", e);
 			jr.setCode(ResultCodeEnum.SYSTEM_ERROR.getCode());
@@ -107,11 +107,13 @@ public class TopicController {
 	
 	@RequestMapping(value = "/editTopic", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
-	public JsonResponse editTopic(@RequestParam(required=false) Integer id, 
+	public JsonResponse editTopic(HttpServletRequest request,
+			@RequestParam(required=false) Integer id, 
 			@RequestParam(required=false) String name, @RequestParam(required=false) String uri) {
 		JsonResponse jr = new JsonResponse();
 		try {
-			jr = topicService.editTopic(id, name, uri);
+			Integer operatorId = getOperatorId(request);
+			jr = topicService.editTopic(id, name, uri, operatorId);
 		} catch (Exception e) {
 			logger.error("", e);
 			jr.setCode(ResultCodeEnum.SYSTEM_ERROR.getCode());

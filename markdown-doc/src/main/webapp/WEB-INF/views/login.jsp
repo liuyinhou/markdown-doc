@@ -59,9 +59,9 @@ $(document).ready(function() {
 			success: function(data){
 				if (data.code == 200) {
 					var res = data.data;
-					$.cookie('token', res.token);
-					$.cookie('userId', res.userId);
-					$.cookie('userName', res.userName);
+					$.cookie('token', res.token, { path: "/"});
+					$.cookie('userId', res.userId, { path: "/"});
+					$.cookie('userName', res.userName, { path: "/"});
 					setTimeout(function(){
 						window.location.href = "/markdown";
 					},1000)

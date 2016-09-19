@@ -189,4 +189,31 @@ public class UserService {
 		return jr;
 	}
 	
+	public JsonResponse changePasswd(Integer operatorId, String oldPasswd, String newPasswd, String repeatPasswd) {
+		JsonResponse jr = new JsonResponse();
+		User user = userDao.findById(operatorId);
+		if (user == null) {
+			jr.setCode(ResultCodeEnum.BIZ_ERROR.getCode());
+			jr.setMessage("未知的内容ID");
+			return jr;
+		}
+		String oldPdMd5 = MD5Encrypt.encrypt(MD5Encrypt.encrypt(MD5Encrypt.encrypt(oldPasswd)));
+		if (!oldPdMd5.equals(user.getPasswd())) {
+			jr.setCode(ResultCodeEnum.BIZ_ERROR.getCode());
+			jr.setMessage("用户密码错误");
+			return jr;
+		}
+		if (!newPasswd.equals(repeatPasswd)) {
+			jr.setCode(ResultCodeEnum.BIZ_ERROR.getCode());
+			jr.setMessage("新密码输入不一致");
+			return jr;
+		}
+		String newPdMd5 = MD5Encrypt.encrypt(MD5Encrypt.encrypt(MD5Encrypt.encrypt(newPasswd)));
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("passwd", newPdMd5);
+		params.put("update_time", new Date());
+		userDao.update(user.getId(), params);
+		return jr;
+	}
+	
 }
