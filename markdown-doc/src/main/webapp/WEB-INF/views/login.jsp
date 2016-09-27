@@ -14,7 +14,7 @@
 <div class="container">
 
       <form class="form-signin">
-        <h2 class="form-signin-heading">欢迎使用Markdown Doc</h2>
+        <h3 class="form-signin-heading">欢迎使用Markdown Doc</h3>
         <input type="txt" id="login-username" class="form-control" placeholder="用户名"  role="login" autofocus>
         <input type="password" id="login-password" class="form-control" placeholder="密码" role="login">
         <div class="checkbox">
