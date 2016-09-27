@@ -313,3 +313,16 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .hljs-chunk {
   color: #aaa;
 }
+
+td[align="left"],th[align="left"] {
+    text-align:left;
+}
+
+td[align="right"],th[align="right"] {
+    text-align:right;
+}
+
+td[align="center"],th[align="center"] {
+    text-align:center;
+}
+
