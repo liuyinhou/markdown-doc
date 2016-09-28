@@ -43,8 +43,9 @@ public class MarkdownController extends BaseController {
 	@RequestMapping(value="/markdown/**")
 	public String markdown(Model model, HttpServletRequest request) {
 		Map<String, Object> result = null;
+		String uri = null;
 		try {
-			String uri = request.getRequestURI();
+			uri = request.getRequestURI();
 			if (uri.endsWith("/")) {
 				uri.substring(0, uri.length()-1);
 			}
@@ -55,8 +56,13 @@ public class MarkdownController extends BaseController {
 			result.put("contentHtml", Constants.MARKDOWN_SYSTEM_ERROR);
 		}
 		model.addAttribute("topMenu", "markdown");
-		model.addAttribute("result", result);
-		return "topic";
+		if (result != null) {
+			model.addAttribute("result", result);
+			return "topic";
+		} else {
+			model.addAttribute("currentUri", uri.replaceFirst("/markdown/", ""));
+			return "topic-404";
+		}
 	}
 	
 }

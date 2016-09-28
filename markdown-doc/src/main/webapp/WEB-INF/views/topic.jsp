@@ -99,6 +99,11 @@ function saveTopicContent(id) {
 }
 
 function getCurrentTopicContent(action) {
+	if (action == 'edit') {
+		$('#btnEdit').addClass('fade');
+	} else {
+		$('#btnEdit').removeClass('fade');
+	}
 	$.ajax({
 		url: "/topic/getTopicContentById",
 		type: "POST",

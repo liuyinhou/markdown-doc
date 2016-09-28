@@ -45,11 +45,13 @@ public class TopicController extends BaseController {
 	
 	@RequestMapping(value = "/addTopic", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
 	@ResponseBody
-	public JsonResponse addTopic(@RequestParam(required=false) String name, 
+	public JsonResponse addTopic(HttpServletRequest request,
+			@RequestParam(required=false) String name, 
 			@RequestParam(required=false) String uri) {
 		JsonResponse jr = new JsonResponse();
 		try {
-			jr = topicService.addTopic(name, uri);
+			Integer operatorId = getOperatorId(request);
+			jr = topicService.addTopic(name, uri, operatorId);
 		} catch (Exception e) {
 			logger.error("", e);
 			jr.setCode(ResultCodeEnum.SYSTEM_ERROR.getCode());

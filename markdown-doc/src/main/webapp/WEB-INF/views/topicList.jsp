@@ -35,98 +35,98 @@
 		  <ul class="pagination pull-right" id="pageUl">
 		</ul>
 	</div>
-	
-	<!-- 修改页面 -->
-    <div class="modal fade" id="editModal">
-      <div class="modal-dialog">
-        <div class="modal-content modal-center">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('editModal')">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title">修改页面</h4>
-          </div>
-          <div class="modal-body">
-            <ul class="list-group">
-		        <li class="list-group-item">
-		        <div class="col-xs-2" style="margin-top:6px;"><span> 名 称：</span></div>
-			    <div class="input-group col-xs-10">
-			      <input type="text" id="edit-name" class="form-control" role="edit" placeholder="名称" aria-describedby="basic-addon1">
-			    </div>
-		        </li>
-		        <li class="list-group-item">
-		        <div class="col-xs-2" style="margin-top:6px;"><span> URI：</span></div>
-		        <div class="input-group col-xs-10">
-		        <span class="input-group-addon">/markdown/</span>
-			      <input type="text" id="edit-uri" class="form-control" role="edit" placeholder="URI" aria-describedby="basic-addon1">
-			    </div>
-			    </li>
-      		</ul>
-      		
-          </div>
-          <div class="modal-footer"><div class="" id="editMessage" role="alert"></div>
-          	<button type="button" class="btn btn-default" onclick="closeModal('editModal')">关闭</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-primary" onclick="editTopic()">修改</button>&nbsp;&nbsp;
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    
-    <!-- 新增弹框 -->
-    <div class="modal fade" id="addModal">
-      <div class="modal-dialog">
-        <div class="modal-content modal-center">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('addModal')">
-            <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title">新增页面</h4>
-          </div>
-          <div class="modal-body">
-            <ul class="list-group">
-		        <li class="list-group-item">
-		        <div class="col-xs-2" style="margin-top:6px;"><span> 名 称：</span></div>
-			    <div class="input-group col-xs-10">
-			      <input type="text" id="add-name" class="form-control" role="add" placeholder="名称" aria-describedby="basic-addon1">
-			    </div>
-		        </li>
-		        <li class="list-group-item">
-		        <div class="col-xs-2" style="margin-top:6px;"><span> URI：</span></div>
-		        <div class="input-group col-xs-10">
-		        <span class="input-group-addon">/markdown/</span>
-			      <input type="text" id="add-uri" class="form-control" role="add" placeholder="URI" aria-describedby="basic-addon1">
-			    </div>
-			    </li>
-      		</ul>
-      		
-          </div>
-          <div class="modal-footer"><div class="" id="addMessage" role="alert"></div>
-          	<button type="button" class="btn btn-default" onclick="closeModal('addModal')">关闭</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-primary" onclick="addTopic()">保存</button>&nbsp;&nbsp;
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-    
-    <!-- 删除弹框 -->
-    <div class="modal fade" id="deleteModal">
-    <div class="modal-dialog">
-        <div class="modal-content modal-center">
-      <div class="panel panel-danger">
-            <div class="panel-heading">
-              <h3 class="panel-title">删除页面</h3>
-            </div>
-            <div class="panel-body">
-		      <strong>是否确认删除页面？</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="button" class="btn btn-danger" onclick="deleteTopic()">删除</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-default" onclick="closeModal('deleteModal');">取消</button>&nbsp;&nbsp;
-            </div>
-          </div>
-         </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 </div>
-	
+
+<!-- 修改页面 -->
+<div class="modal fade" id="editModal">
+  <div class="modal-dialog">
+    <div class="modal-content modal-center">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('editModal')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">修改页面</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+      <li class="list-group-item">
+      <div class="col-xs-2" style="margin-top:6px;"><span> 名 称：</span></div>
+   <div class="input-group col-xs-10">
+     <input type="text" id="edit-name" class="form-control" role="edit" placeholder="名称" aria-describedby="basic-addon1">
+   </div>
+      </li>
+      <li class="list-group-item">
+      <div class="col-xs-2" style="margin-top:6px;"><span> URI：</span></div>
+      <div class="input-group col-xs-10">
+      <span class="input-group-addon">/markdown/</span>
+     <input type="text" id="edit-uri" class="form-control" role="edit" placeholder="URI" aria-describedby="basic-addon1">
+   </div>
+   </li>
+  		</ul>
+  		
+      </div>
+      <div class="modal-footer"><div class="" id="editMessage" role="alert"></div>
+      	<button type="button" class="btn btn-default" onclick="closeModal('editModal')">关闭</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" onclick="editTopic()">修改</button>&nbsp;&nbsp;
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- 新增弹框 -->
+<div class="modal fade" id="addModal">
+  <div class="modal-dialog">
+    <div class="modal-content modal-center">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('addModal')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">新增页面</h4>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+      <li class="list-group-item">
+      <div class="col-xs-2" style="margin-top:6px;"><span> 名 称：</span></div>
+   <div class="input-group col-xs-10">
+     <input type="text" id="add-name" class="form-control" role="add" placeholder="名称" aria-describedby="basic-addon1">
+   </div>
+      </li>
+      <li class="list-group-item">
+      <div class="col-xs-2" style="margin-top:6px;"><span> URI：</span></div>
+      <div class="input-group col-xs-10">
+      <span class="input-group-addon">/markdown/</span>
+     <input type="text" id="add-uri" class="form-control" role="add" placeholder="URI" aria-describedby="basic-addon1">
+   </div>
+   </li>
+  		</ul>
+  		
+      </div>
+      <div class="modal-footer"><div class="" id="addMessage" role="alert"></div>
+      	<button type="button" class="btn btn-default" onclick="closeModal('addModal')">关闭</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary" onclick="addTopic()">保存</button>&nbsp;&nbsp;
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- 删除弹框 -->
+<div class="modal fade" id="deleteModal">
+<div class="modal-dialog">
+    <div class="modal-content modal-center">
+  <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">删除页面</h3>
+        </div>
+        <div class="panel-body">
+    <strong>是否确认删除页面？</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-danger" onclick="deleteTopic()">删除</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-default" onclick="closeModal('deleteModal');">取消</button>&nbsp;&nbsp;
+        </div>
+      </div>
+     </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+    
 <script type="text/javascript">
 var currentEditTopicId = 0;
 var currentDeleteTopicId = 0;

@@ -104,7 +104,7 @@ public class TopicService {
 		return topicContentList.get(0).getContentHtml();
 	}
 
-	public JsonResponse addTopic(String name, String uri) {
+	public JsonResponse addTopic(String name, String uri, Integer operatorId) {
 		JsonResponse jr = new JsonResponse();
 		Map<String, Object> params = new HashMap<String, Object>();
 		if (uri.endsWith("/")) {
@@ -121,7 +121,7 @@ public class TopicService {
 		Topic topic = new Topic();
 		topic.setName(name);
 		topic.setUri(uri);
-		//topic.setOperatorId(x); // TODO
+		topic.setOperatorId(operatorId);
 		topic.setStatus(TopicStatusEnum.DEFAULT.getCode());
 		topic.setCreateTime(new Date());
 		topic.setUpdateTime(new Date());
@@ -130,15 +130,11 @@ public class TopicService {
 		TopicContent newTopicContent = new TopicContent();
 		newTopicContent.setCreateTime(new Date());
 		newTopicContent.setUpdateTime(new Date());
-//		newTopicContent.setOperatorId(operatorId);  // TODO
-		newTopicContent.setRemark("");
+		newTopicContent.setOperatorId(operatorId);
+		newTopicContent.setRemark("初始化");
 		newTopicContent.setStatus(TopicContentStatusEnum.DEFAULT.getCode());
 		newTopicContent.setTopicId(topic.getId());
 		newTopicContent.setContentMarkdown(Constants.MARKDOWN_INIT_CONTENT);
-//		MarkdownProcessor markdownProcessor = new MarkdownProcessor();
-//		String html = markdownProcessor.markdown(Constants.MARKDOWN_INIT_CONTENT);
-//		MarkdownPlusUtils markdownPlus = new MarkdownPlusUtils();
-//		html = markdownPlus.markdown(html);
 		String html = MarkdownAnalyser.analyseMarkdown(Constants.MARKDOWN_INIT_CONTENT);
 		newTopicContent.setContentHtml(html);
 		topicContentDao.save(newTopicContent);
@@ -147,22 +143,22 @@ public class TopicService {
 
 	public Map<String, Object> getTopicContentByUri(String uri) {
 		logger.debug("请求页面：{}", uri);
-		Map<String, Object> result = new HashMap<String, Object>();
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("URI", uri);
 		params.put("STATUS !=", TopicStatusEnum.DELETED.getCode());
 		List<Topic> topicList = topicDao.find(params, "CREATE_TIME asc");
 		if (topicList.isEmpty()) {
-			logger.debug("无首页记录，需要初始化项目");
-			return result;
+			logger.debug("URI不存在:{}", uri);
+			return null;
 		}
+		Map<String, Object> result = new HashMap<String, Object>();
 		Topic topic = topicList.get(0);
 		params.clear();
 		params.put("TOPIC_ID", topic.getId());
 		params.put("STATUS", TopicContentStatusEnum.DEFAULT.getCode());
 		List<TopicContent> topicContentList = topicContentDao.find(params, "CREATE_TIME desc");
 		if (topicContentList.isEmpty()) {
-			result.put("contentHtml", Constants.MARKDOWN_INDEX_EMPTY);
+			result.put("contentHtml", Constants.MARKDOWN_INIT_CONTENT);
 			return result;
 		}
 		TopicContent topicContent = topicContentList.get(0);
