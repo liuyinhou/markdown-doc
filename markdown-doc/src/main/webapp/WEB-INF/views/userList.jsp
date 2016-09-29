@@ -341,7 +341,7 @@ function getUserList(pageNum) {
 		dataType: "JSON",
 		data: {
 			pageNum: pageNum,
-			pageSize: 5
+			pageSize: 10
 		},
 		success: function(data){
 			if (data.code == 200) {
