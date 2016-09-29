@@ -21,9 +21,10 @@
 		<a class="btn btn-default pull-right" id="btnEdit" style="margin-top: -6px;">编辑</a>
 		</c:if>
 		</div>
-	<div class="panel-body" id="devShow">
+	<div class="panel-body" id="divShow">
 	 ${result.contentHtml}
 	</div>
+	 
 	<div class="fade" id="divFooter">
 		<div class="col-xs-2" style="margin-top:6px;width:100px;">&nbsp;&nbsp;&nbsp;&nbsp;<span>描述：</span></div>
 	    <div class="col-xs-7" style="margin-top:-7px;">
@@ -43,6 +44,7 @@
 	</div>
 </div>
 </div>
+<script type="text/javascript" src="/resources/js/marked.js" ></script>
 <script type="text/javascript">
 var currentContentId = ${result.contentId};
 $(document).ready(function() {
@@ -57,6 +59,11 @@ $(document).ready(function() {
 		saveTopicContent(currentContentId);
     });
 });
+
+
+function markdownChange() {
+	$('#divPreview').html(marked($("#editText").val()));
+}
 
 function saveTopicContent(id) {
 	var valid = true;
@@ -117,8 +124,10 @@ function getCurrentTopicContent(action) {
 			if (data.code == 200) {
 				var html = '';
 				if (action == 'edit') {
-					html = '<textarea id="editText" style="width: 100%;max-width: 100% !important;height:400px;">';
-					html += data.data.contentMarkdown + '</textarea>';
+					html = '<div class="col-md-6"><textarea id="editText" style="width: 100%;max-width: 100% !important;height:400px;" ';
+					html += 'oninput="markdownChange()" onpropertychange="markdownChange()">';
+					html += data.data.contentMarkdown + '</textarea></div>';
+					html += '<div class="col-md-6" id="divPreview">' + data.data.contentHtml + '</div>';
 					$('#divFooter').attr('class','panel-footer');
 					$('#divShowFooter').attr('class','fade');
 				} else {
@@ -126,9 +135,9 @@ function getCurrentTopicContent(action) {
 					$('#divFooter').attr('class','fade');
 					$('#divShowFooter').attr('class','panel-footer');
 				}
-				$('#devShow').html(html);
+				$('#divShow').html(html);
 			} else {
-				$('#devShow').html(data.message);
+				$('#divShow').html(data.message);
 				return false;
 			}
 		},
