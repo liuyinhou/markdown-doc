@@ -15,7 +15,7 @@ import com.get.markdown.core.vo.TableVo;
  */
 public class TableMark implements Mark {
 
-	private static String PATTERN_STR_HEADER = "^\\|([:-]+\\|)+";
+	private static String PATTERN_STR_HEADER = "^\\| *([:-]+ *\\|)+";
 	private static String PATTERN_STR_CONTENT = "^\\|([^\\|]*\\|)+";
 	private static String PATTERN_STR_CONTENT_FIND = "([^\\|]+)";
 
