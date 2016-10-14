@@ -45,7 +45,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('editModal')">
             <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title">修改页面</h4>
+            <h4 class="modal-title">修改用户</h4>
           </div>
           <div class="modal-body">
             <ul class="list-group">
@@ -90,7 +90,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal('addModal')">
             <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title">新增页面</h4>
+            <h4 class="modal-title">新增用户</h4>
           </div>
           <div class="modal-body">
             <ul class="list-group">
