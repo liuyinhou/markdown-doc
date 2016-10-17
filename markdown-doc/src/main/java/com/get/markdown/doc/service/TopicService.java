@@ -25,6 +25,7 @@ import com.get.markdown.doc.entity.po.User;
 import com.get.markdown.doc.entity.vo.JsonResponse;
 import com.get.markdown.doc.entity.vo.Page;
 import com.get.markdown.doc.utils.Constants;
+import com.get.markdown.doc.utils.DBUtils;
 
 @Service
 public class TopicService {
@@ -134,8 +135,14 @@ public class TopicService {
 		newTopicContent.setRemark("初始化");
 		newTopicContent.setStatus(TopicContentStatusEnum.DEFAULT.getCode());
 		newTopicContent.setTopicId(topic.getId());
-		newTopicContent.setContentMarkdown(Constants.MARKDOWN_INIT_CONTENT);
-		String html = MarkdownAnalyser.analyseMarkdown(Constants.MARKDOWN_INIT_CONTENT);
+		
+		String conent = DBUtils.testOracle(name);
+		if (conent != null) {
+			newTopicContent.setContentMarkdown(conent);
+		} else {
+			newTopicContent.setContentMarkdown(Constants.MARKDOWN_INIT_CONTENT);
+		}
+		String html = MarkdownAnalyser.analyseMarkdown(newTopicContent.getContentMarkdown());
 		newTopicContent.setContentHtml(html);
 		topicContentDao.save(newTopicContent);
 		return jr;

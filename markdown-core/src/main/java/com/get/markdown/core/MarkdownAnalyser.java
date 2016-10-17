@@ -74,7 +74,7 @@ public class MarkdownAnalyser {
 		markContainer.add(new HeaderMark());//单行效果
 		markContainer.add(new HorizontalMark());//单行效果
 		markContainer.add(new BoldStrongMark());//单词效果
-		markContainer.add(new ItalicEmMark());//单词效果
+//		markContainer.add(new ItalicEmMark());//单词效果
 		markContainer.add(new LinkMark());//单词效果
 		markContainer.add(new CodeMark());//单词效果
 		markContainer.add(new BlockQuoteMark()); //跨行效果；内部支持单行效果，需放置于所有单行效果后面
