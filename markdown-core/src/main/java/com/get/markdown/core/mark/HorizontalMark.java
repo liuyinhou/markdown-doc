@@ -12,7 +12,7 @@ import com.get.markdown.core.vo.LineHolder;
  */
 public class HorizontalMark implements Mark {
 
-	private static String PATTERN_STR = "^ *-{3,}";
+	private static String PATTERN_STR = "^ *-{3,} *";
 
 	@Override
 	public void executeMark(LineHolder lineHolder) {

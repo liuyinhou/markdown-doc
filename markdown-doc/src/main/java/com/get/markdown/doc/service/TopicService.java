@@ -254,7 +254,7 @@ public class TopicService {
 		params.put("name", name);
 		params.put("uri", uri);
 		params.put("update_time", new Date());
-		params.put("operatorId", operatorId);
+		params.put("operator_id", operatorId);
 		topicDao.update(id, params);
 		return jr;
 	}
