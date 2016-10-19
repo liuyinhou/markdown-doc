@@ -30,10 +30,10 @@ public class UlListMark implements Mark {
 	        	lineHolder.setUlListVo(ulListVo);
 	        }
 	        String space = mResult.group(1);
-	        //列表以两个空格为一个级别
+	        //列表以1个空格为一个级别
 	        int spaceSize = 0;
 	        if (space != null && !"".equals(space)) {
-	        	spaceSize = space.length()/2;
+	        	spaceSize = space.length();
 	        	line = line.substring(space.length());
 	        }
 	        int currentLevel = 1;
