@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.HtmlUtils;
 
 import com.get.markdown.core.MarkdownAnalyser;
 import com.get.markdown.doc.dao.TopicContentDao;
@@ -226,6 +227,7 @@ public class TopicService {
 //		String html = markdownProcessor.markdown(contentMarkdown);
 //		MarkdownPlusUtils markdownPlus = new MarkdownPlusUtils();
 //		html = markdownPlus.markdown(html);
+		contentMarkdown = HtmlUtils.htmlEscape(contentMarkdown);
 		String html = MarkdownAnalyser.analyseMarkdown(contentMarkdown);
 		logger.debug("新增topicContent，topicId={}, contentHtml={}", topicContent.getTopicId(), html);
 		newTopicContent.setContentHtml(html);
