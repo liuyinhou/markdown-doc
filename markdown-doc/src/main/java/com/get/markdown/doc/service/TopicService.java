@@ -189,6 +189,12 @@ public class TopicService {
 
 	public JsonResponse addTopicContent(String contentMarkdown, String remark, Integer preId, Integer operatorId) {
 		JsonResponse jr = new JsonResponse();
+		if (contentMarkdown == null) {
+			jr.setCode(ResultCodeEnum.PARAM_ERROR.getCode());
+			jr.setMessage("文档内容不能为空");
+			return jr;
+		}
+		
 		TopicContent topicContent = topicContentDao.findById(preId);
 		if (topicContent == null) {
 			logger.warn("提交失败，文档已经被修改");

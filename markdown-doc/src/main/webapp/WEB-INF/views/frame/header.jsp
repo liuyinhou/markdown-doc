@@ -15,6 +15,8 @@
 		</div>
 		<div class="navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
+				<li class=""><input type="search" id="searchInput" /></li>
+				<li class=""><button  onclick="search()">搜索</button></li>
 				<li class=""><a href="/userCenter/user" id="curName"></a></li>
 				<li class=""><a href="#" onclick="logout()">退出</a></li>
 			</ul>
