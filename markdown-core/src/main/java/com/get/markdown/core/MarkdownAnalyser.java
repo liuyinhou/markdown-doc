@@ -48,6 +48,7 @@ import com.get.markdown.core.mark.BlockQuoteMark;
 import com.get.markdown.core.mark.BoldStrongMark;
 import com.get.markdown.core.mark.CodeBlockMark;
 import com.get.markdown.core.mark.CodeMark;
+import com.get.markdown.core.mark.DelMark;
 import com.get.markdown.core.mark.HeaderMark;
 import com.get.markdown.core.mark.HorizontalMark;
 import com.get.markdown.core.mark.ItalicEmMark;
@@ -67,18 +68,19 @@ public class MarkdownAnalyser {
 	 */
 	private static void prepareMarkContainer() {
 		markContainer = new ArrayList<Mark>();
-		markContainer.add(new CodeBlockMark());//跨行效果；内部不支持单行效果，需放置于所有单行效果前面
-		markContainer.add(new TableMark()); //跨行效果；内部不支持单行效果，需放置于所有单行效果后面
-		markContainer.add(new UlListMark());//跨行效果；内部不支持单行效果，需放置于所有单行效果后面
-		markContainer.add(new OlListMark());//跨行效果；内部不支持单行效果，需放置于所有单行效果后面
-		markContainer.add(new HeaderMark());//单行效果
-		markContainer.add(new HorizontalMark());//单行效果
-		markContainer.add(new BoldStrongMark());//单词效果
-		markContainer.add(new ItalicEmMark());//单词效果
-		markContainer.add(new LinkMark());//单词效果
-		markContainer.add(new CodeMark());//单词效果
-		markContainer.add(new BlockQuoteMark()); //跨行效果；内部支持单行效果，需放置于所有单行效果后面
-		markContainer.add(new BlankMark()); //跨行效果；内部支持单行效果，需放置于所有单行效果后面
+		markContainer.add(new CodeBlockMark());//跨行效果，代码块；内部不支持单行效果，需放置于所有单行效果前面
+		markContainer.add(new TableMark()); //跨行效果，表格；内部不支持单行效果，需放置于所有单行效果后面
+		markContainer.add(new UlListMark());//跨行效果，列表；内部不支持单行效果，需放置于所有单行效果后面
+		markContainer.add(new OlListMark());//跨行效果，带序号列表；内部不支持单行效果，需放置于所有单行效果后面
+		markContainer.add(new HeaderMark());//单行效果，标题
+		markContainer.add(new HorizontalMark());//单行效果，横线
+		markContainer.add(new BoldStrongMark());//单词效果，粗体
+		markContainer.add(new ItalicEmMark());//单词效果，斜体
+		markContainer.add(new DelMark());//单词效果，删除线
+		markContainer.add(new LinkMark());//单词效果，链接
+		markContainer.add(new CodeMark());//单词效果，代码
+		markContainer.add(new BlockQuoteMark()); //跨行效果，引用块；内部支持单行效果，需放置于所有单行效果后面
+		markContainer.add(new BlankMark()); //跨行效果，段落；内部支持单行效果，需放置于所有单行效果后面
 	}
 	
 	public static String analyseMarkdown(String content) {
