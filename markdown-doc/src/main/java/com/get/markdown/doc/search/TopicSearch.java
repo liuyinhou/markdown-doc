@@ -143,12 +143,16 @@ public class TopicSearch extends BaseSearch {
 			pq1.add(new Term("topicNameSmartChinese", phrase), pi);
 			pi++;
 		}
+		//短语之间相隔10个字符内
+		pq1.setSlop(10);
 		builder.add(pq1.build(), Occur.SHOULD);
 		PhraseQuery.Builder pq2 = new PhraseQuery.Builder();
 		for (String phrase : phraseList) {
 			pq2.add(new Term("topicContentMarkdownSmartChinese", phrase), pi);
 			pi++;
 		}
+		//短语之间相隔10个字符内
+		pq2.setSlop(10);
 		builder.add(pq2.build(), Occur.SHOULD);
 		
 		BooleanQuery query = builder.build();
