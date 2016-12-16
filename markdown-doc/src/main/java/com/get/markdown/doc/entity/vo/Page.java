@@ -44,7 +44,12 @@ public class Page implements Serializable {
 	 * 最多5页，取当前页的前后5页
 	 */
 	private List<Integer> pageShow;
-
+	
+	/**
+	 * 当前页记录列表
+	 */
+	private List<Object> recordList;
+	
 	/**
 	 * 空构造函数
 	 */
@@ -158,6 +163,14 @@ public class Page implements Serializable {
 
 	public void setPageShow(List<Integer> pageShow) {
 		this.pageShow = pageShow;
+	}
+
+	public List<Object> getRecordList() {
+		return recordList;
+	}
+
+	public void setRecordList(List<Object> recordList) {
+		this.recordList = recordList;
 	}
 	
 }

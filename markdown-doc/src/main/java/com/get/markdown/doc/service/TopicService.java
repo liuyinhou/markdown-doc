@@ -25,6 +25,7 @@ import com.get.markdown.doc.entity.po.TopicContent;
 import com.get.markdown.doc.entity.po.User;
 import com.get.markdown.doc.entity.vo.JsonResponse;
 import com.get.markdown.doc.entity.vo.Page;
+import com.get.markdown.doc.search.TopicSearch;
 import com.get.markdown.doc.utils.Constants;
 
 @Service
@@ -41,6 +42,8 @@ public class TopicService {
 	private TopicContentDao topicContentDao;
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private TopicSearch topicSearch;
 	
 	public JsonResponse getTopicList(Integer pageNum, Integer pageSize) {
 		JsonResponse jr = new JsonResponse();
@@ -139,6 +142,8 @@ public class TopicService {
 		String html = MarkdownAnalyser.analyseMarkdown(Constants.MARKDOWN_INIT_CONTENT);
 		newTopicContent.setContentHtml(html);
 		topicContentDao.save(newTopicContent);
+		topicSearch.addIndex(topic.getId(), newTopicContent.getId(), topic.getUri(), topic.getName(), 
+				newTopicContent.getContentMarkdown());
 		return jr;
 	}
 
@@ -154,6 +159,7 @@ public class TopicService {
 		}
 		Map<String, Object> result = new HashMap<String, Object>();
 		Topic topic = topicList.get(0);
+		result.put("topicName", topic.getName());
 		params.clear();
 		params.put("TOPIC_ID", topic.getId());
 		params.put("STATUS", TopicContentStatusEnum.DEFAULT.getCode());
@@ -231,6 +237,9 @@ public class TopicService {
 		logger.debug("新增topicContent，topicId={}, contentHtml={}", topicContent.getTopicId(), html);
 		newTopicContent.setContentHtml(html);
 		topicContentDao.save(newTopicContent);
+		Topic topic = topicDao.findById(topicContent.getTopicId());
+		topicSearch.editIndex(topic.getId(), newTopicContent.getId(), topic.getUri(), topic.getName(), 
+				newTopicContent.getContentMarkdown());
 		jr.setData(newTopicContent);
 		return jr;
 	}
@@ -264,6 +273,18 @@ public class TopicService {
 		params.put("update_time", new Date());
 		params.put("operator_id", operatorId);
 		topicDao.update(id, params);
+		params.clear();
+		params.put("TOPIC_ID", topic.getId());
+		params.put("STATUS", TopicContentStatusEnum.DEFAULT.getCode());
+		List<TopicContent> topicContentList = topicContentDao.find(params, "CREATE_TIME desc");
+		if (!topicContentList.isEmpty()) {
+			TopicContent topicContent = topicContentList.get(0);
+			topicSearch.editIndex(topic.getId(), topicContent.getId(), uri, name, 
+					topicContent.getContentMarkdown());
+		} else {
+			topicSearch.editIndex(topic.getId(), null, uri, name, null);
+		}
+		
 		return jr;
 	}
 	
@@ -279,6 +300,16 @@ public class TopicService {
 		params.put("status", TopicStatusEnum.DELETED.getCode());
 		params.put("update_time", new Date());
 		topicDao.update(id, params);
+		topicSearch.deleteByTopicId(id);
+		return jr;
+	}
+	
+	public JsonResponse searchTopic(String searchKey, Integer pageNum, Integer pageSize) {
+		JsonResponse jr = new JsonResponse();
+		Page page = topicSearch.searchPage(searchKey, pageNum, pageSize);
+		jr.setData(page.getRecordList());
+		page.setRecordList(null);
+		jr.setPage(page);
 		return jr;
 	}
 	

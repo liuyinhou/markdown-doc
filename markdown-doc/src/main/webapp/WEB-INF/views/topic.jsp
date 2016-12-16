@@ -16,7 +16,7 @@
 <div class="content container">
 <div class="panel panel-default">
 	<div class="panel-heading">
-		文档
+		${result.topicName}&nbsp;
 		<c:if test="${mn_markdown}">
 		<a class="btn btn-default pull-right" id="btnEdit" style="margin-top: -6px;">编辑</a>
 		</c:if>

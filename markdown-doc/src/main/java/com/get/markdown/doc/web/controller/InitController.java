@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.get.markdown.doc.entity.enumeration.ResultCodeEnum;
 import com.get.markdown.doc.entity.vo.JsonResponse;
 import com.get.markdown.doc.service.InitService;
 
@@ -34,6 +33,18 @@ public class InitController extends BaseController {
 		JsonResponse jr = null;
 		try {
 			jr = initService.initDoc(adminName, passwd);
+		} catch (Exception e) {
+			logger.error("", e);
+		}
+		return jr;
+	}
+	
+	@RequestMapping(value="/initSearchIndex")
+	@ResponseBody
+	public JsonResponse initSearchIndex() {
+		JsonResponse jr = null;
+		try {
+			jr = initService.initSearchIndex();
 		} catch (Exception e) {
 			logger.error("", e);
 		}

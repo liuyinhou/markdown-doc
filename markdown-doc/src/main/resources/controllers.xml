@@ -19,12 +19,14 @@
         <mvc:mapping path="/markdown/**" />
         <mvc:mapping path="/topic/**" />
         <mvc:mapping path="/userCenter/**" />
+        <mvc:mapping path="/init/initSearchIndex" />
         <bean class="com.get.markdown.doc.web.interceptor.CheckLoginInterceptor"></bean>
       </mvc:interceptor>
       <mvc:interceptor>
         <mvc:mapping path="/markdown" />
         <mvc:mapping path="/markdown/**" />
         <mvc:mapping path="/topic/topicList" />
+        <mvc:mapping path="/topic/searchTopic" />
         <mvc:mapping path="/user/userList" />
         <mvc:mapping path="/userCenter/**" />
         <bean class="com.get.markdown.doc.web.interceptor.CheckMenuInterceptor"></bean>

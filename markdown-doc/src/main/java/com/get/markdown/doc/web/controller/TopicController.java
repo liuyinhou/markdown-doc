@@ -138,4 +138,28 @@ public class TopicController extends BaseController {
 		return jr;
 	}
 
+	@RequestMapping(value = "/searchTopic")
+	public String searchTopic(Model model, @RequestParam(required=false) String searchKey) {
+		model.addAttribute("topMenu", "markdown");
+		model.addAttribute("searchKey", searchKey);
+		return "searchTopic";
+	}
+	
+	@RequestMapping(value = "/searchTopicApi", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+	@ResponseBody
+	public JsonResponse searchTopicApi(@RequestParam(required=true) String searchKey, 
+			@RequestParam(required=true) Integer pageNum,
+			@RequestParam(required=true) Integer pageSize) {
+		logger.debug("topicList");
+		JsonResponse jr = new JsonResponse();
+		try {
+			jr = topicService.searchTopic(searchKey, pageNum, pageSize);
+		} catch (Exception e) {
+			logger.error("", e);
+			jr.setCode(ResultCodeEnum.SYSTEM_ERROR.getCode());
+			jr.setMessage(ResultCodeEnum.SYSTEM_ERROR.getMessage());
+		}
+		return jr;
+	}
+	
 }

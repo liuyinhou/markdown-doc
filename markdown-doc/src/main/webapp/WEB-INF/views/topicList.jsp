@@ -16,6 +16,8 @@
 	<div class="panel panel-default">
 		<div class="panel-heading">
 		页面列表
+		<a class="btn btn-default pull-right" name="btnIndex" style="margin-top: -6px;">重建索引</a>
+		<span class="pull-right">&nbsp;&nbsp;&nbsp;&nbsp;</span>
 		<a class="btn btn-default pull-right" name="btnAdd" style="margin-top: -6px;">新增页面</a>
 		</div>
 		<table class="table table-striped table-hover">
@@ -134,6 +136,9 @@ $(document).ready(function() {
 	getTopicList(1);
 	$('a[name="btnAdd"]').click(function() {
 		openAddTopic();
+    });
+	$('a[name="btnIndex"]').click(function() {
+		initSearchIndex();
     });
 });
 
@@ -337,6 +342,27 @@ function getTopicList(pageNum) {
 			   $('#pageUl').html(html);
 			} else {
 				$('#content').html("请求数据异常");
+				return false;
+			}
+		},
+		error: function(data){alert('error');}
+	});
+}
+
+function initSearchIndex(pageNum) {
+	$.ajax({
+		url: "/init/initSearchIndex",
+		type: "POST",
+		contentType:"application/x-www-form-urlencoded;charset=UTF-8",
+		async: "true",
+		dataType: "JSON",
+		data: {
+		},
+		success: function(data){
+			if (data.code == 200) {
+				alert(data.message);
+			} else {
+				alert("重建搜索索引异常！");
 				return false;
 			}
 		},

@@ -15,11 +15,15 @@
 		</div>
 		<div class="navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li class=""><input type="search" id="searchInput" /></li>
-				<li class=""><button  onclick="search()">搜索</button></li>
 				<li class=""><a href="/userCenter/user" id="curName"></a></li>
 				<li class=""><a href="#" onclick="logout()">退出</a></li>
 			</ul>
+		    <form action="/topic/searchTopic" class="navbar-form navbar-right" role="form">
+	            <div class="form-group">
+	              <input type="text" name="searchKey" id="searchInput" value="${searchKey}" class="form-control">
+	            </div>
+	            <button type="submit" class="btn btn-default">搜索</button>
+            </form>
 		</div>
 	</div>
 </nav>
@@ -29,6 +33,11 @@
 <script type="text/javascript">
 $(document).ready(function() {
 	$("#curName").html('欢迎 '+$.cookie('userName'));
+	$('#searchInput').bind('keypress',function(event){
+        if(event.keyCode == "13") {
+        	var searchKey = $("#searchInput").val();
+        	window.location.href="/topic/searchTopic?searchKey="+searchKey;
+        }
+    });
 });
-
 </script>
