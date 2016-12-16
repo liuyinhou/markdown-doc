@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.cn.smart.SmartChineseAnalyzer;
 import org.apache.lucene.analysis.miscellaneous.PerFieldAnalyzerWrapper;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
@@ -20,15 +22,21 @@ import org.apache.lucene.index.Term;
 import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.BooleanQuery.Builder;
+import org.apache.lucene.search.FuzzyQuery;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.PhraseQuery;
+import org.apache.lucene.search.Query;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.WildcardQuery;
 import org.apache.lucene.search.highlight.Fragmenter;
 import org.apache.lucene.search.highlight.Highlighter;
 import org.apache.lucene.search.highlight.QueryScorer;
 import org.apache.lucene.search.highlight.SimpleFragmenter;
 import org.apache.lucene.search.highlight.SimpleHTMLFormatter;
 import org.apache.lucene.store.Directory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.get.markdown.doc.entity.vo.Page;
@@ -36,6 +44,8 @@ import com.get.markdown.doc.entity.vo.Page;
 @Service
 public class TopicSearch extends BaseSearch {
 
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	protected Analyzer getTopicAnalyzer() {
 		//为Topic做中文分词处理
 		Map<String,Analyzer> analyzerPerField = new HashMap<>();
@@ -115,16 +125,34 @@ public class TopicSearch extends BaseSearch {
 	 * @param pageSize 每页的记录数
 	 */
 	public Page searchPage(String searchKey, Integer pageNum, Integer pageSize) {
+		searchKey = searchKey.toLowerCase();
 		Page page = new Page(pageNum, pageSize);
 		List<Object> resultList = new ArrayList<Object> ();
 		page.setRecordList(resultList);
 		IndexSearcher searcher = getIndexSearcher();
+		
 		Builder builder = new BooleanQuery.Builder();
 		builder.add(new TermQuery(new Term("topicName", searchKey)), Occur.SHOULD);
 		builder.add(new TermQuery(new Term("topicContentMarkdown", searchKey)), Occur.SHOULD);
-		builder.add(new TermQuery(new Term("topicNameSmartChinese", searchKey)), Occur.SHOULD);
-		builder.add(new TermQuery(new Term("topicContentMarkdownSmartChinese", searchKey)), Occur.SHOULD);
+		
+		//为了提高准确性，对中文分词的两个字段采用短语查询（PhraseQuery）
+		List<String> phraseList = analyzeBySmartChinese(searchKey);
+		int pi = 0;
+		PhraseQuery.Builder pq1 = new PhraseQuery.Builder();
+		for (String phrase : phraseList) {
+			pq1.add(new Term("topicNameSmartChinese", phrase), pi);
+			pi++;
+		}
+		builder.add(pq1.build(), Occur.SHOULD);
+		PhraseQuery.Builder pq2 = new PhraseQuery.Builder();
+		for (String phrase : phraseList) {
+			pq2.add(new Term("topicContentMarkdownSmartChinese", phrase), pi);
+			pi++;
+		}
+		builder.add(pq2.build(), Occur.SHOULD);
+		
 		BooleanQuery query = builder.build();
+//		Query query = new TermQuery(new Term("topicNameSmartChinese", searchKey));
 		
 		// 高亮显示关键字
 		Highlighter highlighter = new Highlighter(new SimpleHTMLFormatter("<font color='red'>", "</font>"), 
@@ -133,12 +161,11 @@ public class TopicSearch extends BaseSearch {
 		Fragmenter fragmenter = new SimpleFragmenter(500);
         highlighter.setTextFragmenter(fragmenter);
         Analyzer analyzer = getTopicAnalyzer();
-//		Query query = new TermQuery(new Term("topicName", searchKey));
 		try {
 			TopDocs rs = searcher.search(query, pageSize*5);
 			int numTotalHits = rs.totalHits;
 			page.setTotal(numTotalHits);
-			System.out.println("检索到记录数："+ numTotalHits);
+			logger.info("搜索：searchKey={}，检索到记录数：{}", searchKey, numTotalHits);
 		    int start = (pageNum-1)*pageSize;
 		    int end = Math.min(numTotalHits, start+pageSize);
 			for (int i = start; i < end; i++) {
@@ -169,8 +196,6 @@ public class TopicSearch extends BaseSearch {
 				} else {
 					oneMap.put("topicContentMarkdown", topicContentMarkdownHl);
 				}
-				System.out.println(oneMap);
-				
 				resultList.add(oneMap);
 			}
 		} catch (Exception e) {
@@ -232,6 +257,28 @@ public class TopicSearch extends BaseSearch {
 			return false;
 		}
 		return true;
+	}
+	
+	protected List<String> analyzeBySmartChinese(String str) {
+		List<String> result = new ArrayList<String>();
+	    try { 
+			Analyzer analyzer = new SmartChineseAnalyzer();
+	        TokenStream tokenStream = analyzer.tokenStream("field", str);    
+	        CharTermAttribute term=tokenStream.addAttribute(CharTermAttribute.class);    
+	        tokenStream.reset();       
+	        while( tokenStream.incrementToken() ){        
+	            result.add( term.toString() );       
+	        }       
+	        tokenStream.end();       
+	        tokenStream.close();   
+	    } catch (IOException e1) {    
+	        e1.printStackTrace();
+	    }
+	    return result;
+	}
+	
+	public static void main(String[] args) {
+		
 	}
 	
 }

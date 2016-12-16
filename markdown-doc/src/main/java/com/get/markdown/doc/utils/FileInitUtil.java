@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.get.markdown.core.MarkdownAnalyser;
 import com.get.markdown.doc.dao.ConnectionFactory;
 import com.get.markdown.doc.dao.TopicContentDao;
@@ -23,6 +26,7 @@ import com.get.markdown.doc.entity.po.TopicContent;
  */
 public class FileInitUtil {
 
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	private TopicDao topicDao = new TopicDao();
 	private TopicContentDao topicContentDao = new TopicContentDao();
 	
@@ -30,7 +34,7 @@ public class FileInitUtil {
 	private String name = "";
 	
 	public void readFile(File file) {
-		System.out.println(file.getAbsolutePath());
+		logger.debug("readFile:{}", file.getAbsolutePath());
 		if (!file.exists()) {
 			return ;
 		}
@@ -42,7 +46,7 @@ public class FileInitUtil {
 		}
 		String uri = file.getAbsolutePath();
 		if (file.getName().startsWith(".")) {
-			System.out.println("忽略" + uri);
+			logger.debug("忽略uri:{}", uri);
 			return ;
 		}
 		uri = uri.replace(FILE_PATH, "").replace(".txt", "");

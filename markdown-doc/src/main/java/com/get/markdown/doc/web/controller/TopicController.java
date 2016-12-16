@@ -142,6 +142,7 @@ public class TopicController extends BaseController {
 	public String searchTopic(Model model, @RequestParam(required=false) String searchKey) {
 		model.addAttribute("topMenu", "markdown");
 		model.addAttribute("searchKey", searchKey);
+		logger.debug("进入搜索页：searchKey={}", searchKey);
 		return "searchTopic";
 	}
 	
@@ -150,7 +151,7 @@ public class TopicController extends BaseController {
 	public JsonResponse searchTopicApi(@RequestParam(required=true) String searchKey, 
 			@RequestParam(required=true) Integer pageNum,
 			@RequestParam(required=true) Integer pageSize) {
-		logger.debug("topicList");
+		logger.debug("searchTopicApi searchKey={}", searchKey);
 		JsonResponse jr = new JsonResponse();
 		try {
 			jr = topicService.searchTopic(searchKey, pageNum, pageSize);
