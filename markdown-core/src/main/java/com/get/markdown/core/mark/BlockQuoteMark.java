@@ -14,7 +14,7 @@ import com.get.markdown.core.vo.LineHolder;
  */
 public class BlockQuoteMark implements Mark {
 
-	private static String PATTERN_STR = "^( *>)\\S.*";
+	private static String PATTERN_STR = "^( *&gt;)\\S.*";
 
 	@Override
 	public void executeMark(LineHolder lineHolder) {

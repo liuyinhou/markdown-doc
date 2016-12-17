@@ -31,7 +31,8 @@ public class MarkdownController extends BaseController {
 			result.put("contentHtml", Constants.MARKDOWN_SYSTEM_ERROR);
 		}
 		
-		if (result.isEmpty()) {
+		if (result==null 
+				|| result.isEmpty()) {
 			return "init";
 		} else {
 			model.addAttribute("topMenu", "markdown");
