@@ -25,7 +25,7 @@ public class ConnectionFactory {
 				} catch (ClassNotFoundException e) {
 					e.printStackTrace();
 				}
-				conn = DriverManager.getConnection("jdbc:hsqldb:file:db/mddb;shutdown=true", "ORIN", "12369");
+				conn = DriverManager.getConnection("jdbc:hsqldb:file:db/mddb;hsqldb.write_delay=false", "ORIN", "12369");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
