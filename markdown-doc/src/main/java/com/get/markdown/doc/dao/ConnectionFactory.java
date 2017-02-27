@@ -56,7 +56,7 @@ public class ConnectionFactory {
 				String dbPath = properties.getProperty("HSQL_DB_PATH");
 				String user = properties.getProperty("HSQL_DB_USER");
 				String pwd = properties.getProperty("HSQL_DB_PWD");
-				conn = DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath +";shutdown=true", user, pwd);
+				conn = DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath +";hsqldb.write_delay=false", user, pwd);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
